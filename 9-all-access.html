@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · All Access</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--ink:#f6f6f2;--mute:#8f8f95;--g:#1ec76a;--o:#ff8a1a;--card:#151517;--holo:linear-gradient(115deg,#ff8a1a 0%,#ffe36e 18%,#5effa8 36%,#5ad1ff 54%,#b48bff 72%,#ff6fb5 90%)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:700 12px/1 "JetBrains Mono";text-transform:uppercase;padding:12px 15px;border-radius:99px;background:rgba(21,21,23,.7);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:#fff;color:#000}
+.nav .r a.cta{background:#fff;color:#000}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+@keyframes holo{to{background-position:200% 0}}
+
+/* HERO : le laissez-passer suspendu */
+.hero{position:relative;height:100svh;min-height:680px;overflow:hidden}
+.hero .bg{position:absolute;inset:-4%;background:url(img/p00014.jpg) center/cover;filter:blur(6px) brightness(.32) saturate(.8)}
+.hero .huge{position:absolute;left:0;right:0;bottom:-2vw;text-align:center;font:800 clamp(90px,21vw,360px)/.8 "Bricolage Grotesque";letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.22);white-space:nowrap;pointer-events:none}
+.hero .side{position:absolute;left:max(16px,4vw);top:50%;translate:0 -50%;max-width:340px;z-index:2}
+.hero .side h1{font:800 clamp(40px,4.6vw,72px)/.92 "Bricolage Grotesque";letter-spacing:-.04em}
+.hero .side h1 span{background:var(--holo);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:holo 5s linear infinite}
+.hero .side p{color:#c9c9cf;margin-top:16px;font-size:17px;line-height:1.5}
+.hero .side .hint{margin-top:18px;font:700 12px "JetBrains Mono";color:var(--mute);text-transform:uppercase;letter-spacing:.1em}
+@media(max-width:900px){.hero .side{top:auto;bottom:34px;translate:none;left:16px;right:16px;max-width:none;text-align:center}.hero .side p{display:none}.hero .side h1{font-size:40px}}
+.rig{position:absolute;left:68%;top:0;width:0;height:0;z-index:3}
+@media(max-width:900px){.rig{left:50%}}
+.swing{position:absolute;left:0;top:-20px;transform-origin:0 0;will-change:transform}
+.strap{position:absolute;left:-14px;top:0;width:28px;height:var(--len);background:repeating-linear-gradient(180deg,var(--g) 0 34px,#fff 34px 68px,var(--o) 68px 102px);border-radius:0 0 6px 6px;box-shadow:inset 6px 0 10px rgba(0,0,0,.25)}
+.clip{position:absolute;left:-22px;top:calc(var(--len) - 6px);width:44px;height:34px;border-radius:10px;background:linear-gradient(#e6e6e6,#8d8d8d);box-shadow:0 6px 14px rgba(0,0,0,.5)}
+.pass{position:absolute;left:calc(var(--pw) / -2);top:calc(var(--len) + 20px);width:var(--pw);aspect-ratio:5/7.4;border-radius:22px;overflow:hidden;background:#111;box-shadow:0 40px 90px rgba(0,0,0,.7);cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none}
+.pass:active{cursor:grabbing}
+.pass .hole{position:absolute;left:50%;top:14px;width:46px;height:12px;translate:-50% 0;border-radius:6px;background:#000;z-index:4}
+.pass .ph{position:absolute;inset:0 0 38% 0}
+.pass .ph img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.pass .band{position:absolute;left:0;right:0;top:62%;height:12%;display:grid;place-items:center;background:var(--holo);font:800 clamp(18px,2.2vw,28px)/1 "Bricolage Grotesque";letter-spacing:.06em;color:#000;text-transform:uppercase}
+.pass .info{position:absolute;left:0;right:0;bottom:0;height:26%;padding:12px 16px;background:#0e0e10;display:flex;flex-direction:column;justify-content:space-between}
+.pass .info b{font:800 clamp(22px,2.4vw,30px)/1 "Bricolage Grotesque";letter-spacing:-.03em}
+.pass .info b i{font-style:normal;color:var(--g)}.pass .info b u{text-decoration:none;color:var(--o)}
+.pass .info .m{font:500 10px "JetBrains Mono";color:var(--mute);display:flex;justify-content:space-between;gap:8px}
+.foil{position:absolute;inset:0;z-index:3;pointer-events:none;mix-blend-mode:color-dodge;opacity:.5;background:radial-gradient(circle at var(--fx,50%) var(--fy,30%),rgba(255,255,255,.8),transparent 35%),var(--holo);background-size:100% 100%,300% 300%;background-position:0 0,var(--fx,50%) var(--fy,30%)}
+
+/* LES LAISSEZ-PASSER DE LA TOURNÉE */
+.passes{position:relative;height:100svh;overflow:hidden;display:flex;align-items:center;perspective:1600px}
+.passes .head{position:absolute;top:80px;left:max(16px,4vw);right:16px;z-index:3;display:flex;justify-content:space-between;align-items:end;gap:16px}
+.h2{font:800 clamp(44px,8vw,128px)/.88 "Bricolage Grotesque";letter-spacing:-.05em}
+.h2 span{background:var(--holo);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:holo 5s linear infinite}
+.passes .count{font:700 clamp(16px,2vw,22px) "JetBrains Mono";color:var(--mute);white-space:nowrap}
+.passes .count b{color:#fff}
+.lane{display:flex;gap:28px;padding-left:50vw;align-items:center;will-change:transform;margin-top:90px;transform-style:preserve-3d}
+.tp{position:relative;flex:0 0 auto;width:min(310px,60vw);aspect-ratio:5/7.4;border-radius:20px;overflow:hidden;background:#111;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.tp .ph{position:absolute;inset:0 0 44% 0}
+.tp .ph img{width:100%;height:100%;object-fit:cover}
+.tp .hole{position:absolute;left:50%;top:12px;width:40px;height:10px;translate:-50% 0;border-radius:5px;background:#000;z-index:3}
+.tp .day{position:absolute;left:14px;top:30%;font:800 86px/.8 "Bricolage Grotesque";letter-spacing:-.06em;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.6);z-index:2}
+.tp .lo{position:absolute;left:0;right:0;bottom:0;height:44%;padding:14px 16px;background:#0e0e10;display:flex;flex-direction:column;gap:6px;z-index:4}
+.tp .lo .kk{font:700 10px "JetBrains Mono";color:var(--g);letter-spacing:.12em;text-transform:uppercase}
+.tp .lo b{font:800 24px/1 "Bricolage Grotesque";letter-spacing:-.03em}
+.tp .lo span{font:500 12px "JetBrains Mono";color:var(--mute)}
+.tp .lo a{margin-top:auto;display:flex;justify-content:center;padding:12px;border-radius:99px;background:#fff;color:#000;font:700 12px "JetBrains Mono";text-transform:uppercase;transition:background .2s}
+.tp .lo a:hover{background:var(--o)}
+.tp .foil{opacity:var(--fo,0)}
+
+/* MUR DE POLAROÏDS */
+.wall{padding:clamp(90px,12vh,150px) 0 60px;overflow:hidden}
+.board{position:relative;height:clamp(620px,62vw,860px);margin-top:30px}
+@media(max-width:700px){.board{height:980px}}
+.pol{position:absolute;width:clamp(150px,20vw,250px);padding:10px 10px 38px;background:#f4f1ea;border-radius:6px;box-shadow:0 20px 50px rgba(0,0,0,.5);cursor:grab;touch-action:none;user-select:none}
+.pol img{width:100%;aspect-ratio:1;object-fit:cover;pointer-events:none}
+.pol figcaption{position:absolute;left:0;right:0;bottom:9px;text-align:center;font:500 13px "JetBrains Mono";color:#333}
+.pol::before{content:"";position:absolute;left:50%;top:-10px;width:70px;height:22px;translate:-50% 0;rotate:-3deg;background:rgba(255,230,140,.55);border-radius:2px}
+.past{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px}
+.past span{font:500 12px "JetBrains Mono";padding:9px 13px;border-radius:99px;background:var(--card);color:#c9c9cf}
+
+/* VIDÉO */
+.video{padding:clamp(60px,10vh,120px) 0}
+.case{margin-top:36px;padding:clamp(12px,2vw,24px);border-radius:32px;background:linear-gradient(#232326,#121214);box-shadow:inset 0 0 0 2px #2c2c30,0 40px 100px rgba(0,0,0,.6)}
+.vid{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-50% -50%;padding:20px 32px;border-radius:99px;background:var(--holo);background-size:200% 100%;animation:holo 4s linear infinite;color:#000;font:800 clamp(18px,2vw,24px) "Bricolage Grotesque";letter-spacing:.06em;text-transform:uppercase;transition:transform .2s;white-space:nowrap}
+.vid:hover .pl{transform:scale(1.08)}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px}
+.bk>div{position:relative;border-radius:22px;padding:26px;background:var(--card);overflow:hidden;isolation:isolate;transition:transform .3s}
+.bk>div:hover{transform:translateY(-6px)}
+.bk>div .foil{opacity:0;transition:opacity .3s;z-index:-1}
+.bk>div:hover .foil{opacity:.35}
+.bk .kk{font:700 10px "JetBrains Mono";color:var(--g);letter-spacing:.14em;text-transform:uppercase}
+.bk .rg{font:800 26px/1 "Bricolage Grotesque";letter-spacing:-.03em;margin-top:8px}
+.bk .ad{font:500 12px "JetBrains Mono";color:var(--mute);margin-top:8px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:8px 13px;border-radius:99px;background:rgba(255,255,255,.08);font:500 12px "JetBrains Mono";transition:background .2s,color .2s}
+.bk .p a:hover{background:#fff;color:#000}
+footer{padding:30px 0 50px;color:var(--mute);font:500 12px "JetBrains Mono"}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#passes">Passes</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#passes">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bg"></div>
+  <div class="huge" aria-hidden="true">ALL ACCESS</div>
+  <div class="side">
+    <h1>LOVEU2<br><span>All access</span></h1>
+    <p>The U2 Experience, live. Grab your pass for one of the 22 nights of the 2026–2027 tour.</p>
+    <div class="hint">↔ Grab the pass and throw it</div>
+  </div>
+  <div class="rig" id="rig">
+    <div class="swing" id="swing">
+      <div class="strap"></div><div class="clip"></div>
+      <div class="pass" id="pass">
+        <div class="hole"></div>
+        <div class="ph"><img src="img/p00003.jpg" alt="LOVEU2 singer"></div>
+        <div class="band">All access</div>
+        <div class="info"><b><i>LO</i>VE<u>U2</u></b><div class="m"><span>THE U2 EXPERIENCE</span><span id="pNext"></span></div></div>
+        <div class="foil" id="foil"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="passes" id="passes">
+  <div class="head"><h2 class="h2">Pick a <span>pass</span></h2><div class="count"><b id="pc">1</b> / <span id="pt"></span></div></div>
+  <div class="lane" id="lane"></div>
+</section>
+
+<section class="wall">
+  <div class="wrap">
+    <h2 class="h2">Back<span>stage</span></h2>
+    <div class="board" id="board"></div>
+    <div class="past" id="past"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">On the <span>monitor</span></h2>
+    <div class="case"><div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00062.jpg'"><div class="pl">▶ Play</div></div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Crew <span>contacts</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · THE U2 EXPERIENCE</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">FACEBOOK →</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+document.getElementById('pNext').textContent = 'NEXT · ' + L.fmt(next.iso, 'short').toUpperCase();
+
+/* ═══ Le laissez-passer : un pendule amorti qu'on attrape et qu'on lance ═══ */
+var swing = document.getElementById('swing'), pass = document.getElementById('pass'), foil = document.getElementById('foil'), hero = document.getElementById('top');
+function dims() {
+  var mob = innerWidth < 900;
+  var len = mob ? Math.max(70, innerHeight * .1) : Math.max(110, innerHeight * .15);
+  var pw = mob ? Math.min(220, innerWidth * .54) : Math.min(320, innerWidth * .22);
+  swing.style.setProperty('--len', len + 'px'); swing.style.setProperty('--pw', pw + 'px');
+  return { len: len + 20 + pw * .74 };
+}
+var D = dims(); addEventListener('resize', function () { D = dims(); });
+var th = RM ? 0 : -.45, om = 0, drag = false, lastT = 0, vx = 0, tilt = 0;
+pass.addEventListener('pointerdown', function (e) { drag = true; pass.setPointerCapture(e.pointerId); lastT = performance.now(); vx = 0; });
+pass.addEventListener('pointerup', function () { if (!drag) return; drag = false; om = Math.max(-7, Math.min(7, vx)); });
+pass.addEventListener('pointercancel', function () { drag = false; });
+pass.addEventListener('pointermove', function (e) {
+  var r = pass.getBoundingClientRect();
+  foil.style.setProperty('--fx', ((e.clientX - r.left) / r.width * 100) + '%'); foil.style.setProperty('--fy', ((e.clientY - r.top) / r.height * 100) + '%');
+  if (!drag) return;
+  var rr = document.getElementById('rig').getBoundingClientRect(), now = performance.now();
+  var nt = Math.max(-1.3, Math.min(1.3, Math.atan2(-(e.clientX - rr.left), Math.max(60, e.clientY - rr.top))));
+  vx = vx * .5 + .5 * (nt - th) / Math.max(.008, (now - lastT) / 1000); th = nt; lastT = now;
+});
+var heroOn = true;
+new IntersectionObserver(function (e) { heroOn = e[0].isIntersecting; }).observe(hero);
+var prev = performance.now();
+function pend(t) {
+  requestAnimationFrame(pend);
+  var dt = Math.min(.033, (t - prev) / 1000); prev = t;
+  if (!heroOn) return;
+  if (!drag && !RM) {
+    /* pendule amorti, plus une brise légère qui l'empêche de jamais s'arrêter tout à fait */
+    var g = 9.8 * 380 / D.len;
+    om += (-g * Math.sin(th) - om * .9 + Math.sin(t / 1300) * .35) * dt; th += om * dt;
+  }
+  tilt += ((drag ? vx * .02 : om * .05) - tilt) * .15;
+  swing.style.transform = 'rotate(' + th + 'rad)';
+  pass.style.transform = 'perspective(900px) rotateY(' + Math.max(-40, Math.min(40, tilt * 40)) + 'deg)';
+  if (!drag) { foil.style.setProperty('--fx', (50 + th * 60) + '%'); foil.style.setProperty('--fy', (30 + tilt * 50) + '%'); }
+}
+requestAnimationFrame(pend);
+
+/* ═══ Les laissez-passer de chaque date ═══ */
+var lane = document.getElementById('lane'), PH = ['p00013','p00038','p00005','p00079','p00011','p00021','p00043','p00061','p00030','p00064','p00087','p00099','p00006','p00076','p00012','p00050','p00053','p00081','p00019','p00069','p00059','p00083'];
+document.getElementById('pt').textContent = U.length;
+lane.innerHTML = U.map(function (s, i) {
+  var p = L.fmt(s.iso, 'parts');
+  return '<div class="tp"><div class="hole"></div><div class="ph"><img src="img/s/' + PH[i % PH.length] + '.jpg" alt=""></div><div class="day">' + p.d + '</div>' +
+    '<div class="lo"><span class="kk">All access · ' + p.m + ' ' + p.y + '</span><b>' + L.place(s.city) + '</b><span>' + s.venue + '</span><a href="' + s.url + '" target="_blank" rel="noopener">Get tickets →</a></div><div class="foil"></div></div>';
+}).join('');
+var tps = lane.querySelectorAll('.tp'), pc = document.getElementById('pc');
+/* Chaque laissez-passer pivote face à nous en passant au centre ; le reflet holographique s'allume */
+function deck() {
+  /* position calculée depuis le déplacement de la file, sans lire la mise en page déformée par la 3D */
+  var x = gsap.getProperty(lane, 'x'), w = tw(), f = (x0() - x) / (w + 28), best = 0, bd = 1e9;
+  tps.forEach(function (t, i) {
+    var d = (i - f) * (w + 28) / (innerWidth * .5);
+    var ad = Math.min(1, Math.abs(d));
+    var k = innerWidth < 700 ? .55 : 1;
+    t.style.transform = 'rotateY(' + Math.max(-45, Math.min(45, -d * 38 * k)) + 'deg) translateZ(' + (-ad * 160 * k) + 'px) translateY(' + (ad * 30) + 'px)';
+    t.style.setProperty('--fo', ((1 - ad) * .45).toFixed(3));
+    t.querySelector('.foil').style.setProperty('--fx', (50 - d * 60) + '%');
+    if (Math.abs(d) < bd) { bd = Math.abs(d); best = i; }
+  });
+  pc.textContent = best + 1;
+}
+/* La file commence avec la première carte au centre et finit avec la dernière au centre */
+function tw() { return tps[0].offsetWidth; }
+function x0() { return -tw() / 2; }
+function x1() { return -(tw() / 2 + (tps.length - 1) * (tw() + 28)); }
+
+/* ═══ Le mur de polaroïds : on peut les déplacer ═══ */
+var POL = [['p00042', 'Soundcheck'], ['p00018', 'The flag'], ['p00055', 'Drum riser'], ['p00006', 'Spotlight'], ['p00021', 'Bass'], ['p00097', 'Full house'], ['p00019', 'Keys'], ['p00082', 'Last song']];
+var board = document.getElementById('board');
+var SP = innerWidth < 700 ? [[2, 0], [46, 4], [6, 23], [48, 28], [3, 47], [46, 52], [7, 71], [47, 76]] : [[2, 4], [21, 22], [41, 2], [61, 18], [80, 4], [8, 54], [35, 58], [64, 55]];
+board.innerHTML = POL.map(function (p, i) { return '<figure class="pol" style="left:' + SP[i][0] + '%;top:' + SP[i][1] + '%;rotate:' + ((i * 37 % 15) - 7) + 'deg"><img src="img/s/' + p[0] + '.jpg" alt=""><figcaption>' + p[1] + '</figcaption></figure>'; }).join('');
+var zTop = 10;
+board.querySelectorAll('.pol').forEach(function (el) {
+  var sx, sy, ox, oy;
+  el.addEventListener('pointerdown', function (e) { el.setPointerCapture(e.pointerId); sx = e.clientX; sy = e.clientY; ox = el.offsetLeft; oy = el.offsetTop; el.style.zIndex = ++zTop; gsap.to(el, { scale: 1.08, duration: .2 }); el.dragging = true; });
+  el.addEventListener('pointermove', function (e) { if (!el.dragging) return; el.style.left = (ox + e.clientX - sx) + 'px'; el.style.top = (oy + e.clientY - sy) + 'px'; });
+  el.addEventListener('pointerup', function () { el.dragging = false; gsap.to(el, { scale: 1, duration: .4, ease: 'back.out(3)' }); });
+});
+document.getElementById('past').innerHTML = L.past.map(function (s) { return '<span>' + L.place(s.city).toUpperCase() + ' · ' + L.fmt(s.iso, 'short') + ', ' + s.iso.slice(0, 4) + '</span>'; }).join('');
+
+/* Vidéo + booking */
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="foil"></div><div class="kk">Booking · ' + b.region + '</div><div class="rg">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+document.querySelectorAll('.bk>div').forEach(function (c) { var f = c.querySelector('.foil'); c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); f.style.setProperty('--fx', ((e.clientX - r.left) / r.width * 100) + '%'); f.style.setProperty('--fy', ((e.clientY - r.top) / r.height * 100) + '%'); }); });
+
+gsap.set(lane, { x: x0() });
+if (!RM) {
+  /* Entrée : le laissez-passer tombe d'en haut au bout de son cordon */
+  gsap.from('#rig', { y: -innerHeight, duration: 1.3, ease: 'bounce.out', delay: .2 });
+  gsap.from('.hero .side > *', { x: -60, opacity: 0, duration: 1, ease: 'expo.out', stagger: .12, delay: .5 });
+  gsap.from('.hero .huge', { yPercent: 60, opacity: 0, duration: 1.4, ease: 'expo.out', delay: .3 });
+  gsap.to('.hero .huge', { xPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* La file glisse au défilement, du premier au dernier laissez-passer centré ; chacun pivote en passant — aucune course morte */
+  gsap.fromTo(lane, { x: x0 }, { x: x1, ease: 'none', onUpdate: deck,
+    scrollTrigger: { trigger: '#passes', start: 'top top', end: function () { return '+=' + (x0() - x1()) * 1.1; }, scrub: .6, pin: true, invalidateOnRefresh: true, onRefresh: deck } });
+
+  gsap.from('.pol', { y: -300, rotation: function (i) { return (i % 2 ? 1 : -1) * 40; }, opacity: 0, duration: 1, ease: 'bounce.out', stagger: .12, scrollTrigger: { trigger: '#board', start: 'top 75%' } });
+  gsap.utils.toArray('.wall .h2, .video .h2, .book .h2').forEach(function (h) { gsap.from(h, { y: 90, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.fromTo('.case', { rotationX: 30, scale: .85, transformPerspective: 1200 }, { rotationX: 0, scale: 1, ease: 'none', scrollTrigger: { trigger: '.case', start: 'top bottom', end: 'center 55%', scrub: true } });
+  gsap.from('.bk>div', { y: 100, rotation: function (i) { return i % 2 ? 8 : -8; }, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+deck(); addEventListener('resize', deck);
+window.addEventListener('load', function () { ScrollTrigger.refresh(); deck(); });
+</script>
+</body>
+</html>

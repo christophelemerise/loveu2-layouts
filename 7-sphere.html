@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Sphere</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04040c;--ink:#eef0ff;--mute:#8b8fb0;--g:#22d36b;--o:#ff8c1a;--v:#7b5cff;--card:#0d0d1d}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:Sora,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:600 13px/1 Sora;padding:11px 16px;border-radius:99px;background:rgba(13,13,29,.6);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:#fff;color:#000}
+.nav .r a.cta{background:linear-gradient(90deg,var(--g),var(--o));color:#000;font-weight:800}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* LA SPHÈRE ÉPINGLÉE */
+.sphere{position:relative;height:100svh;overflow:hidden;background:radial-gradient(circle at 50% 55%,#12123a,#04040c 65%)}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fallback{position:absolute;inset:0;background:url(img/p00097.jpg) center/cover;opacity:.35;display:none}
+.no-gl .fallback{display:block}
+.cap{position:absolute;left:0;right:0;z-index:3;text-align:center;padding:0 16px;pointer-events:none}
+.cap.top{top:86px}
+.cap.bot{bottom:34px}
+.kick{font:600 12px Sora;letter-spacing:.45em;text-transform:uppercase;color:var(--mute)}
+.say{position:absolute;inset:0;z-index:3;pointer-events:none}
+.say .s{position:absolute;left:0;right:0;top:50%;text-align:center;padding:0 16px;opacity:0}
+.say .s.low{top:auto;bottom:12%}
+.say .s h2{font:800 clamp(40px,8vw,120px)/.92 Sora;letter-spacing:-.05em}
+.say .s.low h2{font-size:clamp(28px,5vw,72px)}
+.say .s p{font:400 clamp(15px,1.6vw,19px)/1.5 Sora;color:#c5c8e6;margin-top:14px}
+.grad{background:linear-gradient(90deg,var(--g),#fff,var(--o));-webkit-background-clip:text;background-clip:text;color:transparent}
+.steps{position:absolute;z-index:4;right:16px;top:50%;translate:0 -50%;display:flex;flex-direction:column;gap:10px}
+.steps i{width:8px;height:8px;border-radius:50%;background:#2a2c52;transition:background .3s,transform .3s}
+.steps i.on{background:#fff;transform:scale(1.6)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:99px;background:#fff;color:#000;font:800 14px Sora;transition:transform .2s,background .2s;margin-top:20px}
+.btn:hover{transform:scale(1.05);background:var(--o)}
+
+/* DATES */
+.dates{padding:clamp(90px,12vh,150px) 0}
+.h2{font:800 clamp(44px,8vw,128px)/.9 Sora;letter-spacing:-.05em}
+.h2 span{background:linear-gradient(90deg,var(--g),#fff 50%,var(--o));-webkit-background-clip:text;background-clip:text;color:transparent}
+.legs{display:grid;grid-template-columns:1fr 2fr;gap:14px;margin-top:44px}
+@media(max-width:900px){.legs{grid-template-columns:1fr}}
+.leg{border-radius:32px;background:var(--card);padding:26px;position:relative;overflow:hidden;isolation:isolate}
+.leg::before{content:"";position:absolute;z-index:-1;width:420px;height:420px;border-radius:50%;right:-160px;top:-160px;background:radial-gradient(circle,var(--c) 0,transparent 65%);opacity:.22}
+.leg h3{font:800 26px Sora;letter-spacing:-.03em;display:flex;justify-content:space-between;align-items:baseline}
+.leg h3 small{font:600 13px Sora;color:var(--mute)}
+.ls{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:8px;margin-top:18px}
+.ev{position:relative;display:flex;align-items:center;gap:14px;padding:12px;border-radius:20px;background:rgba(255,255,255,.035);overflow:hidden;transition:transform .25s}
+.ev::before{content:"";position:absolute;inset:0;background:radial-gradient(circle 120px at var(--x,-200px) var(--y,-200px),rgba(255,255,255,.16),transparent 70%)}
+.ev:hover{transform:translateY(-3px)}
+.ev>*{position:relative}
+.ev .n{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;font:800 20px Sora;background:radial-gradient(circle at 35% 30%,#fff,var(--c) 45%,#062 130%);color:#000}
+.ev b{display:block;font-weight:800;font-size:15px}
+.ev span{font-size:12px;color:var(--mute)}
+.ev .ar{margin-left:auto;font-weight:800}
+.past{margin-top:60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.past .lab{font:800 clamp(40px,6vw,80px)/1 Sora;letter-spacing:-.05em;margin-right:16px}
+.past .lab small{display:block;font:600 12px Sora;letter-spacing:.3em;color:var(--mute);text-transform:uppercase}
+.past span.c{padding:9px 14px;border-radius:99px;background:var(--card);font-size:13px;color:#c5c8e6}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(90px,12vh,150px)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:36px;border-radius:44px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover}
+.vid .orb{position:absolute;left:50%;top:50%;width:clamp(100px,14vw,180px);aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--v) 45%,#0b0630 100%);box-shadow:0 0 80px rgba(123,92,255,.7);display:grid;place-items:center;transition:transform .3s}
+.vid:hover .orb{transform:scale(1.12)}
+.vid .orb svg{width:32%;fill:#fff;margin-left:8%}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px}
+.bk>div{border-radius:30px;padding:28px;background:var(--card);position:relative;overflow:hidden;isolation:isolate}
+.bk>div::after{content:"";position:absolute;z-index:-1;width:200px;height:200px;left:-60px;bottom:-90px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--c) 40%,transparent 72%);opacity:.35;transition:transform .8s}
+.bk>div:hover::after{transform:translate(40px,-40px) scale(1.4)}
+.bk .rg{font:800 22px Sora;letter-spacing:-.03em}
+.bk .co{font-weight:600;margin-top:10px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:8px 13px;border-radius:99px;background:rgba(255,255,255,.08);font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:#fff;color:#000}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<section class="sphere" id="top">
+  <h1 class="sr">LOVEU2 – The U2 Experience</h1>
+  <div class="fallback"></div>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="cap top"><div class="kick">The U2 Experience</div></div>
+  <div class="say" id="say">
+    <div class="s low"><h2 class="grad">LOVEU2</h2></div>
+    <div class="s low"><h2><span class="grad" id="nShows">22</span> shows</h2><p>One tour, from Québec City to Lyon.</p></div>
+    <div class="s low"><h2>Canada · Switzerland · France</h2><p>Every lit point is a night on the road.</p></div>
+    <div class="s low"><h2 id="nextH"></h2><p id="nextP"></p><a class="btn" id="nextBtn" target="_blank" rel="noopener">Buy tickets →</a></div>
+  </div>
+  <div class="steps" id="steps"><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="cap bot"><div class="kick" id="hint">Scroll</div></div>
+</section>
+
+<section class="dates" id="dates">
+  <div class="wrap">
+    <h2 class="h2">The <span>dates</span></h2>
+    <div class="legs" id="legs"></div>
+    <div class="past" id="past"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">In <span>orbit</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video">
+      <img id="vthumb" alt="" onerror="this.src='img/p00097.jpg'">
+      <div class="orb"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Book <span>LOVEU2</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+document.getElementById('nShows').textContent = U.length;
+document.getElementById('nextH').innerHTML = 'Next: <span class="grad">' + L.place(next.city) + '</span>';
+document.getElementById('nextP').textContent = L.fmt(next.iso) + ' · ' + next.venue + ' · 8 pm';
+document.getElementById('nextBtn').href = next.url;
+
+/* ═══ Les particules : mot → sphère → globe de la tournée → onde sonore ═══ */
+var MOB = L.mobile(), N = MOB ? 3200 : 6500;
+var canvas = document.getElementById('gl'), renderer = null;
+try { if (window.THREE) renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: true }); } catch (e) { renderer = null; }
+var state = { p: 0 };
+
+function startGL() {
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+  var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(45, 1, .1, 100);
+  camera.position.z = 9;
+  var SPAN = MOB ? 4.3 : 9.6, R = MOB ? 2.3 : 2.9;
+
+  /* Forme 0 : le mot LOVEU2, échantillonné dans un canevas */
+  function sampleText() {
+    var c = document.createElement('canvas'), W = 1200, H = 300; c.width = W; c.height = H;
+    var x = c.getContext('2d'); x.fillStyle = '#fff'; x.font = '800 250px Sora, Impact, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle';
+    x.fillText('LOVEU2', W / 2, H / 2 + 10);
+    var d = x.getImageData(0, 0, W, H).data, pts = [];
+    for (var yy = 0; yy < H; yy += 3) for (var xx = 0; xx < W; xx += 3) if (d[(yy * W + xx) * 4 + 3] > 128) pts.push([xx, yy]);
+    var out = new Float32Array(N * 3);
+    for (var i = 0; i < N; i++) {
+      var q = pts[Math.floor(Math.random() * pts.length)];
+      out[i * 3] = (q[0] / W - .5) * SPAN; out[i * 3 + 1] = -(q[1] / H - .5) * SPAN * H / W + .35; out[i * 3 + 2] = (Math.random() - .5) * .3;
+    }
+    return out;
+  }
+  /* Formes 1 et 2 : une sphère de Fibonacci (le globe réutilise les mêmes points) */
+  function sphere() {
+    var out = new Float32Array(N * 3), ga = Math.PI * (3 - Math.sqrt(5));
+    for (var i = 0; i < N; i++) {
+      var y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = ga * i;
+      out[i * 3] = Math.cos(th) * r * R; out[i * 3 + 1] = y * R + .3; out[i * 3 + 2] = Math.sin(th) * r * R;
+    }
+    return out;
+  }
+  /* Forme 3 : une onde à plat */
+  function wave() {
+    var out = new Float32Array(N * 3), cols = Math.round(Math.sqrt(N * 3)), rows = Math.ceil(N / cols);
+    for (var i = 0; i < N; i++) {
+      out[i * 3] = ((i % cols) / cols - .5) * (MOB ? 9 : 16); out[i * 3 + 1] = -.4; out[i * 3 + 2] = (Math.floor(i / cols) / rows - .5) * 7;
+    }
+    return out;
+  }
+  var SPH = sphere(), SHAPES = [sampleText(), SPH, SPH, wave()];
+
+  var GREEN = new THREE.Color('#22d36b'), WHITE = new THREE.Color('#ffffff'), ORANGE = new THREE.Color('#ff8c1a'), DIM = new THREE.Color('#262a63'), VIOLET = new THREE.Color('#7b5cff');
+  /* Latitude/longitude de chaque point de la sphère, pour allumer les villes de la tournée */
+  function colorsFor(k) {
+    var out = new Float32Array(N * 3), s = SHAPES[k], c = new THREE.Color();
+    for (var i = 0; i < N; i++) {
+      var x = s[i * 3], y = s[i * 3 + 1] - .3, z = s[i * 3 + 2];
+      if (k === 0) { var t = x / SPAN + .5; c.copy(t < .34 ? GREEN : t < .64 ? WHITE : ORANGE); }
+      else if (k === 1) { c.copy(VIOLET).lerp(WHITE, (y / R + 1) / 2 * .6); }
+      else if (k === 2) {
+        var lat = Math.asin(Math.max(-1, Math.min(1, y / R))) * 180 / Math.PI, lon = -Math.atan2(z, x) * 180 / Math.PI, hit = 0;
+        for (var j = 0; j < U.length; j++) { var dl = lat - U[j].lat, dn = (lon - U[j].lon) * Math.cos(lat * Math.PI / 180); if (dl * dl + dn * dn < 18) { hit = U[j].lon < -30 ? 1 : 2; break; } }
+        c.copy(hit === 1 ? GREEN : hit === 2 ? ORANGE : DIM);
+      } else { var u = x / (MOB ? 9 : 16) + .5; c.copy(u < .34 ? GREEN : u < .66 ? WHITE : ORANGE); }
+      out[i * 3] = c.r; out[i * 3 + 1] = c.g; out[i * 3 + 2] = c.b;
+    }
+    return out;
+  }
+  var COLS = [0, 1, 2, 3].map(colorsFor);
+  /* Taille de chaque point : les villes allumées du globe sont plus grosses */
+  var SIZE2 = new Float32Array(N);
+  for (var i = 0; i < N; i++) SIZE2[i] = COLS[2][i * 3 + 1] > .4 ? 2.6 : 1;
+
+  var geo = new THREE.BufferGeometry(), pos = new Float32Array(N * 3), col = new Float32Array(N * 3), siz = new Float32Array(N);
+  pos.set(SHAPES[0]); col.set(COLS[0]); siz.fill(1);
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  geo.setAttribute('size', new THREE.BufferAttribute(siz, 1));
+  var mat = new THREE.ShaderMaterial({
+    uniforms: { uScale: { value: (MOB ? 46 : 38) * renderer.getPixelRatio() } },
+    vertexShader: 'uniform float uScale; attribute float size; varying vec3 vC; void main(){ vC = color; vec4 mv = modelViewMatrix * vec4(position,1.0); gl_PointSize = size * uScale / -mv.z; gl_Position = projectionMatrix * mv; }',
+    fragmentShader: 'varying vec3 vC; void main(){ float d = length(gl_PointCoord - .5); float a = smoothstep(.5, 0., d); gl_FragColor = vec4(vC * (0.6 + a), a); }',
+    vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+  });
+  mat.uniforms.uScale.value = (MOB ? 46 : 38) * renderer.getPixelRatio();
+  var group = new THREE.Group(); group.add(new THREE.Points(geo, mat)); scene.add(group);
+  /* Une balise par ville de la tournée, posée sur le globe : elle n'apparaît qu'à l'étape du globe et pulse */
+  var seenC = {}, CITIES = U.filter(function (s) { if (seenC[s.city]) return false; seenC[s.city] = 1; return true; });
+  var mpos = new Float32Array(CITIES.length * 3), mcol = new Float32Array(CITIES.length * 3), msz = new Float32Array(CITIES.length);
+  CITIES.forEach(function (s, i) {
+    var la = s.lat * Math.PI / 180, lo = -s.lon * Math.PI / 180, rr = R * 1.01;
+    mpos[i * 3] = Math.cos(la) * Math.cos(lo) * rr; mpos[i * 3 + 1] = Math.sin(la) * rr + .3; mpos[i * 3 + 2] = Math.cos(la) * Math.sin(lo) * rr;
+    var c = s.lon < -30 ? GREEN : ORANGE; mcol[i * 3] = c.r; mcol[i * 3 + 1] = c.g; mcol[i * 3 + 2] = c.b;
+  });
+  var mgeo = new THREE.BufferGeometry();
+  mgeo.setAttribute('position', new THREE.BufferAttribute(mpos, 3));
+  mgeo.setAttribute('color', new THREE.BufferAttribute(mcol, 3));
+  mgeo.setAttribute('size', new THREE.BufferAttribute(msz, 1));
+  group.add(new THREE.Points(mgeo, mat));
+  /* Orientation du globe calculée : le centre de gravité des villes vient face à la caméra */
+  var cen = new THREE.Vector3();
+  CITIES.forEach(function (s, i) { cen.add(new THREE.Vector3(mpos[i * 3], mpos[i * 3 + 1] - .3, mpos[i * 3 + 2]).normalize()); });
+  cen.normalize();
+  var GQ = new THREE.Quaternion().setFromUnitVectors(cen, new THREE.Vector3(0, 0, 1));
+  /* puis on corrige le roulis pour garder le nord en haut */
+  var north = new THREE.Vector3(0, 1, 0).applyQuaternion(GQ), roll = Math.atan2(north.x, north.y);
+  GQ.premultiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), roll));
+  var GE = new THREE.Euler().setFromQuaternion(GQ, 'XYZ');
+  var scatter = new Float32Array(N * 3);
+  for (i = 0; i < N * 3; i++) scatter[i] = (Math.random() - .5) * 26;
+
+  function size() { var w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+  size(); addEventListener('resize', size);
+
+  var intro = { k: RM ? 1 : 0 }, mouse = { x: 0, y: 0 }, sm = { x: 0, y: 0 }, onScreen = true;
+  if (!RM) gsap.to(intro, { k: 1, duration: 2.6, ease: 'expo.out', delay: .2 });
+  addEventListener('pointermove', function (e) { mouse.x = e.clientX / innerWidth - .5; mouse.y = e.clientY / innerHeight - .5; });
+  new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; }).observe(canvas);
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  var GLOBE_Y = GE.y, GLOBE_X = GE.x, GLOBE_Z = GE.z;
+
+  function frame(time) {
+    requestAnimationFrame(frame);
+    if (!onScreen) return;
+    var t = time / 1000, P = state.p;
+    var a = Math.min(2, Math.floor(P)), f = ease(Math.min(1, P - a)), A = SHAPES[a], B = SHAPES[a + 1], CA = COLS[a], CB = COLS[a + 1];
+    var k = intro.k, wv = P > 2 ? f : 0, sg = P < 1 ? 0 : P < 2 ? ease(P - 1) : 1 - f;
+    for (var i = 0; i < N; i++) {
+      var i3 = i * 3;
+      for (var j = 0; j < 3; j++) {
+        var v = A[i3 + j] + (B[i3 + j] - A[i3 + j]) * f;
+        pos[i3 + j] = scatter[i3 + j] + (v - scatter[i3 + j]) * k;
+        col[i3 + j] = CA[i3 + j] + (CB[i3 + j] - CA[i3 + j]) * f;
+      }
+      if (wv > 0) pos[i3 + 1] += Math.sin(pos[i3] * 1.3 + t * 3) * Math.cos(pos[i3 + 2] * 1.1 + t * 2) * .7 * wv;
+      pos[i3 + 1] += Math.sin(t * 1.6 + i) * .012;
+      siz[i] = 1 + (SIZE2[i] - 1) * sg;
+    }
+    geo.attributes.position.needsUpdate = true; geo.attributes.color.needsUpdate = true; geo.attributes.size.needsUpdate = true;
+    for (var m = 0; m < msz.length; m++) msz[m] = sg * (5 + 2.2 * Math.sin(t * 4 + m));
+    mgeo.attributes.size.needsUpdate = true;
+    sm.x += (mouse.x - sm.x) * .05; sm.y += (mouse.y - sm.y) * .05;
+    /* Le mot fait face ; la sphère tourne ; le globe s'arrête sur l'Atlantique ; l'onde s'incline */
+    var rotY;
+    if (P < 1) rotY = ease(P) * Math.PI;
+    else if (P < 2) rotY = Math.PI + (GLOBE_Y + Math.PI * 2 - Math.PI) * ease(P - 1);
+    else rotY = GLOBE_Y + Math.PI * 2 + (P - 2) * .6;
+    group.rotation.y = rotY + sm.x * .5 + (P < .05 ? Math.sin(t * .6) * .12 : 0);
+    group.rotation.x = (P > 2 ? GLOBE_X + (.5 - GLOBE_X) * f : P > 1 ? GLOBE_X * ease(P - 1) : 0) + sm.y * .3;
+    group.rotation.z = P > 2 ? GLOBE_Z * (1 - f) : P > 1 ? GLOBE_Z * ease(P - 1) : 0;
+    camera.position.z = 9 - Math.sin(Math.min(1, P / 3) * Math.PI) * 1.4;
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(frame);
+}
+if (renderer) startGL(); else document.getElementById('top').classList.add('no-gl');
+
+/* Textes de chaque étape : chacun vit sur sa portion de course */
+var says = document.querySelectorAll('#say .s'), dots = document.querySelectorAll('#steps i');
+function captions(P) {
+  says.forEach(function (s, i) {
+    var o = Math.max(0, 1 - Math.abs(P - i) * 2.4);
+    s.style.opacity = o; s.style.transform = 'translateY(' + ((P - i) * -50) + 'px)';
+    s.style.pointerEvents = o > .6 ? 'auto' : 'none';
+  });
+  var k = Math.round(P);
+  dots.forEach(function (d, i) { d.classList.toggle('on', i === k); });
+  document.getElementById('hint').style.opacity = P < .3 ? 1 - P / .3 : 0;
+}
+captions(0);
+if (RM) { state.p = 2; captions(2); }
+else {
+  gsap.to(state, { p: 3, ease: 'none', onUpdate: function () { captions(state.p); },
+    scrollTrigger: { trigger: '#top', start: 'top top', end: '+=420%', scrub: .8, pin: true } });
+}
+
+/* ═══ Dates par étape de tournée ═══ */
+var LEGS = [['Canada', '#22d36b', function (s) { return L.country(s.city) === 'CA'; }], ['Europe', '#ff8c1a', function (s) { return L.country(s.city) !== 'CA'; }]];
+document.getElementById('legs').innerHTML = LEGS.map(function (lg) {
+  var list = U.filter(lg[2]);
+  return '<div class="leg" style="--c:' + lg[1] + '"><h3>' + lg[0] + '<small>' + list.length + ' shows</small></h3><div class="ls">' + list.map(function (s) {
+    var p = L.fmt(s.iso, 'parts');
+    return '<a class="ev" href="' + s.url + '" target="_blank" rel="noopener"><div class="n">' + p.d + '</div><div><b>' + L.place(s.city) + '</b><span>' + p.m + ' ' + p.y + ' · ' + s.venue + '</span></div><div class="ar">→</div></a>';
+  }).join('') + '</div></div>';
+}).join('');
+document.querySelectorAll('.ev').forEach(function (c) { c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--x', (e.clientX - r.left) + 'px'); c.style.setProperty('--y', (e.clientY - r.top) + 'px'); }); });
+document.getElementById('past').innerHTML = '<div class="lab">' + L.past.length + '<small>shows already played</small></div>' + L.pastCities().map(function (s) { return '<span class="c">' + L.place(s.city) + '</span>'; }).join('');
+
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+var BC = ['#22d36b', '#7b5cff', '#ff8c1a', '#22d36b'];
+document.getElementById('bk').innerHTML = L.booking.map(function (b, i) {
+  return '<div style="--c:' + BC[i] + '"><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (!RM) {
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { y: 90, opacity: 0, filter: 'blur(14px)', duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.leg', { y: 100, opacity: 0, duration: 1, ease: 'expo.out', stagger: .12, scrollTrigger: { trigger: '#legs', start: 'top 88%' } });
+  gsap.utils.toArray('.leg').forEach(function (lg) { gsap.from(lg.querySelectorAll('.ev .n'), { scale: 0, duration: .6, ease: 'back.out(2.4)', stagger: .04, scrollTrigger: { trigger: lg, start: 'top 80%' } }); });
+  gsap.from('.past span.c', { scale: 0, duration: .4, ease: 'back.out(2)', stagger: .02, scrollTrigger: { trigger: '#past', start: 'top 90%' } });
+  gsap.fromTo('.vid', { clipPath: 'circle(14% at 50% 50%)' }, { clipPath: 'circle(72% at 50% 50%)', ease: 'none', scrollTrigger: { trigger: '.vid', start: 'top bottom', end: 'center 55%', scrub: true } });
+  gsap.from('.bk>div', { y: 80, opacity: 0, duration: .9, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Magazine</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,900;1,6..96,500;1,6..96,900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f4ee;--ink:#111;--mute:#6b665d;--red:#e0261b;--g:#13a24f;--o:#ff7a00;--desk:#d9d3c7}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--desk)}
+body{background:var(--desk);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav .lg{font:italic 900 26px/1 "Bodoni Moda";padding:8px 14px;border-radius:99px;background:var(--paper)}
+.nav .lg b{color:var(--red)}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:800 12px/1 Inter;letter-spacing:.08em;text-transform:uppercase;padding:12px 16px;border-radius:99px;background:var(--paper);transition:background .2s,color .2s}
+.nav .r a:hover{background:var(--ink);color:#fff}
+.nav .r a.cta{background:var(--red);color:#fff}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* LA COUVERTURE */
+.coverwrap{position:relative;height:100svh;min-height:700px;display:grid;place-items:center;perspective:2200px;overflow:hidden;padding-top:40px}
+.cover{position:relative;height:min(84svh,940px);aspect-ratio:3/4;max-width:calc(100vw - 32px);background:#000;color:#fff;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.35);transform-origin:0 50%;border-radius:4px 10px 10px 4px}
+@media(max-width:700px){.cover{height:auto;width:calc(100vw - 32px)}}
+.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%,transparent 55%,rgba(0,0,0,.8))}
+.mast{position:absolute;z-index:2;left:4%;right:4%;top:2.5%;display:flex;justify-content:space-between;font:italic 900 clamp(70px,13.6vh,150px)/.9 "Bodoni Moda";letter-spacing:-.04em;color:var(--red)}
+@media(max-width:700px){.mast{font-size:21vw}}
+.mast span{display:inline-block}
+.mast .w{color:#fff}
+.issue{position:absolute;z-index:2;left:5%;top:calc(2.5% + clamp(70px,13.6vh,150px));font:800 11px Inter;letter-spacing:.24em;text-transform:uppercase}
+@media(max-width:700px){.issue{top:calc(2.5% + 21vw);font-size:9px}}
+.cl{position:absolute;z-index:2;max-width:42%}
+.cl b{display:block;font:900 clamp(22px,3.4vh,40px)/.95 "Bodoni Moda";letter-spacing:-.02em}
+.cl span{display:block;font:600 clamp(11px,1.5vh,15px)/1.35 Inter;margin-top:6px}
+.cl.a{left:5%;top:30%}
+.cl.b{right:5%;top:44%;text-align:right}
+.cl.c{left:5%;bottom:calc(3% + clamp(64px,14vh,150px) + 34px)}
+.cl.a b{color:var(--g)}.cl.b b{color:var(--o)}
+@media(max-width:700px){.cl span{display:none}.cl b{font-size:20px}.cl.c{display:none}}
+.big{position:absolute;z-index:2;left:5%;right:5%;bottom:3%;display:flex;justify-content:space-between;align-items:flex-end}
+.big .n{font:900 clamp(64px,14vh,150px)/.8 "Bodoni Moda"}
+.big .n small{display:block;font:800 12px Inter;letter-spacing:.2em;margin-top:6px}
+.bar{background:#fff;padding:6px 8px 4px;border-radius:2px;color:#000;text-align:center;font:600 9px Inter;letter-spacing:.2em}
+.bar svg{display:block;width:90px;height:34px}
+.scrollme{position:absolute;bottom:14px;left:0;right:0;text-align:center;font:800 11px Inter;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+
+/* LE LIVRE ÉPINGLÉ */
+.book{position:relative;height:100svh;display:grid;place-items:center;perspective:2400px;overflow:hidden;padding-top:30px}
+.spread{position:relative;width:min(1200px,calc(100vw - 32px));height:min(80svh,760px);transform-style:preserve-3d}
+.base{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;border-radius:6px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.3)}
+.base .lp{position:relative;background:linear-gradient(90deg,var(--paper) 90%,#e7e2d8)}
+.base .rp{position:relative;background:linear-gradient(90deg,#e7e2d8,var(--paper) 10%)}
+.leaf{position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:0 50%;transform-style:preserve-3d}
+.leaf .f,.leaf .bk{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.leaf .f{background:linear-gradient(90deg,#e7e2d8,var(--paper) 8%)}
+.leaf .bk{transform:rotateY(180deg);background:linear-gradient(270deg,#e7e2d8,var(--paper) 8%)}
+.leaf .sh{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),transparent);opacity:0;pointer-events:none}
+.pg{position:absolute;inset:0;padding:clamp(20px,3vw,44px) clamp(20px,3vw,44px) 40px;display:flex;flex-direction:column}
+.pg .kick{font:800 11px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.pg h2{font:900 clamp(40px,5.2vw,86px)/.86 "Bodoni Moda";letter-spacing:-.04em;margin-top:10px}
+.pg h2 em{font-style:italic;font-weight:500}
+.pg .dek{font:italic 500 clamp(15px,1.4vw,19px)/1.45 "Bodoni Moda";color:#3b372f;margin-top:14px;max-width:34ch}
+.pg .photo{flex:1;margin-top:18px;border-radius:2px;overflow:hidden;min-height:0}
+.pg .photo img{width:100%;height:100%;object-fit:cover}
+.pg .cap{font:600 11px Inter;color:var(--mute);margin-top:6px}
+.pg .num{position:absolute;bottom:14px;font:600 11px Inter;color:var(--mute)}
+.lp .num,.leaf .bk .num{left:clamp(20px,3vw,44px)}
+.rp .num,.leaf .f .num{right:clamp(20px,3vw,44px)}
+.ls{display:flex;flex-direction:column;gap:2px;margin-top:10px;overflow:hidden}
+.ev{display:grid;grid-template-columns:clamp(46px,4.4vw,64px) 1fr auto;align-items:center;gap:12px;padding:clamp(5px,.8vh,10px) 10px;border-radius:12px;transition:background .2s,color .2s}
+.ev:hover{background:var(--ink);color:#fff}
+.ev .d{font:900 clamp(28px,2.8vw,44px)/.9 "Bodoni Moda"}
+.ev .d small{display:block;font:800 9px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.ev b{display:block;font:900 clamp(17px,1.6vw,22px)/1.05 "Bodoni Moda"}
+.ev span{font-size:12px;color:var(--mute)}
+.ev:hover span,.ev:hover .d small{color:#bbb}
+.ev .t{font:800 11px Inter;letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border-radius:99px;background:var(--red);color:#fff;white-space:nowrap}
+.dropcap::first-letter{float:left;font:900 4.4em/.8 "Bodoni Moda";margin:.06em .1em 0 0;color:var(--red);font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chips span{font:600 12px Inter;padding:7px 11px;border-radius:99px;background:#ebe6dc}
+.pull{font:italic 900 clamp(30px,3.6vw,56px)/1 "Bodoni Moda";letter-spacing:-.02em;margin-top:auto}
+.pull b{color:var(--red);font-style:normal}
+.pager{position:absolute;bottom:12px;left:0;right:0;text-align:center;font:800 11px Inter;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+@media(max-width:800px){
+  .spread{height:min(78svh,700px)}
+  .base{grid-template-columns:1fr}.base .lp{display:none}
+  .leaf{width:100%}
+  .pg h2{font-size:40px}
+  .ev .t{padding:7px 9px;font-size:10px}
+}
+
+/* VIDÉO + BOOKING */
+.after{background:var(--paper);padding:clamp(90px,12vh,150px) 0 60px}
+.h2{font:900 clamp(48px,8vw,128px)/.86 "Bodoni Moda";letter-spacing:-.045em}
+.h2 em{font-style:italic;font-weight:500;color:var(--red)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:36px;overflow:hidden;cursor:pointer;background:#000;border-radius:4px}
+.vid>img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.05)}
+.vid .pl{position:absolute;left:24px;bottom:24px;display:flex;align-items:center;gap:14px;color:#fff}
+.vid .pl i{width:clamp(56px,7vw,90px);aspect-ratio:1;border-radius:50%;background:var(--red);display:grid;place-items:center;transition:transform .3s}
+.vid:hover .pl i{transform:scale(1.12) rotate(-8deg)}
+.vid .pl svg{width:30%;fill:#fff;margin-left:6%}
+.vid .pl b{font:italic 900 clamp(22px,3vw,44px)/1 "Bodoni Moda";text-shadow:0 4px 20px rgba(0,0,0,.6)}
+.classi{margin-top:80px}
+.classi .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:30px}
+.classi .grid>div{background:#fff;border-radius:6px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.06);transition:transform .3s}
+.classi .grid>div:hover{transform:translateY(-6px) rotate(-.8deg)}
+.classi .k{font:800 10px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.classi .rg{font:900 30px/1 "Bodoni Moda";margin-top:6px}
+.classi .co{font:italic 500 17px "Bodoni Moda";margin-top:6px}
+.classi .ad{font-size:12px;color:var(--mute);margin-top:4px}
+.classi .p{margin-top:14px;font-size:14px}
+.classi .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.classi .p a{padding:7px 12px;border-radius:99px;background:#efeae0;font-size:13px;transition:background .2s,color .2s}
+.classi .p a:hover{background:var(--ink);color:#fff}
+footer{background:var(--paper);padding:30px 0 50px;color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="lg" href="#top">LOVE<b>U2</b></a>
+  <div class="r"><a href="#issue">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#issue">Tickets</a></div>
+</nav>
+
+<header class="coverwrap" id="top">
+  <article class="cover" id="cover">
+    <img src="img/p00099.jpg" alt="LOVEU2 singer on stage">
+    <h1 class="mast" aria-label="LOVEU2"><span>L</span><span>O</span><span class="w">V</span><span class="w">E</span><span>U</span><span>2</span></h1>
+    <div class="issue">The U2 Experience · Tour issue 2026–2027</div>
+    <div class="cl a"><b>Canada</b><span>Two nights in Québec City, one in Lac-Mégantic. The tour opens at home.</span></div>
+    <div class="cl b"><b id="clEu">19 nights in Europe</b><span>From Conthey to Lyon, through a month of France.</span></div>
+    <div class="cl c"><b id="clNext"></b><span id="clNextS"></span></div>
+    <div class="big"><div class="n"><span id="bigN">22</span><small>Shows inside</small></div><div class="bar"><svg id="barcode" viewBox="0 0 90 34"></svg>LOVEU2</div></div>
+  </article>
+  <div class="scrollme">Scroll to open the issue</div>
+</header>
+
+<section class="book" id="issue">
+  <div class="spread" id="spread">
+    <div class="base"><div class="lp" id="lp0"></div><div class="rp" id="rpEnd"></div></div>
+  </div>
+  <div class="pager" id="pager"></div>
+</section>
+
+<section class="after" id="video">
+  <div class="wrap">
+    <h2 class="h2">The <em>film</em></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video">
+      <img id="vthumb" alt="" onerror="this.src='img/p00095.jpg'">
+      <div class="pl"><i><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg></i><b>Watch LOVEU2 live</b></div>
+    </div>
+    <div class="classi" id="booking">
+      <h2 class="h2">Book<em>ings</em></h2>
+      <div class="grid" id="bk"></div>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+var CA = U.filter(function (s) { return L.country(s.city) === 'CA'; }), EU = U.filter(function (s) { return L.country(s.city) !== 'CA'; });
+document.getElementById('clEu').textContent = EU.length + ' nights in Europe';
+document.getElementById('clNext').textContent = 'Next: ' + L.place(next.city);
+document.getElementById('clNextS').textContent = L.fmt(next.iso) + ' · ' + next.venue;
+document.getElementById('bigN').textContent = U.length;
+
+/* Code-barres décoratif */
+(function () { var s = '', x = 2; while (x < 88) { var w = 1 + (x * 7 % 3); s += '<rect x="' + x + '" y="0" width="' + w + '" height="34" fill="#000"/>'; x += w + 1 + (x * 13 % 2); } document.getElementById('barcode').innerHTML = s; })();
+
+/* ═══ Le livre : chaque feuille a un recto et un verso ═══ */
+function evs(list) {
+  return '<div class="ls">' + list.map(function (s) { var p = L.fmt(s.iso, 'parts'); return '<a class="ev" href="' + s.url + '" target="_blank" rel="noopener"><div class="d">' + p.d + '<small>' + p.m + ' ' + p.y + '</small></div><div><b>' + L.place(s.city) + '</b><span>' + s.venue + '</span></div><span class="t">Tickets</span></a>'; }).join('') + '</div>';
+}
+var half = Math.ceil(EU.length / 2), EU1 = EU.slice(0, half), EU2 = EU.slice(half);
+var PAGES = [
+  '<div class="pg"><div class="kick">In this issue</div><h2>The <em>tour</em> issue</h2><p class="dek">' + U.length + ' shows between ' + L.fmt(U[0].iso) + ' and ' + L.fmt(U[U.length - 1].iso) + '. Turn the page.</p><div class="photo"><img src="img/s/p00098.jpg" alt=""></div><div class="cap">LOVEU2 on stage.</div><div class="num">2</div></div>',
+  '<div class="pg"><div class="kick">Part one · Canada</div><h2>Home <em>first</em></h2><p class="dek">The tour opens in Québec.</p>' + evs(CA) + '<div class="photo"><img src="img/s/p00018.jpg" alt=""></div><div class="num">3</div></div>',
+  '<div class="pg"><div class="kick">Part two · Europe</div><h2>Across the <em>Atlantic</em></h2><p class="dek dropcap">Switzerland, then France: ' + EU.length + ' nights in a row, from ' + L.place(EU[0].city) + ' to ' + L.place(EU[EU.length - 1].city) + '.</p><div class="photo"><img src="img/s/p00065.jpg" alt=""></div><div class="num">4</div></div>',
+  '<div class="pg"><div class="kick">Europe · ' + L.fmt(EU1[0].iso, 'short') + ' to ' + L.fmt(EU1[EU1.length - 1].iso, 'short') + '</div>' + evs(EU1) + '<div class="num">5</div></div>',
+  '<div class="pg"><div class="kick">Europe · ' + L.fmt(EU2[0].iso, 'short') + ' to ' + L.fmt(EU2[EU2.length - 1].iso, 'short') + '</div>' + evs(EU2) + '<div class="num">6</div></div>',
+  '<div class="pg"><div class="kick">Already played</div><h2>' + L.past.length + ' <em>shows</em></h2><p class="dek">From Saint-Pierre to Las Vegas, the stages LOVEU2 has already played.</p><div class="chips">' + L.pastCities().map(function (s) { return '<span>' + L.place(s.city) + '</span>'; }).join('') + '</div><div class="pull">See you in <b>' + L.place(next.city) + '</b>.</div><div class="num">7</div></div>'
+];
+/* Page de clôture : le prochain spectacle et une photo pleine page */
+PAGES.push('<div class="pg" style="padding:0"><img src="img/s/p00096.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>');
+PAGES.push('<div class="pg"><div class="kick">Last page</div><h2>Your <em>ticket</em></h2><p class="dek">Next show: ' + L.place(next.city) + ', ' + L.fmt(next.iso) + ' at ' + next.venue + '.</p><div class="photo"><img src="img/s/p00051.jpg" alt=""></div><a class="ev" style="margin-top:14px;background:var(--red);color:#fff" href="' + next.url + '" target="_blank" rel="noopener"><div class="d" style="color:#fff">' + L.fmt(next.iso, 'parts').d + '<small style="color:#ffd">' + L.fmt(next.iso, 'parts').m + '</small></div><div><b>' + L.place(next.city) + '</b><span style="color:#ffd">Buy tickets</span></div><span class="t" style="background:#fff;color:var(--red)">→</span></a><div class="num">9</div></div>');
+var spread = document.getElementById('spread'), MOB = innerWidth <= 800;
+/* Ordinateur : trois feuilles recto/verso au-dessus d'une double page fixe.
+   Téléphone : une page à la fois, donc une feuille par page, sans verso — aucune page ne saute. */
+var LEAVES, leaves = [];
+if (MOB) { LEAVES = [[0, -2], [1, -2], [2, -2], [3, -2], [4, -2], [5, -2]]; document.getElementById('rpEnd').innerHTML = PAGES[7]; }
+else { LEAVES = [[1, 2], [3, 4], [5, 6]]; document.getElementById('lp0').innerHTML = PAGES[0]; document.getElementById('rpEnd').innerHTML = PAGES[7]; }
+LEAVES.forEach(function (lf, i) {
+  var el = document.createElement('div');
+  el.className = 'leaf';
+  el.innerHTML = '<div class="f">' + PAGES[lf[0]] + '<div class="sh"></div></div><div class="bk">' + (lf[1] >= 0 ? PAGES[lf[1]] : '') + '<div class="sh"></div></div>';
+  spread.appendChild(el); leaves.push(el);
+});
+var pager = document.getElementById('pager');
+/* Une position f (0 → 3) : la feuille k tourne entre k et k+1 ; l'ombre suit la courbure */
+function turn(f) {
+  leaves.forEach(function (el, k) {
+    var t = Math.max(0, Math.min(1, f - k));
+    el.style.transform = 'rotateY(' + (-180 * t) + 'deg)';
+    el.style.zIndex = t > .5 ? 10 + k : LEAVES.length - k;
+    el.querySelectorAll('.sh').forEach(function (s) { s.style.opacity = (Math.sin(t * Math.PI) * .9).toFixed(3); });
+    if (MOB) el.style.opacity = t > .5 ? Math.max(0, 1 - (t - .5) * 4) : 1;
+  });
+  pager.textContent = 'Spread ' + (Math.min(LEAVES.length, Math.round(f)) + 1) + ' of ' + (LEAVES.length + 1);
+}
+turn(0);
+
+/* Vidéo + petites annonces */
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="k">Booking</div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (!RM) {
+  /* La couverture se monte : les lettres du titre tombent, les accroches glissent */
+  gsap.timeline({ delay: .2 })
+    .from('#cover', { y: 80, rotationY: -25, rotationX: 8, opacity: 0, duration: 1.4, ease: 'expo.out' })
+    .from('#cover>img', { scale: 1.3, duration: 2, ease: 'expo.out' }, 0)
+    .from('.mast span', { yPercent: -120, opacity: 0, duration: .7, ease: 'back.out(2)', stagger: .07 }, .5)
+    .from('.issue', { opacity: 0, x: -20, duration: .6 }, 1)
+    .from('.cl.a', { x: -80, opacity: 0, duration: .8, ease: 'expo.out' }, 1.1)
+    .from('.cl.b', { x: 80, opacity: 0, duration: .8, ease: 'expo.out' }, 1.2)
+    .from('.cl.c, .big', { y: 40, opacity: 0, duration: .8, ease: 'expo.out', stagger: .1 }, 1.3);
+  /* Au défilement, la couverture s'ouvre sur sa charnière gauche */
+  gsap.to('#cover', { rotationY: -100, ease: 'power1.in', scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* Le livre épinglé : les trois feuilles tournent une à une pendant toute la course */
+  var bk = { f: 0 };
+  gsap.to(bk, { f: LEAVES.length, ease: 'none', onUpdate: function () { turn(bk.f); },
+    scrollTrigger: { trigger: '#issue', start: 'top top', end: '+=' + (LEAVES.length * 90) + '%', scrub: .6, pin: true } });
+
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { y: 90, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.fromTo('.vid', { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)', ease: 'none', scrollTrigger: { trigger: '.vid', start: 'top bottom', end: 'center 60%', scrub: true } });
+  gsap.from('.classi .grid>div', { y: 90, rotation: function (i) { return i % 2 ? 5 : -5; }, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

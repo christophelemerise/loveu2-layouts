@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Highway</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&family=Overpass+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080d;--ink:#f3f4f7;--mute:#8a8fa0;--sign:#0f7a3d;--o:#ff8a1a;--y:#ffd23f;--card:#11131b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:Overpass,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:700 13px/1 Overpass;padding:12px 16px;border-radius:99px;background:rgba(17,19,27,.7);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:#fff;color:#000}
+.nav .r a.cta{background:var(--sign);color:#fff}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* LA ROUTE ÉPINGLÉE */
+.drive{position:relative;height:100svh;overflow:hidden;background:#07080d}
+.sky{position:absolute;inset:0 0 50% 0;overflow:hidden;background:linear-gradient(#05060c 0%,#141a3a 55%,#5a2a4a 80%,#ff8a1a 100%)}
+.sun{position:absolute;left:50%;bottom:-20vmin;width:46vmin;aspect-ratio:1;translate:-50% 0;border-radius:50%;background:linear-gradient(#ffe36e,#ff8a1a 60%,#ff3d6e);-webkit-mask:repeating-linear-gradient(#000 0 14px,transparent 14px 18px);mask:repeating-linear-gradient(#000 0 14px,transparent 14px 18px);opacity:.9}
+.stars{position:absolute;inset:0;width:100%;height:100%}
+.skyline{position:absolute;left:0;right:0;bottom:0;height:30%;background:url(img/p00097.jpg) center 70%/cover;-webkit-mask:linear-gradient(transparent,#000 75%);mask:linear-gradient(transparent,#000 75%);opacity:.3;filter:saturate(1.4)}
+.stage{position:absolute;inset:0;perspective:700px;perspective-origin:50% 50%}
+.world{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.road{position:absolute;left:-450px;top:0;width:900px;height:10000px;transform-origin:50% 0;transform:translate3d(0,var(--cam-h),700px) rotateX(-90deg);
+  background:
+    linear-gradient(90deg,transparent 0 3%,#e9e9e9 3% 3.8%,transparent 3.8% 96.2%,#e9e9e9 96.2% 97%,transparent 97%),
+    repeating-linear-gradient(180deg,var(--y) 0 120px,transparent 120px 260px) 50% var(--off,0px)/14px 100% no-repeat,
+    linear-gradient(90deg,#101218,#1c1f27 50%,#101218)}
+.item{position:absolute;left:0;top:0;transform-style:preserve-3d;visibility:hidden}
+.sign{width:300px;margin-left:-150px}
+.sign .pl{border-radius:14px;padding:16px 18px;background:var(--sign);box-shadow:0 0 0 4px #fff inset,0 0 0 7px var(--sign) inset,0 10px 40px rgba(0,0,0,.6);text-align:left}
+.sign .ex{display:inline-block;font:900 13px Overpass;background:#fff;color:var(--sign);padding:4px 8px;border-radius:6px}
+.sign .ci{font:900 38px/1 Overpass;letter-spacing:-.01em;margin-top:10px;overflow-wrap:anywhere}
+.sign .dt{font:700 18px Overpass;margin-top:6px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sign .dt a{font:900 13px Overpass;padding:8px 12px;border-radius:99px;background:#fff;color:var(--sign)}
+.sign .post{width:12px;height:200px;margin:0 auto;background:linear-gradient(90deg,#555,#aaa,#555)}
+.hud{position:absolute;z-index:5;left:16px;right:16px;bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;pointer-events:none}
+.gauge{position:relative;width:clamp(110px,14vw,170px);aspect-ratio:2/1.15}
+.gauge svg{width:100%;height:100%;overflow:visible}
+.gauge .v{position:absolute;left:0;right:0;bottom:-6px;text-align:center;font:900 clamp(18px,2vw,24px) Overpass}
+.gauge .v small{display:block;font:600 10px "Overpass Mono";color:var(--mute);letter-spacing:.2em}
+.odo{text-align:right}
+.odo .k{font:600 11px "Overpass Mono";letter-spacing:.2em;color:var(--mute)}
+.odo .n{font:600 clamp(26px,3.4vw,44px)/1 "Overpass Mono";color:var(--y);margin-top:6px;padding:6px 12px;border-radius:10px;background:#000;display:inline-block}
+.odo .c{font:900 clamp(15px,1.8vw,22px) Overpass;margin-top:6px}
+.gantry{position:absolute;z-index:4;top:76px;left:50%;translate:-50% 0;display:flex;gap:10px;pointer-events:none}
+.gantry .g{background:var(--sign);padding:12px 18px;border-radius:12px;box-shadow:0 0 0 3px #fff inset,0 0 0 6px var(--sign) inset;text-align:center;white-space:nowrap}
+.gantry .g b{display:block;font:900 clamp(30px,4.4vw,58px)/1 Overpass}
+.gantry .g span{font:700 clamp(11px,1.2vw,14px) Overpass;letter-spacing:.14em;text-transform:uppercase}
+.gantry .g.n{background:#fff;color:var(--sign);box-shadow:0 0 0 3px var(--sign) inset}
+@media(max-width:700px){.gantry .g.n{display:none}}
+.start{position:absolute;z-index:5;left:0;right:0;top:34%;text-align:center;padding:0 16px;font:700 13px "Overpass Mono";letter-spacing:.3em;color:#eee;pointer-events:none}
+
+/* JOURNAL DE ROUTE */
+.log{padding:clamp(90px,12vh,150px) 0}
+.h2{font:900 clamp(44px,8vw,128px)/.9 Overpass;letter-spacing:-.03em;text-transform:uppercase}
+.h2 span{color:var(--y)}
+.legs{margin-top:40px;display:grid;gap:8px}
+.leg{display:grid;grid-template-columns:110px 1fr auto auto;align-items:center;gap:18px;padding:14px 18px;border-radius:18px;background:var(--card);transition:background .25s,transform .25s}
+.leg:hover{background:var(--sign);transform:translateX(6px)}
+.leg .d{font:900 30px/1 Overpass}
+.leg .d small{display:block;font:700 12px "Overpass Mono";color:var(--mute);letter-spacing:.1em}
+.leg:hover .d small{color:#cfe}
+.leg b{display:block;font:900 22px/1.1 Overpass}
+.leg .v{font-size:13px;color:var(--mute)}
+.leg:hover .v{color:#cfe}
+.leg .km{font:600 13px "Overpass Mono";color:var(--y);white-space:nowrap}
+.leg .go{font:900 13px Overpass;padding:10px 14px;border-radius:99px;background:#fff;color:#000;white-space:nowrap}
+@media(max-width:760px){.leg{grid-template-columns:72px 1fr}.leg .km{grid-column:2}.leg .go{grid-column:1/-1;text-align:center}}
+.past{margin-top:56px;padding:26px;border-radius:24px;background:var(--card);display:grid;grid-template-columns:auto 1fr;gap:20px 30px;align-items:center}
+@media(max-width:760px){.past{grid-template-columns:1fr}}
+.past .n{font:600 clamp(40px,6vw,72px)/1 "Overpass Mono";color:var(--y);background:#000;padding:10px 16px;border-radius:12px}
+.past .n small{display:block;font:700 11px "Overpass Mono";letter-spacing:.2em;color:var(--mute);margin-top:6px}
+.past .ch{display:flex;flex-wrap:wrap;gap:6px}
+.past .ch span{font-size:13px;padding:7px 12px;border-radius:99px;background:#1b1e28}
+
+/* VIDÉO DANS LE PARE-BRISE */
+.video{padding:0 0 clamp(90px,12vh,150px)}
+.wind{position:relative;margin-top:50px;padding:clamp(14px,2.4vw,30px);border-radius:60px 60px 30px 30px;background:#0b0c12;box-shadow:inset 0 0 0 3px #1d2030}
+.vid{position:relative;aspect-ratio:16/9;border-radius:44px 44px 18px 18px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover}
+.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.12) 0 18%,transparent 22% 60%,rgba(255,255,255,.06) 64% 70%,transparent 74%);pointer-events:none}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:2;background:var(--sign);box-shadow:0 0 0 3px #fff inset,0 0 0 6px var(--sign) inset;padding:18px 28px;border-radius:14px;font:900 clamp(16px,2vw,26px) Overpass;text-transform:uppercase;transition:transform .2s;white-space:nowrap}
+.vid:hover .pl{transform:scale(1.08)}
+.mirror{position:absolute;top:-24px;left:50%;translate:-50% 0;width:clamp(120px,16vw,200px);aspect-ratio:3/1;border-radius:14px;overflow:hidden;box-shadow:0 0 0 4px #1d2030,0 10px 30px rgba(0,0,0,.6);z-index:3}
+.mirror img{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+
+/* BOOKING EN PANNEAUX */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:12px;margin-top:36px}
+.bk>div{border-radius:16px;padding:24px;background:var(--sign);box-shadow:0 0 0 4px #fff inset,0 0 0 8px var(--sign) inset;transition:transform .3s}
+.bk>div:hover{transform:translateY(-6px) rotate(-1deg)}
+.bk .ex{display:inline-block;font:900 12px Overpass;background:#fff;color:var(--sign);padding:4px 8px;border-radius:6px}
+.bk .rg{font:900 28px/1 Overpass;margin-top:10px}
+.bk .co{font-weight:700;margin-top:8px}
+.bk .ad{font-size:13px;color:#cfe;margin-top:4px}
+.bk .p{margin-top:14px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.16);font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:#fff;color:var(--sign)}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#log">Trip log</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#log">Tickets</a></div>
+</nav>
+
+<section class="drive" id="top">
+  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">LOVEU2 – The U2 Experience on tour</h1>
+  <div class="sky"><canvas class="stars" id="stars"></canvas><div class="sun" id="sun"></div><div class="skyline"></div></div>
+  <div class="stage"><div class="world" id="world"><div class="road" id="road"></div></div></div>
+  <div class="gantry" id="gantry"><div class="g"><b>LOVEU2</b><span>The U2 Experience</span></div><div class="g n"><span>Next exit</span><b id="gNext"></b></div></div>
+  <div class="start" id="startHint">SCROLL TO DRIVE ↓</div>
+  <div class="hud">
+    <div class="gauge"><svg viewBox="0 0 200 115"><defs><linearGradient id="gg"><stop offset="0" stop-color="#1ec76a"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#ff8a1a"/></linearGradient></defs><path d="M15 105 A85 85 0 0 1 185 105" fill="none" stroke="#262a38" stroke-width="12" stroke-linecap="round"/><path id="arc" d="M15 105 A85 85 0 0 1 185 105" fill="none" stroke="url(#gg)" stroke-width="12" stroke-linecap="round"/><line id="needle" x1="100" y1="105" x2="100" y2="34" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="100" cy="105" r="9" fill="#fff"/></svg><div class="v"><span id="spd">0</span><small>KM/H</small></div></div>
+    <div class="odo"><div class="k">KM AS THE CROW FLIES</div><div class="n" id="odo">0</div><div class="c" id="odoC"></div></div>
+  </div>
+</section>
+
+<section class="log" id="log">
+  <div class="wrap">
+    <h2 class="h2">Trip <span>log</span></h2>
+    <div class="legs" id="legs"></div>
+    <div class="past" id="past"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Through the <span>windshield</span></h2>
+    <div class="wind">
+      <div class="mirror"><img src="img/s/p00062.jpg" alt=""></div>
+      <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00093.jpg'"><div class="pl">▶ Play the show</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Booking <span>exits</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+document.getElementById('gNext').textContent = L.place(next.city).toUpperCase();
+
+/* Distances réelles entre les arrêts, à vol d'oiseau */
+function km(a, b) { var R = 6371, r = Math.PI / 180, dLa = (b.lat - a.lat) * r, dLo = (b.lon - a.lon) * r; var h = Math.sin(dLa / 2) * Math.sin(dLa / 2) + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLo / 2) * Math.sin(dLo / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
+var CUM = [0]; for (var i = 1; i < U.length; i++) CUM.push(CUM[i - 1] + km(U[i - 1], U[i]));
+
+/* Étoiles */
+(function () {
+  var c = document.getElementById('stars'), x = c.getContext('2d'); c.width = c.offsetWidth; c.height = c.offsetHeight;
+  for (var i = 0; i < 160; i++) { x.fillStyle = 'rgba(255,255,255,' + (Math.random() * .8).toFixed(2) + ')'; var s = Math.random() < .1 ? 2 : 1; x.fillRect(Math.random() * c.width, Math.random() * c.height * .8, s, s); }
+})();
+
+/* ═══ La route : un panneau vert par date, en alternance sur les deux bords ═══ */
+var world = document.getElementById('world'), road = document.getElementById('road'), MOB = L.mobile();
+var CAMH = MOB ? 80 : 120;
+world.style.setProperty('--cam-h', CAMH + 'px');
+var GAP = 1500, items = [];
+U.forEach(function (s, k) {
+  var z = -(k + 1) * GAP, p = L.fmt(s.iso, 'parts'), side = k % 2 ? 1 : -1;
+  var sg = document.createElement('div');
+  sg.className = 'item';
+  sg.innerHTML = '<div class="sign"><div class="pl"><span class="ex">EXIT ' + (k + 1) + ' · ' + L.country(s.city) + '</span><div class="ci">' + L.place(s.city).toUpperCase() + '</div><div class="dt"><span>' + p.m.toUpperCase() + ' ' + p.d + ' · ' + p.y + '</span><a href="' + s.url + '" target="_blank" rel="noopener">TICKETS</a></div></div><div class="post"></div></div>';
+  world.appendChild(sg);
+  items.push({ el: sg, x: side * (MOB ? 300 : 560), z: z, sign: true });
+});
+var START = 400, END = U.length * GAP + 300;
+function render(cam) {
+  road.style.setProperty('--off', (cam % 260) + 'px');
+  items.forEach(function (it) {
+    var rel = it.z + cam;
+    var vis = rel < -9000 || rel > 520 ? 0 : rel < -6500 ? (rel + 9000) / 2500 : rel > 220 ? 1 - (rel - 220) / 300 : 1;
+    it.el.style.opacity = vis.toFixed(3);
+    it.el.style.visibility = vis > .01 ? 'visible' : 'hidden';
+    it.el.style.transform = 'translate3d(' + it.x + 'px,' + CAMH + 'px,' + rel + 'px) translateY(-100%)';
+    it.el.style.pointerEvents = rel > -2600 && rel < 220 ? 'auto' : 'none';
+  });
+  var f = Math.max(0, Math.min(U.length - 1, (cam - START) / GAP)), i0 = Math.floor(f), t = f - i0;
+  var kmNow = i0 >= U.length - 1 ? CUM[U.length - 1] : CUM[i0] + (CUM[i0 + 1] - CUM[i0]) * t;
+  document.getElementById('odo').textContent = Math.round(kmNow).toLocaleString('en-US');
+  var nx = U[Math.min(U.length - 1, Math.ceil(f - .05))];
+  document.getElementById('odoC').textContent = 'Next exit: ' + L.place(nx.city) + ' · ' + L.fmt(nx.iso, 'short');
+}
+render(START);
+
+/* Compteur : l'aiguille suit la vitesse du défilement */
+var needle = document.getElementById('needle'), arc = document.getElementById('arc'), alen = arc.getTotalLength(), spd = { v: 0 };
+arc.style.strokeDasharray = alen;
+function gauge(v) { v = Math.min(1, v); needle.setAttribute('transform', 'rotate(' + (-90 + v * 180) + ' 100 105)'); arc.style.strokeDashoffset = alen * (1 - v); document.getElementById('spd').textContent = Math.round(v * 140); }
+gauge(0);
+
+/* ═══ Journal de route ═══ */
+document.getElementById('legs').innerHTML = U.map(function (s, i) {
+  var p = L.fmt(s.iso, 'parts'), leg = i ? '+' + Math.round(km(U[i - 1], s)).toLocaleString('en-US') + ' km' : 'Start';
+  return '<a class="leg" href="' + s.url + '" target="_blank" rel="noopener"><div class="d">' + p.d + '<small>' + p.m.toUpperCase() + ' ' + p.y + '</small></div><div><b>' + L.place(s.city) + '</b><div class="v">' + s.venue + ' · ' + s.city + '</div></div><div class="km">' + leg + '</div><div class="go">Tickets →</div></a>';
+}).join('');
+document.getElementById('past').innerHTML = '<div class="n">' + L.past.length + '<small>SHOWS ALREADY ON THE CLOCK</small></div><div class="ch">' + L.pastCities().map(function (s) { return '<span>' + L.place(s.city) + '</span>'; }).join('') + '</div>';
+
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><span class="ex">BOOKING</span><div class="rg">' + b.region.toUpperCase() + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (RM) { render(START + GAP * .6); }
+else {
+  /* Entrée : le portique descend, le soleil se lève */
+  gsap.from('#gantry .g', { y: -200, duration: 1.1, ease: 'bounce.out', stagger: .15, delay: .3 });
+  gsap.from('#sun', { yPercent: 60, duration: 2, ease: 'expo.out' });
+  gsap.to('#startHint', { y: 10, duration: .8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+  /* La conduite : la caméra avance pendant toute la course épinglée, le soleil descend — aucune course morte */
+  var cam = { z: START };
+  gsap.timeline({ scrollTrigger: { trigger: '#top', start: 'top top', end: '+=' + (U.length * 55) + '%', scrub: .6, pin: true,
+      onUpdate: function (st) { gsap.to(spd, { v: Math.abs(st.getVelocity()) / 2600, duration: .35, overwrite: true, onUpdate: function () { gauge(spd.v); } }); } } })
+    .to(cam, { z: END, ease: 'none', duration: 1, onUpdate: function () { render(cam.z); } }, 0)
+    .to('#sun', { yPercent: 40, ease: 'none', duration: 1 }, 0)
+    .to('#gantry', { y: -260, opacity: 0, ease: 'power2.in', duration: .05 }, 0)
+    .to('#startHint', { opacity: 0, duration: .02 }, 0);
+  ScrollTrigger.addEventListener('scrollEnd', function () { gsap.to(spd, { v: 0, duration: .8, overwrite: true, onUpdate: function () { gauge(spd.v); } }); });
+
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { x: -120, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.leg', { x: function (i) { return i % 2 ? 80 : -80; }, opacity: 0, duration: .7, ease: 'expo.out', stagger: .03, scrollTrigger: { trigger: '#legs', start: 'top 85%' } });
+  gsap.fromTo('.wind', { rotationX: 25, scale: .86, transformPerspective: 1200 }, { rotationX: 0, scale: 1, ease: 'none', scrollTrigger: { trigger: '.wind', start: 'top bottom', end: 'center 55%', scrub: true } });
+  gsap.from('.bk>div', { y: -140, rotation: function (i) { return i % 2 ? 10 : -10; }, opacity: 0, duration: 1, ease: 'bounce.out', stagger: .12, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Vertigo</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#f4f4f4;--red:#ff1a1a;--g:#1fbf5f;--o:#ff8a00;--mute:#8e8e8e;--card:#0e0e0e}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:700 11px/1 Syncopate;letter-spacing:.08em;text-transform:uppercase;padding:12px 16px;border-radius:99px;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:#fff;color:#000}
+.nav .r a.cta{background:var(--red);color:#fff}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO : la spirale */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:grid;place-items:center}
+.spiral{position:absolute;left:50%;top:50%;width:260vmax;height:260vmax;margin:-130vmax 0 0 -130vmax;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,#000 0deg 9deg,#171717 9deg 18deg);
+  -webkit-mask:radial-gradient(circle,transparent 0 3%,#000 3.2%);mask:radial-gradient(circle,transparent 0 3%,#000 3.2%)}
+.rings{position:absolute;left:50%;top:50%;width:200vmax;height:200vmax;margin:-100vmax 0 0 -100vmax;border-radius:50%;
+  background:repeating-radial-gradient(circle,rgba(255,26,26,0) 0 38px,rgba(255,26,26,.22) 40px 42px,rgba(255,26,26,0) 44px 80px);mix-blend-mode:screen}
+.orbit{position:absolute;left:50%;top:50%;width:0;height:0}
+.orbit span{position:absolute;left:0;top:0;font:700 var(--fs,22px)/1 Syncopate;white-space:nowrap;color:var(--c,#fff);transform-origin:0 0;opacity:var(--a,1)}
+.hero .core{position:relative;z-index:3;text-align:center;padding:0 16px}
+.hero h1{font:700 clamp(46px,12vw,200px)/.86 Syncopate;letter-spacing:-.04em;white-space:nowrap;text-shadow:0 0 60px #000}
+.hero h1 b{font-weight:700;display:inline-block}
+.hero h1 b:nth-child(-n+2){color:var(--g)}.hero h1 b:nth-child(n+5){color:var(--o)}
+.hero .sub{margin-top:18px;font:500 clamp(14px,1.6vw,19px) "Space Grotesk";letter-spacing:.4em;text-transform:uppercase;color:#ddd}
+.hero .go{display:inline-flex;margin-top:28px;padding:16px 26px;border-radius:99px;background:var(--red);color:#fff;font:700 12px Syncopate;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s}
+.hero .go:hover{transform:scale(1.06)}
+
+/* LE TUNNEL */
+.tunnel{position:relative;height:100svh;overflow:hidden;background:radial-gradient(circle at 50% 50%,#2a0606,#000 62%)}
+.stage{position:absolute;inset:0;perspective:900px;perspective-origin:50% 50%}
+.world{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.item{position:absolute;left:0;top:0;transform-style:preserve-3d;visibility:hidden}
+.ph{width:var(--w);height:var(--h);margin:calc(var(--h) / -2) 0 0 calc(var(--w) / -2);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.gate{width:min(540px,86vw);margin-left:calc(min(540px,86vw) / -2);margin-top:-200px;text-align:center;padding:28px 26px;border-radius:34px;background:rgba(10,10,10,.86);box-shadow:0 0 0 2px rgba(255,26,26,.55),0 0 90px rgba(255,26,26,.3)}
+.gate .k{font:700 11px Syncopate;letter-spacing:.3em;color:var(--red)}
+.gate .d{font:700 clamp(90px,16vw,150px)/.9 Syncopate;letter-spacing:-.06em;margin-top:10px}
+.gate .m{font:700 15px Syncopate;letter-spacing:.2em;color:#bbb}
+.gate .c{font:700 clamp(20px,3.4vw,32px)/1.05 Syncopate;margin-top:16px;text-transform:uppercase}
+.gate .v{color:var(--mute);margin-top:6px}
+.gate .t{display:inline-flex;margin-top:18px;padding:14px 22px;border-radius:99px;background:#fff;color:#000;font:700 11px Syncopate;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s}
+.gate .t:hover{background:var(--red);color:#fff}
+.hud{position:absolute;z-index:5;left:16px;right:16px;bottom:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;pointer-events:none}
+.hud .alt{font:700 clamp(28px,4vw,52px)/1 Syncopate;color:var(--red)}
+.hud .alt small{display:block;font:500 12px "Space Grotesk";letter-spacing:.3em;color:#bbb;margin-top:8px}
+.hud .bar{width:min(320px,36vw);height:6px;border-radius:3px;background:#222;overflow:hidden}
+.hud .bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--g),#fff,var(--o));transform-origin:0 50%;transform:scaleX(0)}
+.tunnel .title{position:absolute;z-index:5;top:84px;left:0;right:0;text-align:center;font:700 clamp(12px,1.6vw,18px) Syncopate;letter-spacing:.5em;color:#fff;opacity:.85;padding:0 16px}
+
+/* RÉCAP */
+.all{padding:clamp(90px,12vh,150px) 0}
+.h2{font:700 clamp(36px,7vw,110px)/.9 Syncopate;letter-spacing:-.04em;text-transform:uppercase}
+.h2 em{font-style:normal;color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:10px;margin-top:40px}
+.row{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:22px;background:var(--card);transition:background .25s,transform .25s}
+.row:hover{background:var(--red);transform:translateY(-4px)}
+.row .n{flex:0 0 auto;font:700 40px/1 Syncopate;letter-spacing:-.06em;min-width:64px}
+.row .i b{display:block;font-weight:700}
+.row .i span{font-size:13px;color:var(--mute)}
+.row:hover .i span{color:#ffd6d6}
+.row .ar{margin-left:auto;font:700 18px Syncopate}
+.past{margin-top:70px;overflow:hidden}
+.past .lab{font:700 12px Syncopate;letter-spacing:.3em;color:var(--mute);margin-bottom:16px}
+.mq{display:flex;width:max-content;gap:10px;animation:mq 70s linear infinite}
+.mq span{padding:10px 16px;border-radius:99px;background:var(--card);white-space:nowrap;font-size:14px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(90px,12vh,150px)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:36px;border-radius:40px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.vid:hover>img{transform:scale(1.05)}
+.vid .sp{position:absolute;left:50%;top:50%;width:clamp(110px,16vw,200px);aspect-ratio:1;margin:calc(clamp(110px,16vw,200px) / -2) 0 0 calc(clamp(110px,16vw,200px) / -2);border-radius:50%;background:repeating-conic-gradient(#000 0 15deg,var(--red) 15deg 30deg);animation:spin 3s linear infinite}
+.vid .sp::after{content:"";position:absolute;inset:16%;border-radius:50%;background:#000}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-40% -50%;width:clamp(34px,4vw,52px);fill:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px}
+.bk>div{border-radius:28px;padding:28px;background:var(--card);transition:transform .3s,background .3s}
+.bk>div:hover{transform:rotate(-1.5deg) scale(1.02);background:#161616}
+.bk .rg{font:700 18px/1.2 Syncopate;text-transform:uppercase;color:var(--red)}
+.bk .co{font-weight:700;margin-top:12px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:8px 13px;border-radius:99px;background:#1c1c1c;font-size:13px;transition:background .2s}
+.bk .p a:hover{background:var(--red)}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#tunnel">Fly</a><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="spiral" id="spiral"></div>
+  <div class="rings" id="rings"></div>
+  <div class="orbit" id="orbit" aria-hidden="true"></div>
+  <div class="core" id="core">
+    <h1 aria-label="LOVEU2"><b>L</b><b>O</b><b>V</b><b>E</b><b>U</b><b>2</b></h1>
+    <div class="sub">The U2 Experience</div>
+    <a class="go" href="#tunnel">Scroll into the tour ↓</a>
+  </div>
+</header>
+
+<section class="tunnel" id="tunnel">
+  <div class="stage"><div class="world" id="world"></div></div>
+  <div class="title">Fly through the tour</div>
+  <div class="hud"><div class="alt"><span id="hudN">1</span> / <span id="hudT"></span><small id="hudC"></small></div><div class="bar"><i id="hudBar"></i></div></div>
+</section>
+
+<section class="all" id="dates">
+  <div class="wrap">
+    <h2 class="h2">All <em>dates</em></h2>
+    <div class="grid" id="grid"></div>
+    <div class="past"><div class="lab" id="pastLab"></div><div class="mq" id="mq"></div></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Get <em>dizzy</em></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video">
+      <img id="vthumb" alt="" onerror="this.src='img/p00079.jpg'">
+      <div class="sp"></div><svg class="pl" viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Book <em>us</em></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── La spirale : les noms des villes tournent en orbite autour du titre ── */
+var orbit = document.getElementById('orbit'), words = [];
+var names = U.map(function (s) { return L.place(s.city).toUpperCase(); });
+var COLS = ['#1fbf5f', '#ffffff', '#ff8a00', '#ff1a1a'];
+for (var i = 0; i < 42; i++) {
+  var el = document.createElement('span');
+  el.textContent = names[i % names.length];
+  el.style.setProperty('--c', COLS[i % 4]);
+  orbit.appendChild(el); words.push(el);
+}
+function placeOrbit(t) {
+  var base = Math.max(innerWidth, innerHeight);
+  words.forEach(function (w, i) {
+    var k = i / words.length, ang = k * Math.PI * 7 + t, r = base * (.16 + .6 * Math.pow(k, 1.35));
+    w.style.setProperty('--fs', (10 + 34 * k) + 'px');
+    w.style.setProperty('--a', (.2 + .6 * k).toFixed(2));
+    w.style.transform = 'translate(' + (Math.cos(ang) * r) + 'px,' + (Math.sin(ang) * r) + 'px) rotate(' + (ang + Math.PI / 2) + 'rad)';
+  });
+}
+placeOrbit(0);
+
+/* ── Le tunnel : photos et portes de dates posées le long de l'axe z ── */
+var world = document.getElementById('world'), items = [], MOB = L.mobile();
+var GAP = MOB ? 900 : 1100;
+var PH = L.photos.slice(), pi = 0;
+U.forEach(function (s, k) {
+  var z = -(k + 1) * GAP;
+  /* quatre photos sur les parois, entre deux portes */
+  for (var j = 0; j < 4; j++) {
+    var ang = j * Math.PI / 2 + (k % 2 ? Math.PI / 4 : 0), rad = MOB ? 360 : 640;
+    var w = MOB ? 220 : 380, h = j % 2 ? w * 1.3 : w * .72;
+    var ph = document.createElement('div');
+    ph.className = 'item';
+    ph.innerHTML = '<div class="ph" style="--w:' + w + 'px;--h:' + h + 'px"><img src="img/s/' + PH[(pi++ * 7) % PH.length] + '.jpg" alt=""></div>';
+    world.appendChild(ph);
+    items.push({ el: ph, x: Math.cos(ang) * rad, y: Math.sin(ang) * rad * (MOB ? 1.3 : .6), z: z + GAP * (.3 + j * .12) });
+  }
+  var g = document.createElement('div'), p = L.fmt(s.iso, 'parts');
+  g.className = 'item';
+  g.innerHTML = '<div class="gate"><div class="k">Stop ' + (k + 1) + ' · ' + L.country(s.city) + '</div><div class="d">' + p.d + '</div><div class="m">' + p.month.toUpperCase() + ' ' + p.y + '</div><div class="c">' + L.place(s.city) + '</div><div class="v">' + s.venue + ' · 8 pm</div><a class="t" href="' + s.url + '" target="_blank" rel="noopener">Tickets →</a></div>';
+  world.appendChild(g);
+  items.push({ el: g, x: 0, y: 0, z: z, gate: k });
+});
+/* La caméra part juste avant la première porte et finit juste après la dernière */
+var START = GAP * .35, END = U.length * GAP + 120;
+document.getElementById('hudT').textContent = U.length;
+var hudN = document.getElementById('hudN'), hudC = document.getElementById('hudC'), hudBar = document.getElementById('hudBar'), lastGate = -1;
+
+/* Chaque élément se place selon la caméra, s'allume au loin et s'efface en nous dépassant */
+function fly(cam) {
+  items.forEach(function (it) {
+    var rel = it.z + cam;
+    var vis = rel < -5200 || rel > 260 ? 0 : rel < -3600 ? (rel + 5200) / 1600 : rel > 0 ? 1 - rel / 260 : 1;
+    it.el.style.opacity = vis.toFixed(3);
+    it.el.style.visibility = vis > .01 ? 'visible' : 'hidden';
+    it.el.style.pointerEvents = it.gate !== undefined && rel > -900 && rel < 120 ? 'auto' : 'none';
+    it.el.style.transform = 'translate3d(' + it.x + 'px,' + it.y + 'px,' + rel + 'px)';
+  });
+  var g = Math.max(0, Math.min(U.length - 1, Math.ceil(cam / GAP - 1.15)));
+  if (g !== lastGate) { lastGate = g; hudN.textContent = g + 1; hudC.textContent = L.place(U[g].city).toUpperCase() + ' · ' + L.fmt(U[g].iso, 'short').toUpperCase(); }
+  hudBar.style.transform = 'scaleX(' + Math.min(1, (cam - START) / (END - START)) + ')';
+}
+fly(START);
+
+/* ── Récap ── */
+document.getElementById('grid').innerHTML = U.map(function (s) {
+  var p = L.fmt(s.iso, 'parts');
+  return '<a class="row" href="' + s.url + '" target="_blank" rel="noopener"><div class="n">' + p.d + '</div><div class="i"><b>' + L.place(s.city) + '</b><span>' + p.m + ' ' + p.y + ' · ' + s.venue + '</span></div><div class="ar">→</div></a>';
+}).join('');
+document.getElementById('pastLab').textContent = L.past.length + ' shows already played';
+var mq = L.past.map(function (s) { return '<span>' + L.place(s.city) + ' · ' + L.fmt(s.iso, 'short') + ', ' + s.iso.slice(0, 4) + '</span>'; }).join('');
+document.getElementById('mq').innerHTML = mq + mq;
+
+/* Vidéo + booking */
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (RM) {
+  hudBar.style.transform = 'scaleX(1)';
+} else {
+  /* La spirale tourne en continu, les villes orbitent ; le titre entre en tournoyant */
+  gsap.to('#spiral', { rotation: 360, duration: 24, ease: 'none', repeat: -1 });
+  var o = { t: 0 }; gsap.to(o, { t: Math.PI * 2, duration: 40, ease: 'none', repeat: -1, onUpdate: function () { placeOrbit(o.t); } });
+  gsap.from('.hero h1 b', { rotation: function (i) { return (i % 2 ? 1 : -1) * 540; }, scale: 0, opacity: 0, duration: 1.4, ease: 'expo.out', stagger: .07, delay: .2 });
+  gsap.from('.hero .sub, .hero .go', { y: 30, opacity: 0, duration: .9, ease: 'expo.out', stagger: .12, delay: 1 });
+  gsap.fromTo('#rings', { scale: .6 }, { scale: 1.2, duration: 3, ease: 'sine.inOut', repeat: -1, yoyo: true });
+
+  /* Plongée dans la spirale : tout grossit depuis le centre de l'écran (ancre immobile), sur toute la sortie du héros */
+  gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+    .to('#spiral', { scale: 3.2, ease: 'none' }, 0)
+    .to('#orbit', { scale: 2.6, ease: 'none' }, 0)
+    .to('#core', { scale: 2.2, opacity: 0, ease: 'power1.in' }, 0);
+
+  /* Le vol : la caméra avance pendant toute la course épinglée, aucune course morte */
+  var cam = { z: START };
+  gsap.to(cam, { z: END, ease: 'none', onUpdate: function () { fly(cam.z); },
+    scrollTrigger: { trigger: '#tunnel', start: 'top top', end: '+=' + (U.length * 60) + '%', scrub: .7, pin: true } });
+
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { scale: .4, rotation: -8, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.row', { y: 60, opacity: 0, rotation: function (i) { return (i % 3 - 1) * 4; }, duration: .7, ease: 'back.out(1.6)', stagger: .03, scrollTrigger: { trigger: '#grid', start: 'top 85%' } });
+  gsap.fromTo('.vid', { rotation: -6, scale: .8 }, { rotation: 0, scale: 1, ease: 'none', scrollTrigger: { trigger: '.vid', start: 'top bottom', end: 'center 55%', scrub: true } });
+  gsap.from('.bk>div', { y: 90, rotation: function (i) { return i % 2 ? 6 : -6; }, opacity: 0, duration: .9, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+addEventListener('resize', function () { placeOrbit(0); });
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

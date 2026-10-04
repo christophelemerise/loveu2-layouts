@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Encore</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050505;--ink:#f5f3ee;--mute:#8d8a84;--g:#1fc265;--o:#ff8a1a;--card:#111}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:700 13px/1 "Instrument Sans";padding:12px 16px;border-radius:99px;background:rgba(17,17,17,.6);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:#fff;color:#000}
+.nav .r a.cta{background:#fff;color:#000}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO : la fumée de scène, les lettres qui fuient le curseur */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:grid;place-items:center}
+.hero .ph{position:absolute;inset:-4%;overflow:hidden}
+.hero .ph img{width:100%;height:100%;object-fit:cover;filter:url(#haze) saturate(1.2) brightness(.55)}
+.hero .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,transparent,rgba(5,5,5,.85) 75%)}
+.title{position:relative;z-index:2;display:flex;font:400 clamp(110px,27vw,460px)/.8 "Bebas Neue";letter-spacing:-.01em;user-select:none}
+.title span{display:inline-block;will-change:transform}
+.title span:nth-child(-n+2){color:var(--g)}.title span:nth-child(n+5){color:var(--o)}
+.hero .sub{position:absolute;z-index:2;left:0;right:0;bottom:12%;text-align:center;font:600 clamp(13px,1.4vw,17px) "Instrument Sans";letter-spacing:.5em;text-transform:uppercase;padding:0 16px}
+.hero .cue{position:absolute;z-index:2;left:0;right:0;bottom:5%;text-align:center;font:400 22px "Bebas Neue";letter-spacing:.3em;color:var(--mute)}
+
+/* LE SPECTACLE DE FIN ÉPINGLÉ */
+.show{position:relative;height:100svh;overflow:hidden;background:#000}
+.bgs{position:absolute;inset:0}
+.bgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;filter:brightness(.42) saturate(1.2)}
+.wipe{position:absolute;inset:0;z-index:2;pointer-events:none;display:flex}
+.wipe i{flex:1;transform:scaleY(0)}
+.stagewords{position:absolute;inset:0;z-index:3;display:grid;place-items:center;perspective:900px}
+.wd{position:absolute;left:0;right:0;top:50%;translate:0 -50%;text-align:center;padding:0 12px;visibility:hidden;transform-style:preserve-3d}
+.wd .dt{font:400 clamp(26px,3.4vw,46px)/1 "Bebas Neue";letter-spacing:.24em;color:var(--o)}
+.wd .city{display:block;font:400 clamp(70px,15vw,250px)/.86 "Bebas Neue";white-space:nowrap;transform-style:preserve-3d}
+.wd .city.long{font-size:clamp(44px,9vw,165px)}
+.wd .city span{display:inline-block;will-change:transform,opacity}
+.wd .vn{font:600 clamp(14px,1.4vw,18px) "Instrument Sans";color:#d8d5cf;margin-top:10px}
+.wd .tk{display:inline-flex;margin-top:22px;padding:16px 26px;border-radius:99px;background:#fff;color:#000;font:700 14px "Instrument Sans";transition:background .2s}
+.wd .tk:hover{background:var(--o)}
+.counter{position:absolute;z-index:4;left:16px;bottom:18px;font:400 clamp(40px,5vw,70px)/1 "Bebas Neue";color:#fff}
+.counter small{font-size:.45em;color:var(--mute);margin-left:4px}
+.prog{position:absolute;z-index:4;right:16px;bottom:30px;width:min(260px,40vw);height:5px;border-radius:3px;background:#222;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--g),#fff,var(--o));transform-origin:0;transform:scaleX(0)}
+
+/* SETLIST */
+.setlist{padding:clamp(90px,12vh,150px) 0}
+.h2{font:400 clamp(70px,13vw,210px)/.82 "Bebas Neue"}
+.h2 span{color:var(--o)}.h2 em{font-style:normal;color:var(--g)}
+.sl{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:8px;margin-top:40px}
+.it{position:relative;display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:18px;background:var(--card);overflow:hidden;isolation:isolate;transition:color .3s}
+.it::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--g),#fff,var(--o));transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.it:hover::before{transform:scaleX(1)}
+.it:hover{color:#000}
+.it .n{font:400 46px/1 "Bebas Neue";min-width:52px}
+.it b{display:block;font:400 26px/1 "Bebas Neue";letter-spacing:.02em}
+.it span{font-size:12px;color:var(--mute)}
+.it:hover span{color:#222}
+.it .ar{margin-left:auto;font:400 26px "Bebas Neue"}
+.encore{margin-top:70px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:baseline}
+.encore .k{font:400 clamp(44px,6vw,80px)/1 "Bebas Neue";color:var(--g);margin-right:10px}
+.encore span.c{font:400 clamp(22px,2.4vw,32px)/1 "Bebas Neue";color:#6a675f;transition:color .2s}
+.encore span.c:hover{color:#fff}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(90px,12vh,150px)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:36px;border-radius:36px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.vid:hover>img{transform:scale(1.05)}
+.vid .pl{position:absolute;inset:0;display:grid;place-items:center;font:400 clamp(70px,13vw,200px)/1 "Bebas Neue";color:transparent;-webkit-text-stroke:2px #fff;transition:color .3s}
+.vid:hover .pl{color:#fff}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px}
+.bk>div{border-radius:24px;padding:26px;background:var(--card);transition:transform .3s}
+.bk>div:hover{transform:translateY(-6px)}
+.bk .rg{font:400 40px/1 "Bebas Neue";color:var(--o)}
+.bk .co{font-weight:700;margin-top:8px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:8px 13px;border-radius:99px;background:#1d1d1d;font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:#fff;color:#000}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="haze" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence id="turb" type="fractalNoise" baseFrequency="0.006 0.012" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="34" xChannelSelector="R" yChannelSelector="G"/></filter>
+</svg>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#setlist">Setlist</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#setlist">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="ph"><img src="img/p00079.jpg" alt=""></div>
+  <h1 class="title" id="title" aria-label="LOVEU2"><span>L</span><span>O</span><span>V</span><span>E</span><span>U</span><span>2</span></h1>
+  <div class="sub">The U2 Experience · Live</div>
+  <div class="cue">Encore ↓</div>
+</header>
+
+<section class="show" id="show">
+  <div class="bgs" id="bgs"></div>
+  <div class="wipe" id="wipe"><i style="background:var(--g)"></i><i style="background:#fff"></i><i style="background:var(--o)"></i></div>
+  <div class="stagewords" id="words"></div>
+  <div class="counter"><span id="cn">1</span><small>/ <span id="ct"></span></small></div>
+  <div class="prog"><i id="pg"></i></div>
+</section>
+
+<section class="setlist" id="setlist">
+  <div class="wrap">
+    <h2 class="h2">The <span>set</span><em>list</em></h2>
+    <div class="sl" id="sl"></div>
+    <div class="encore" id="enc"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Play it <span>loud</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00095.jpg'"><div class="pl">▶ Play</div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Book <em>an</em> <span>encore</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM, MOB = L.mobile();
+gsap.registerPlugin(ScrollTrigger);
+
+/* ═══ Héros : la fumée ondule (pas sur téléphone, trop coûteux), les lettres fuient le pointeur ═══ */
+var turb = document.getElementById('turb'), heroOn = true, hero = document.getElementById('top');
+new IntersectionObserver(function (e) { heroOn = e[0].isIntersecting; }).observe(hero);
+if (MOB || RM) document.querySelector('.hero .ph img').style.filter = 'saturate(1.2) brightness(.55)';
+var letters = Array.from(document.querySelectorAll('#title span')), ptr = { x: -9999, y: -9999 }, introDone = RM;
+hero.addEventListener('pointermove', function (e) { ptr.x = e.clientX; ptr.y = e.clientY; });
+hero.addEventListener('pointerleave', function () { ptr.x = ptr.y = -9999; });
+var off = letters.map(function () { return { x: 0, y: 0, r: 0 }; }), home = [];
+function measure() { letters.forEach(function (l, i) { l.style.transform = 'none'; var r = l.getBoundingClientRect(); home[i] = { x: r.left + r.width / 2, y: r.top + r.height / 2 + scrollY }; }); }
+gsap.ticker.add(function (t) {
+  if (!heroOn || !introDone) return;
+  if (!MOB) turb.setAttribute('baseFrequency', (0.006 + Math.sin(t * .4) * .002).toFixed(4) + ' ' + (0.012 + Math.cos(t * .3) * .004).toFixed(4));
+  letters.forEach(function (l, i) {
+    var cx = home[i].x, cy = home[i].y - scrollY;
+    var dx = cx - ptr.x, dy = cy - ptr.y, d = Math.hypot(dx, dy), R = Math.max(220, innerWidth * .16);
+    var push = d < R ? (1 - d / R) * 90 : 0;
+    var tx = d ? dx / d * push : 0, ty = (d ? dy / d * push : 0) + Math.sin(t * 1.6 + i * .8) * 8;
+    off[i].x += (tx - off[i].x) * .14; off[i].y += (ty - off[i].y) * .14; off[i].r += ((d < R ? dx / R * -14 : 0) - off[i].r) * .14;
+    l.style.transform = 'translate(' + off[i].x.toFixed(1) + 'px,' + off[i].y.toFixed(1) + 'px) rotate(' + off[i].r.toFixed(2) + 'deg)';
+  });
+});
+
+/* ═══ Le spectacle de fin : chaque ville s'assemble, puis s'envole vers nous ═══ */
+var PH = ['p00079','p00065','p00051','p00013','p00098','p00024','p00011','p00062','p00048','p00081','p00083','p00093','p00095','p00096','p00050','p00064','p00040','p00005','p00023','p00012','p00097','p00006'];
+var bgs = document.getElementById('bgs'), wordsEl = document.getElementById('words');
+bgs.innerHTML = U.map(function (s, i) { return '<img src="img/' + (MOB ? 's/' : '') + PH[i % PH.length] + '.jpg" alt="">'; }).join('');
+var bgImgs = bgs.querySelectorAll('img');
+function rnd(i, k) { var x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); }
+var W = U.map(function (s, k) {
+  var p = L.fmt(s.iso, 'parts'), nm = L.place(s.city).toUpperCase();
+  var el = document.createElement('div');
+  el.className = 'wd';
+  el.innerHTML = '<div class="dt">' + p.month.toUpperCase() + ' ' + p.d + ' · ' + p.y + '</div><span class="city' + (nm.length > 10 ? ' long' : '') + '">' + nm.split('').map(function (c) { return '<span>' + (c === ' ' ? '&nbsp;' : c) + '</span>'; }).join('') + '</span><div class="vn">' + s.venue + ' · ' + s.city + '</div><a class="tk" href="' + s.url + '" target="_blank" rel="noopener">Get tickets →</a>';
+  wordsEl.appendChild(el);
+  var spans = Array.from(el.querySelectorAll('.city span'));
+  var from = spans.map(function (_, i) { return { x: (rnd(i, k) - .5) * innerWidth * 1.2, y: (rnd(i + 9, k) - .5) * innerHeight, z: -600 - rnd(i + 3, k) * 800, r: (rnd(i + 5, k) - .5) * 180 }; });
+  var to = spans.map(function (_, i) { return { x: (rnd(i + 2, k) - .5) * innerWidth * .6, y: (rnd(i + 7, k) - .5) * innerHeight * .4, z: 500 + rnd(i + 4, k) * 300, r: (rnd(i + 6, k) - .5) * 90 }; });
+  return { el: el, spans: spans, from: from, to: to, side: [el.querySelector('.dt'), el.querySelector('.vn'), el.querySelector('.tk')] };
+});
+document.getElementById('ct').textContent = U.length;
+function ss(a, b, x) { var t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+var cn = document.getElementById('cn'), pg = document.getElementById('pg'), wipe = document.querySelectorAll('#wipe i'), lastK = -1;
+/* f va de 0 à N : la ville k occupe [k, k+1] — elle arrive, se pose, puis part ; aucune portion immobile */
+function stage(f) {
+  var k = Math.max(0, Math.min(U.length - 1, Math.floor(f)));
+  W.forEach(function (w, i) {
+    var t = f - i;
+    if (t < -.05 || t > 1.05) { if (w.on) { w.el.style.visibility = 'hidden'; w.on = false; } return; }
+    w.on = true; w.el.style.visibility = 'visible';
+    var a = ss(0, .42, t), b = ss(.64, 1, t);
+    w.spans.forEach(function (s, j) {
+      var F = w.from[j], T = w.to[j], st = Math.min(1, Math.max(0, a * 1.4 - j * .04));
+      var x = F.x * (1 - st) + T.x * b, y = F.y * (1 - st) + T.y * b, z = F.z * (1 - st) + T.z * b, r = F.r * (1 - st) + T.r * b;
+      s.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,' + z.toFixed(1) + 'px) rotate(' + r.toFixed(1) + 'deg)';
+      s.style.opacity = (Math.min(1, st * 1.5) * (1 - b)).toFixed(3);
+    });
+    var sideA = ss(.3, .5, t) * (1 - ss(.64, .8, t));
+    w.side.forEach(function (el, j) { el.style.opacity = sideA.toFixed(3); el.style.transform = 'translateY(' + ((1 - sideA) * (j ? 24 : -24)).toFixed(1) + 'px)'; });
+    w.side[2].style.pointerEvents = sideA > .6 ? 'auto' : 'none';
+  });
+  bgImgs.forEach(function (im, i) {
+    var t = f - i, o = t < -.15 || t > 1.15 ? 0 : Math.min(ss(-.15, .15, t), 1 - ss(.85, 1.15, t));
+    im.style.opacity = o.toFixed(3);
+    if (o > 0) im.style.transform = 'scale(' + (1.2 - .2 * Math.max(0, Math.min(1, t))).toFixed(4) + ')';
+  });
+  /* volet tricolore au passage d'une ville à la suivante */
+  var fr = f - Math.floor(f), wv = f > 1 && fr < .035 ? 1 - fr / .035 : fr > .965 && f < U.length - 1 ? (fr - .965) / .035 : 0;
+  wipe.forEach(function (w, i) { w.style.transform = 'scaleY(' + Math.max(0, Math.min(1, wv * 1.4 - i * .2)).toFixed(3) + ')'; w.style.transformOrigin = fr > .5 ? 'bottom' : 'top'; });
+  if (k !== lastK) { lastK = k; cn.textContent = k + 1; }
+  pg.style.transform = 'scaleX(' + (f / U.length).toFixed(4) + ')';
+}
+stage(RM ? .5 : .12);
+
+/* ═══ Setlist ═══ */
+document.getElementById('sl').innerHTML = U.map(function (s) {
+  var p = L.fmt(s.iso, 'parts');
+  return '<a class="it" href="' + s.url + '" target="_blank" rel="noopener"><div class="n">' + p.d + '</div><div><b>' + L.place(s.city) + '</b><span>' + p.m + ' ' + p.y + ' · ' + s.venue + '</span></div><div class="ar">→</div></a>';
+}).join('');
+document.getElementById('enc').innerHTML = '<span class="k">' + L.past.length + ' shows already played</span>' + L.pastCities().map(function (s) { return '<span class="c">' + L.place(s.city) + '</span>'; }).join('');
+
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (RM) { measure(); }
+else {
+  /* Entrée : chaque lettre tombe du plafond et rebondit ; ensuite seulement, elles réagissent au pointeur */
+  gsap.from('#title span', { yPercent: -150, rotation: function (i) { return (i % 2 ? 1 : -1) * 30; }, opacity: 0, duration: 1.2, ease: 'bounce.out', stagger: .09, delay: .2,
+    onComplete: function () { measure(); introDone = true; } });
+  gsap.from('.hero .sub, .hero .cue', { opacity: 0, y: 30, duration: 1, ease: 'expo.out', stagger: .15, delay: 1 });
+  gsap.to('.hero .ph', { scale: 1.15, yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  var sh = { f: .12 };
+  gsap.to(sh, { f: U.length - .02, ease: 'none', onUpdate: function () { stage(sh.f); },
+    scrollTrigger: { trigger: '#show', start: 'top top', end: '+=' + (U.length * 45) + '%', scrub: .6, pin: true } });
+
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { yPercent: 50, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.it', { y: 50, opacity: 0, duration: .6, ease: 'expo.out', stagger: .025, scrollTrigger: { trigger: '#sl', start: 'top 85%' } });
+  gsap.from('.encore span.c', { y: 30, opacity: 0, duration: .5, ease: 'back.out(2)', stagger: .03, scrollTrigger: { trigger: '#enc', start: 'top 90%' } });
+  gsap.fromTo('.vid', { clipPath: 'inset(20% 30% round 36px)' }, { clipPath: 'inset(0% 0% round 36px)', ease: 'none', scrollTrigger: { trigger: '.vid', start: 'top bottom', end: 'center 55%', scrub: true } });
+  gsap.from('.bk>div', { y: 90, opacity: 0, duration: .9, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+addEventListener('resize', function () { if (introDone) measure(); });
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>
