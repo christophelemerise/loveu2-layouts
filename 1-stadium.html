@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Stadium</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#169b47;--w:#f7f7f2;--o:#ff8200;--bg:#050506;--ink:#f7f7f2;--mute:#9a9aa3;--card:#111114}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
+.nav img{height:28px}
+.nav .links{display:flex;gap:6px}
+.nav .links a{font:800 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border-radius:99px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);transition:background .25s,color .25s}
+.nav .links a:hover{background:var(--w);color:#000}
+.nav .links a.cta{background:var(--o);color:#000}
+@media(max-width:700px){.nav .links a:not(.cta){display:none}}
+
+/* HERO */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:grid;place-items:center}
+.hero .bg{position:absolute;inset:-6%;background:url(img/p00065.jpg) center/cover;filter:saturate(1.2) brightness(.45)}
+.beams{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen}
+.beam{position:absolute;bottom:-10%;width:34vmax;height:140vh;transform-origin:50% 100%;background:linear-gradient(to top,rgba(255,255,255,.55),rgba(255,255,255,0) 75%);clip-path:polygon(46% 100%,54% 100%,100% 0,0 0);filter:blur(6px);opacity:0}
+.beam.g{background:linear-gradient(to top,rgba(22,155,71,.85),rgba(22,155,71,0) 75%)}
+.beam.o{background:linear-gradient(to top,rgba(255,130,0,.85),rgba(255,130,0,0) 75%)}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.title{position:relative;z-index:2;display:flex;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(88px,23vw,380px);line-height:.82;letter-spacing:-.01em;user-select:none}
+.title span{display:inline-block;will-change:transform}
+.title .c1{color:var(--g)}.title .c2{color:var(--w)}.title .c3{color:var(--o)}
+.sub{position:absolute;z-index:2;bottom:clamp(90px,14vh,150px);left:0;right:0;text-align:center;font:800 clamp(13px,1.6vw,18px)/1.4 Inter;letter-spacing:.5em;text-transform:uppercase;padding-inline:16px}
+.scrollhint{position:absolute;bottom:28px;left:50%;translate:-50% 0;z-index:2;width:26px;height:42px;border:2px solid rgba(255,255,255,.6);border-radius:20px}
+.scrollhint::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;border-radius:2px;background:#fff;translate:-50% 0;animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(14px);opacity:0}}
+
+/* NEXT SHOW STRIP */
+.next{position:relative;z-index:3;background:var(--o);color:#000}
+.next .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:22px 0}
+.next .lbl{font:800 12px Inter;letter-spacing:.2em;text-transform:uppercase}
+.next .what{font:400 clamp(26px,3.6vw,44px)/1 Anton,Impact,sans-serif;text-transform:uppercase}
+.count{display:flex;gap:18px}
+.count div{text-align:center;min-width:56px}
+.count b{display:block;font:400 clamp(34px,4.5vw,58px)/1 Anton,Impact,sans-serif;font-variant-numeric:tabular-nums}
+.count small{font:800 10px Inter;letter-spacing:.2em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;font:800 13px/1 Inter;letter-spacing:.14em;text-transform:uppercase;padding:16px 24px;border-radius:99px;background:#000;color:#fff;transition:transform .2s;white-space:nowrap}
+.btn:hover{transform:scale(1.05)}
+
+/* ZOOM PIN */
+.zoom{position:relative;height:100svh;overflow:hidden;display:grid;place-items:center}
+.zoom .frame{position:absolute;inset:0;overflow:hidden;will-change:clip-path}
+.zoom .frame img{width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
+.zoom .copy{position:relative;z-index:2;text-align:center;font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(52px,11vw,170px);line-height:.9;pointer-events:none;text-shadow:0 6px 40px rgba(0,0,0,.6);transform-origin:50% 50%}
+.zoom .copy em{font-style:normal;color:var(--o)}
+.zoom .copy .l2{color:var(--w)}
+
+/* DATES */
+section{position:relative}
+.sec-h{font:400 clamp(60px,12vw,180px)/.85 Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:-.01em}
+.sec-h .o{color:var(--o)}
+.dates{padding:clamp(80px,12vh,140px) 0}
+.dates .head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:40px}
+.legs{display:flex;gap:8px;flex-wrap:wrap}
+.legs button{font:800 12px Inter;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border-radius:99px;border:2px solid #2a2a30;background:none;color:var(--ink);cursor:pointer;transition:all .2s}
+.legs button.on,.legs button:hover{background:var(--w);color:#000;border-color:var(--w)}
+.list{display:grid;gap:10px}
+.row{position:relative;display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:24px;padding:20px 24px;border-radius:22px;background:var(--card);overflow:hidden;isolation:isolate}
+.row::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--img) center/cover;opacity:0;transform:scale(1.15);transition:opacity .45s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.row::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.35));opacity:0;transition:opacity .45s}
+.row:hover::before{opacity:1;transform:scale(1)}.row:hover::after{opacity:1}
+.d{font-family:Anton,Impact,sans-serif;text-transform:uppercase;line-height:.9}
+.d .m{font-size:18px;color:var(--o)}.d .n{font-size:56px}
+.city{font:400 clamp(28px,4vw,52px)/1 Anton,Impact,sans-serif;text-transform:uppercase}
+.venue{color:var(--mute);font-size:15px;margin-top:6px}
+.row:hover .venue{color:#ddd}
+.flag{display:inline-block;font:800 11px Inter;letter-spacing:.1em;padding:5px 9px;border-radius:99px;background:#24242a;vertical-align:middle;margin-left:10px;translate:0 -6px}
+.row .btn{background:var(--w);color:#000}
+.row:hover .btn{background:var(--o)}
+@media(max-width:720px){.row{grid-template-columns:70px 1fr;gap:6px 16px;padding:18px}.row .btn{grid-column:1/-1;justify-content:center}.d .n{font-size:44px}}
+.past-t{margin-top:60px;font:800 13px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.past{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.past span{font-size:13px;padding:9px 14px;border-radius:99px;background:#121216;color:#c9c9cf}
+.past span b{color:var(--ink);font-weight:800}
+
+/* GALLERY HORIZONTAL */
+.hgal{height:100svh;overflow:hidden;display:flex;align-items:center}
+.track{display:flex;gap:18px;padding-left:16px;will-change:transform}
+.track figure{flex:0 0 auto;height:min(62vh,560px);border-radius:28px;overflow:hidden}
+.track figure img{height:100%;width:auto;object-fit:cover;transform:scale(1.2)}
+.track .intro{flex:0 0 min(80vw,620px);display:flex;align-items:center}
+
+/* VIDEO */
+.video{padding:clamp(80px,12vh,140px) 0}
+.vid{position:relative;aspect-ratio:16/9;border-radius:32px;overflow:hidden;background:#000;cursor:pointer;margin-top:40px}
+.vid img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.vid:hover img{transform:scale(1.05)}
+.play{position:absolute;left:50%;top:50%;translate:-50% -50%;width:clamp(90px,12vw,150px);aspect-ratio:1;border-radius:50%;background:var(--o);display:grid;place-items:center}
+.play::before,.play::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid var(--o);animation:ring 2s infinite}
+.play::after{animation-delay:1s}
+@keyframes ring{to{transform:scale(1.8);opacity:0}}
+.play svg{width:34%;fill:#000;margin-left:8%}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* BOOKING */
+.booking{padding:clamp(80px,12vh,140px) 0}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:40px}
+.bcard{background:var(--card);border-radius:26px;padding:28px;transition:transform .3s,background .3s}
+.bcard:hover{transform:translateY(-6px);background:#17171c}
+.bcard .reg{font:400 34px/1 Anton,Impact,sans-serif;text-transform:uppercase;color:var(--o)}
+.bcard .co{font-weight:800;margin-top:14px}
+.bcard .ad{color:var(--mute);font-size:14px;margin-top:4px}
+.bcard .p{margin-top:18px;font-size:14px;line-height:1.6}
+.bcard .p a{display:inline-flex;margin:6px 6px 0 0;padding:8px 12px;border-radius:99px;background:#222228;font-size:13px;transition:background .2s}
+.bcard .p a:hover{background:var(--g)}
+
+/* FOOTER MARQUEE */
+footer{padding:60px 0 40px;overflow:hidden}
+.marq{display:flex;width:max-content;white-space:nowrap;font:400 clamp(90px,18vw,260px)/1 Anton,Impact,sans-serif;animation:marq 22s linear infinite}
+.marq span{padding-right:.3em}
+.marq span:nth-child(3n+1){color:var(--g)}.marq span:nth-child(3n+3){color:var(--o)}
+@keyframes marq{to{transform:translateX(-50%)}}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--mute);font-size:13px;margin-top:30px}
+.foot a:hover{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="links"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bg"></div>
+  <div class="beams" id="beams"></div>
+  <h1 class="title" aria-label="LOVEU2">
+    <span class="c1">L</span><span class="c1">O</span><span class="c2">V</span><span class="c2">E</span><span class="c3">U</span><span class="c3">2</span>
+  </h1>
+  <p class="sub">The U2 Experience · Live</p>
+  <div class="flash" id="flash"></div>
+  <div class="scrollhint" aria-hidden="true"></div>
+</header>
+
+<div class="next">
+  <div class="wrap">
+    <div><div class="lbl">Next show</div><div class="what" id="nextWhat"></div></div>
+    <div class="count" id="count"></div>
+    <a class="btn" id="nextBtn" target="_blank" rel="noopener">Buy tickets →</a>
+  </div>
+</div>
+
+<section class="zoom" id="zoom">
+  <div class="frame" id="zframe"><img src="img/p00096.jpg" alt="LOVEU2 on stage with LOVE light letters"></div>
+  <div class="copy" id="zcopy"><div><em id="nShows">22</em> nights</div><div class="l2">3 countries</div><div>1 experience</div></div>
+</section>
+
+<section class="dates" id="dates">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="sec-h">Tour <span class="o">dates</span></h2>
+      <div class="legs" id="legs"></div>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="past-t" id="pastT"></div>
+    <div class="past" id="past"></div>
+  </div>
+</section>
+
+<section class="hgal" id="hgal">
+  <div class="track" id="track">
+    <div class="intro"><h2 class="sec-h">Under the <span class="o">lights</span></h2></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="sec-h">Watch <span class="o">live</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video">
+      <img src="https://i.ytimg.com/vi/BHoRWwBmxrQ/maxresdefault.jpg" alt="" onerror="this.src='img/p00095.jpg'">
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="wrap">
+    <h2 class="sec-h">Book the <span class="o">band</span></h2>
+    <div class="bgrid" id="bgrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="marq" aria-hidden="true" id="marq"></div>
+  <div class="wrap foot"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div>
+</footer>
+
+<script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var PHOTOS = ['p00065','p00048','p00051','p00062','p00081','p00083','p00093','p00095','p00024','p00040','p00064','p00050'];
+gsap.registerPlugin(ScrollTrigger);
+
+/* Prochain spectacle + compte à rebours, sans zéro initial */
+var next = L.upcoming.find(function (s) { return new Date(s.iso + 'T20:00:00') > new Date(); }) || L.upcoming[0];
+document.getElementById('nextWhat').textContent = L.fmt(next.iso, 'short') + ' · ' + L.place(next.city);
+document.getElementById('nextBtn').href = next.url;
+function tick() {
+  var ms = Math.max(0, new Date(next.iso + 'T20:00:00') - new Date());
+  var d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, s = Math.floor(ms / 1e3) % 60;
+  document.getElementById('count').innerHTML = [[d, 'days'], [h, 'hrs'], [m, 'min'], [s, 'sec']].map(function (x) { return '<div><b>' + x[0] + '</b><small>' + x[1] + '</small></div>'; }).join('');
+}
+tick(); setInterval(tick, 1000);
+
+/* Dates */
+var countries = { CA: 'Canada', CH: 'Switzerland', FR: 'France' };
+var legs = ['All'].concat(Array.from(new Set(L.upcoming.map(function (s) { return L.country(s.city); }))));
+document.getElementById('nShows').textContent = L.upcoming.length;
+document.getElementById('legs').innerHTML = legs.map(function (k, i) { return '<button class="' + (i ? '' : 'on') + '" data-k="' + k + '">' + (countries[k] || k) + '</button>'; }).join('');
+function renderList(k, animate) {
+  document.getElementById('list').innerHTML = L.upcoming.filter(function (s) { return k === 'All' || L.country(s.city) === k; }).map(function (s, i) {
+    var p = L.fmt(s.iso, 'parts');
+    return '<a class="row" href="' + s.url + '" target="_blank" rel="noopener" style="--img:url(img/' + PHOTOS[i % PHOTOS.length] + '.jpg)">' +
+      '<div class="d"><div class="m">' + p.m + ' ' + p.y + '</div><div class="n">' + p.d + '</div></div>' +
+      '<div><div class="city">' + L.place(s.city) + '<span class="flag">' + L.country(s.city) + '</span></div><div class="venue">' + s.venue + ' · 8 pm</div></div>' +
+      '<span class="btn">Tickets →</span></a>';
+  }).join('');
+  if (RM) return;
+  if (animate) gsap.from('#list .row', { x: -60, opacity: 0, duration: .5, stagger: .04, ease: 'power3.out' });
+  else gsap.from('#list .row', { y: 60, opacity: 0, duration: .7, stagger: .05, ease: 'power3.out', scrollTrigger: { trigger: '#list', start: 'top 85%', once: true } });
+}
+document.getElementById('legs').addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  document.querySelectorAll('#legs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+  renderList(b.dataset.k, true);
+  ScrollTrigger.refresh();
+});
+document.getElementById('pastT').textContent = L.past.length + ' shows already played';
+document.getElementById('past').innerHTML = L.past.map(function (s) { return '<span><b>' + L.place(s.city) + '</b> · ' + L.fmt(s.iso, 'short') + ', ' + s.iso.slice(0, 4) + '</span>'; }).join('');
+
+/* Galerie */
+document.getElementById('track').insertAdjacentHTML('beforeend', ['p00005', 'p00023', 'p00050', 'p00098', 'p00087', 'p00026', 'p00064', 'p00099', 'p00012'].map(function (p) { return '<figure><img src="img/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join(''));
+
+/* Booking */
+document.getElementById('bgrid').innerHTML = L.booking.map(function (b) {
+  return '<div class="bcard"><div class="reg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' +
+    b.people.map(function (p) { return '<div class="p"><b>' + p.name + '</b><br><a href="tel:' + p.phone.replace(/[^+\d]/g, '') + '">' + p.phone + '</a><a href="mailto:' + p.email + '">Email</a></div>'; }).join('') + '</div>';
+}).join('');
+
+/* Vidéo : la vignette ne charge YouTube qu'au clic */
+var vid = document.getElementById('vid');
+function play() { vid.innerHTML = '<iframe src="https://www.youtube.com/embed/' + L.video + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; }
+vid.addEventListener('click', play); vid.addEventListener('keydown', function (e) { if (e.key === 'Enter') play(); });
+
+document.getElementById('marq').innerHTML = new Array(13).join('<span>LOVEU2</span>');
+
+/* Faisceaux */
+var beams = document.getElementById('beams'), cols = ['g', '', 'o', '', 'g', 'o'];
+cols.forEach(function (c, i) { var b = document.createElement('div'); b.className = 'beam ' + c; b.style.left = (i / (cols.length - 1) * 100 - 17) + '%'; beams.appendChild(b); });
+
+renderList('All');
+
+if (RM) { gsap.set('.beam', { opacity: .7 }); }
+else {
+  /* Intro : flash, les lettres tombent une à une, la scène tremble, les faisceaux s'allument */
+  var tl = gsap.timeline({ delay: .2 });
+  tl.to('#flash', { opacity: .9, duration: .05 }).to('#flash', { opacity: 0, duration: .6 })
+    .from('.hero .bg', { scale: 1.4, duration: 2.2, ease: 'expo.out' }, 0)
+    .from('.title span', { yPercent: -160, rotation: function (i) { return i % 2 ? 8 : -8; }, opacity: 0, duration: .55, ease: 'back.out(2.2)', stagger: .11 }, .15)
+    .to('.title', { keyframes: [{ x: -10, y: 6 }, { x: 8, y: -4 }, { x: -4, y: 2 }, { x: 0, y: 0 }], duration: .3 }, .95)
+    .to('.beam', { opacity: 1, duration: .4, stagger: .06 }, .9)
+    .from('.sub', { letterSpacing: '1.4em', opacity: 0, duration: 1.2, ease: 'power3.out' }, 1);
+  gsap.utils.toArray('.beam').forEach(function (b, i) {
+    gsap.fromTo(b, { rotation: -28 + i * 4 }, { rotation: 28 - i * 4, duration: 2.6 + i * .35, ease: 'sine.inOut', repeat: -1, yoyo: true });
+  });
+  /* Pulsation des lettres, comme un battement */
+  gsap.timeline({ repeat: -1, delay: 2.4, repeatDelay: .2 }).to('.title span', { scale: 1.06, duration: .12, ease: 'power2.out', stagger: .06 }).to('.title span', { scale: 1, duration: .3, ease: 'power2.in', stagger: .06 }, .12);
+  /* Sortie du héros au défilement */
+  gsap.to('.title', { scale: .7, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.to('.hero .bg', { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* Le zoom : la photo s'ouvre depuis le centre (ancre immobile) pendant que le texte grossit — chaque palier change l'image, aucune course morte */
+  gsap.timeline({ scrollTrigger: { trigger: '#zoom', start: 'top top', end: '+=150%', scrub: .6, pin: true } })
+    .fromTo('#zframe', { clipPath: 'inset(38% 36% 38% 36% round 40px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none', duration: 1 }, 0)
+    .fromTo('#zframe img', { scale: 1.5 }, { scale: 1, ease: 'none', duration: 1 }, 0)
+    .fromTo('#zcopy', { scale: .55 }, { scale: 1.1, ease: 'none', duration: 1 }, 0)
+    .fromTo('#zcopy div', { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: .2, duration: .4 }, 0);
+
+  /* Galerie horizontale pilotée par le défilement */
+  var track = document.getElementById('track');
+  var dist = function () { return Math.max(0, track.scrollWidth - innerWidth + 16); };
+  gsap.timeline({ scrollTrigger: { trigger: '#hgal', start: 'top top', end: function () { return '+=' + dist(); }, scrub: .5, pin: true, invalidateOnRefresh: true } })
+    .to(track, { x: function () { return -dist(); }, ease: 'none' }, 0)
+    .to('.track figure img', { scale: 1, ease: 'none' }, 0);
+
+  /* Titres de section qui montent en bloc */
+  gsap.utils.toArray('.sec-h').forEach(function (h) { gsap.from(h, { yPercent: 60, opacity: 0, skewY: 6, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.bcard', { y: 80, opacity: 0, rotation: function (i) { return i % 2 ? 3 : -3; }, stagger: .1, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: '#bgrid', start: 'top 85%' } });
+  gsap.fromTo('.vid', { scale: .82 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.vid', start: 'top bottom', end: 'center center', scrub: true } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

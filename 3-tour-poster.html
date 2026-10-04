@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Tour Poster</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;800;900&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f3f1ec;--ink:#0c0c0c;--red:#d22f27;--g:#169b47;--o:#ff8200;--mute:#6d6a64}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:"Libre Caslon Text",Georgia,serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+.bs{font-family:"Big Shoulders Display",Impact,sans-serif;text-transform:uppercase}
+/* Grain animé */
+.grain{position:fixed;inset:-50%;z-index:80;pointer-events:none;background-image:var(--grain);opacity:.08;animation:grain .5s steps(4) infinite}
+@keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-1%,4%)}}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;transition:background .3s}
+.nav.solid{background:rgba(243,241,236,.92);backdrop-filter:blur(8px)}
+.nav .logo{font:900 26px/1 "Big Shoulders Display";letter-spacing:.02em;color:var(--ink);transition:color .3s}
+.nav.solid .logo{color:var(--ink)}
+.nav .logo b{color:var(--g)}.nav .logo i{font-style:normal;color:var(--o)}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:800 15px/1 "Big Shoulders Display";letter-spacing:.12em;text-transform:uppercase;padding:11px 16px;border-radius:99px;color:var(--ink);transition:background .2s,color .2s}
+.nav.solid .r a{color:var(--ink)}
+.nav .r a:hover{background:var(--ink);color:var(--paper)}
+.nav .r a.cta,.nav.solid .r a.cta{background:var(--red);color:#fff}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO ÉPINGLÉ : la photo vit dans les lettres, puis les lettres s'ouvrent */
+.hero{position:relative;height:100svh;overflow:hidden;background:var(--paper)}
+.hero .full{position:absolute;inset:0;background:url(img/p00026.jpg) center/cover;filter:grayscale(1) contrast(1.1);opacity:0}
+.hero .knock{position:absolute;inset:0;display:grid;place-items:center}
+.hero .word{font:900 clamp(120px,30vw,520px)/.8 "Big Shoulders Display";letter-spacing:-.02em;color:#fff;transform-origin:50% 50%;will-change:transform;white-space:nowrap}
+.hero .word span{background:url(img/p00026.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;filter:grayscale(1) contrast(1.2)}
+.hero .top{position:absolute;top:84px;left:0;right:0;text-align:center;color:var(--ink);font:800 clamp(14px,1.6vw,20px)/1 "Big Shoulders Display";letter-spacing:.6em;text-transform:uppercase}
+.hero .bot{position:absolute;bottom:44px;left:0;right:0;text-align:center;color:var(--ink);font:italic clamp(18px,2.4vw,30px)/1.3 "Libre Caslon Text";padding-inline:16px}
+.hero .tri{position:absolute;left:50%;bottom:22px;translate:-50% 0;display:flex;gap:6px}
+.hero .tri i{width:30px;height:4px;border-radius:2px}
+
+/* MANIFESTE QUI SE REMPLIT */
+.say{padding:clamp(100px,16vh,180px) 0}
+.say p{font:400 clamp(32px,5.2vw,78px)/1.12 "Libre Caslon Text";letter-spacing:-.01em;max-width:18ch}
+.say p em{font-style:italic}
+.say .w{color:rgba(12,12,12,.14)}
+
+/* COMPTE À REBOURS AFFICHE */
+.count{background:var(--ink);color:var(--paper);padding:clamp(70px,10vh,120px) 0;overflow:hidden}
+.count .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end}
+@media(max-width:860px){.count .wrap{grid-template-columns:1fr}}
+.count .k{font:800 16px "Big Shoulders Display";letter-spacing:.4em;color:var(--o);text-transform:uppercase}
+.count .c{font:900 clamp(70px,12vw,190px)/.82 "Big Shoulders Display";margin-top:16px;text-transform:uppercase}
+.count .v{font-style:italic;font-size:18px;color:#bdb9b0;margin-top:14px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;perspective:800px}
+.nums div{background:#1b1b1b;border-radius:20px;padding:18px 6px;text-align:center}
+.nums b{display:block;font:900 clamp(44px,7vw,96px)/.9 "Big Shoulders Display";font-variant-numeric:tabular-nums}
+.nums small{font:800 13px "Big Shoulders Display";letter-spacing:.25em;text-transform:uppercase;color:#9a968e}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font:800 17px/1 "Big Shoulders Display";letter-spacing:.14em;text-transform:uppercase;padding:18px 28px;border-radius:99px;background:var(--red);color:#fff;transition:transform .2s}
+.btn:hover{transform:scale(1.05)}
+.count .btn{margin-top:22px}
+
+/* L'AFFICHE DES DATES */
+.poster{padding:clamp(100px,14vh,160px) 0;text-align:center}
+.poster .over{font:800 18px "Big Shoulders Display";letter-spacing:.5em;color:var(--red);text-transform:uppercase}
+.poster h2{font:900 clamp(80px,17vw,280px)/.8 "Big Shoulders Display";margin:14px 0 6px}
+.poster .yr{font-style:italic;font-size:clamp(20px,2.4vw,30px);color:var(--mute)}
+.leg{margin-top:70px}
+.leg h3{font:800 clamp(18px,2vw,24px) "Big Shoulders Display";letter-spacing:.4em;text-transform:uppercase;margin-bottom:22px}
+.leg h3 span{display:inline-block;padding:10px 20px;border-radius:99px;background:var(--ink);color:var(--paper)}
+.stop{display:block;padding:8px 0;overflow:hidden}
+.stop .in{display:inline-flex;align-items:baseline;gap:clamp(10px,2vw,26px);flex-wrap:wrap;justify-content:center}
+.stop .dt{font:italic clamp(16px,1.6vw,22px) "Libre Caslon Text";color:var(--mute);min-width:5.5em;text-align:right}
+.stop .ci{font:900 clamp(44px,7.4vw,118px)/.9 "Big Shoulders Display";text-transform:uppercase;transition:color .25s,letter-spacing .4s}
+.stop:nth-child(odd) .ci{font-weight:500}
+.stop .vn{font:italic clamp(14px,1.3vw,18px) "Libre Caslon Text";color:var(--mute);min-width:9em;text-align:left;max-width:16em}
+.stop .tk{font:800 14px "Big Shoulders Display";letter-spacing:.2em;text-transform:uppercase;padding:10px 16px;border-radius:99px;background:var(--ink);color:var(--paper);opacity:0;transform:translateX(-10px);transition:all .25s}
+.stop:hover .ci{color:var(--red);letter-spacing:.02em}
+.stop:hover .tk{opacity:1;transform:none;background:var(--red)}
+@media(max-width:760px){.stop .in{flex-direction:column;align-items:center;gap:4px}.stop .dt,.stop .vn{text-align:center;min-width:0}.stop .tk{opacity:1;transform:none;margin-top:6px}}
+.played{margin-top:80px;font-style:italic;color:var(--mute);font-size:15px;line-height:2;max-width:900px;margin-inline:auto}
+.played b{font:800 15px "Big Shoulders Display";letter-spacing:.3em;text-transform:uppercase;color:var(--ink);font-style:normal;display:block;margin-bottom:8px}
+
+/* PHOTOS QUI PRENNENT LEURS COULEURS */
+.photos{padding:40px 0 clamp(100px,14vh,160px)}
+.mos{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.mos figure{overflow:hidden;border-radius:24px;position:relative}
+.mos img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transform:scale(1.15)}
+.mos .a{grid-column:1/8;aspect-ratio:4/3}.mos .b{grid-column:8/13;aspect-ratio:3/4;margin-top:80px}
+.mos .c{grid-column:2/6;aspect-ratio:3/4;margin-top:-60px}.mos .d{grid-column:6/13;aspect-ratio:16/10}
+.mos .e{grid-column:1/13;aspect-ratio:21/9}
+@media(max-width:760px){.mos .a,.mos .b,.mos .c,.mos .d,.mos .e{grid-column:1/13;margin-top:0;aspect-ratio:4/3}}
+.mos figcaption{position:absolute;left:18px;bottom:14px;color:#fff;font:italic 16px "Libre Caslon Text";text-shadow:0 2px 14px #000}
+
+/* VIDÉO */
+.video{background:var(--ink);color:var(--paper);padding:clamp(90px,12vh,140px) 0}
+.video h2{font:900 clamp(70px,13vw,200px)/.82 "Big Shoulders Display"}
+.video h2 em{font:italic 400 .42em "Libre Caslon Text";text-transform:none;color:var(--o);vertical-align:middle}
+.vid{position:relative;aspect-ratio:16/9;margin-top:40px;border-radius:30px;overflow:hidden;cursor:pointer;background:#000}
+.vid img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .6s,transform 1s}
+.vid:hover img{filter:grayscale(0);transform:scale(1.04)}
+.vid .p{position:absolute;inset:0;display:grid;place-items:center}
+.vid .p span{font:900 clamp(22px,3vw,34px) "Big Shoulders Display";letter-spacing:.3em;text-transform:uppercase;background:var(--paper);color:var(--ink);padding:22px 36px;border-radius:99px;transition:background .2s,color .2s}
+.vid:hover .p span{background:var(--red);color:#fff}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* BOOKING */
+.book{padding:clamp(90px,12vh,140px) 0}
+.book h2{font:900 clamp(70px,13vw,200px)/.82 "Big Shoulders Display"}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:44px}
+.bk>div{background:#e6e3dc;border-radius:24px;padding:28px;transition:background .3s,color .3s,transform .3s}
+.bk>div:hover{background:var(--ink);color:var(--paper);transform:translateY(-6px)}
+.bk .rg{font:900 34px/1 "Big Shoulders Display";text-transform:uppercase}
+.bk .co{font-style:italic;margin-top:10px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk>div:hover .ad{color:#aaa}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p a{display:inline-block;margin:6px 6px 0 0;padding:7px 12px;border-radius:99px;background:rgba(0,0,0,.08);font-size:13px}
+.bk>div:hover .p a{background:rgba(255,255,255,.12)}
+.bk .p a:hover{background:var(--red)!important;color:#fff}
+footer{padding:0 0 50px;font:800 15px "Big Shoulders Display";letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--red)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.say .w{color:inherit}}
+</style>
+</head>
+<body>
+<div class="grain" id="grain"></div>
+<nav class="nav" id="nav">
+  <a class="logo" href="#top"><b>LO</b>VE<i>U2</i></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="full" id="full"></div>
+  <div class="knock"><h1 class="word" id="word"><span>LOVEU2</span></h1></div>
+  <div class="top" id="htop">The U2 Experience</div>
+  <div class="bot" id="hbot">A U2 tribute band from Canada, on stage worldwide.</div>
+  <div class="tri"><i style="background:var(--g)"></i><i style="background:#d9d6cf"></i><i style="background:var(--o)"></i></div>
+</header>
+
+<section class="say">
+  <div class="wrap"><p id="say">A U2 tribute band from Canada. The songs, the sound and the <em>lights</em> of a U2 night, played live from Las Vegas to Paris.</p></div>
+</section>
+
+<section class="count">
+  <div class="wrap">
+    <div><div class="k">Next stop</div><div class="c" id="cCity"></div><div class="v" id="cVenue"></div><a class="btn" id="cBtn" target="_blank" rel="noopener">Buy tickets →</a></div>
+    <div class="nums" id="nums"></div>
+  </div>
+</section>
+
+<section class="poster" id="dates">
+  <div class="wrap">
+    <div class="over">LOVEU2 presents</div>
+    <h2 class="bs">The Tour</h2>
+    <div class="yr">2026 · 2027</div>
+    <div id="legs"></div>
+    <div class="played" id="played"></div>
+  </div>
+</section>
+
+<section class="photos">
+  <div class="wrap mos">
+    <figure class="a"><img src="img/p00051.jpg" alt="LOVEU2 on stage"><figcaption>Red lights</figcaption></figure>
+    <figure class="b"><img src="img/p00099.jpg" alt="LOVEU2 singer"><figcaption>The voice</figcaption></figure>
+    <figure class="c"><img src="img/p00087.jpg" alt="LOVEU2 singer close up"><figcaption>Up close</figcaption></figure>
+    <figure class="d"><img src="img/p00062.jpg" alt="LOVEU2 and the crowd"><figcaption>The crowd</figcaption></figure>
+    <figure class="e"><img src="img/p00096.jpg" alt="LOVEU2 full stage"><figcaption>All of it</figcaption></figure>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="bs">See it <em>live</em></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video">
+      <img src="https://i.ytimg.com/vi/BHoRWwBmxrQ/maxresdefault.jpg" alt="" onerror="this.src='img/p00024.jpg'">
+      <div class="p"><span>▶ Play</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="bs">Booking</h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook →</a></div></footer>
+
+<script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+gsap.registerPlugin(ScrollTrigger);
+
+/* Grain */
+(function () {
+  var c = document.createElement('canvas'); c.width = c.height = 160; var x = c.getContext('2d'), d = x.createImageData(160, 160);
+  for (var i = 0; i < d.data.length; i += 4) { var v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+  x.putImageData(d, 0, 0); document.getElementById('grain').style.backgroundImage = 'url(' + c.toDataURL() + ')';
+})();
+
+/* Manifeste découpé en mots */
+var say = document.getElementById('say');
+say.innerHTML = say.innerHTML.replace(/(<em>.*?<\/em>|[^\s<]+)/g, '<span class="w">$1</span>');
+
+/* Compte à rebours */
+var next = L.upcoming.find(function (s) { return new Date(s.iso + 'T20:00:00') > new Date(); }) || L.upcoming[0];
+document.getElementById('cCity').textContent = L.place(next.city);
+document.getElementById('cVenue').textContent = L.fmt(next.iso) + ' · ' + next.venue + ' · 8 pm';
+document.getElementById('cBtn').href = next.url;
+function tick() {
+  var ms = Math.max(0, new Date(next.iso + 'T20:00:00') - new Date());
+  document.getElementById('nums').innerHTML = [[Math.floor(ms / 864e5), 'Days'], [Math.floor(ms / 36e5) % 24, 'Hours'], [Math.floor(ms / 6e4) % 60, 'Min'], [Math.floor(ms / 1e3) % 60, 'Sec']].map(function (x) { return '<div><b>' + x[0] + '</b><small>' + x[1] + '</small></div>'; }).join('');
+}
+tick(); setInterval(tick, 1000);
+
+/* L'affiche, par étape de tournée */
+var LEGS = [['Canada', function (s) { return L.country(s.city) === 'CA'; }], ['Europe', function (s) { return L.country(s.city) !== 'CA'; }]];
+document.getElementById('legs').innerHTML = LEGS.map(function (lg) {
+  return '<div class="leg"><h3><span>' + lg[0] + '</span></h3>' + L.upcoming.filter(lg[1]).map(function (s) {
+    return '<a class="stop" href="' + s.url + '" target="_blank" rel="noopener"><span class="in"><span class="dt">' + L.fmt(s.iso, 'short') + '</span><span class="ci">' + L.place(s.city) + '</span><span class="vn">' + s.venue + '</span><span class="tk">Tickets →</span></span></a>';
+  }).join('') + '</div>';
+}).join('');
+document.getElementById('played').innerHTML = '<b>Already played · ' + L.past.length + ' shows</b>' + L.past.map(function (s) { return L.place(s.city); }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(' · ');
+
+/* Vidéo */
+var vid = document.getElementById('vid');
+function play() { vid.innerHTML = '<iframe src="https://www.youtube.com/embed/' + L.video + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; }
+vid.addEventListener('click', play); vid.addEventListener('keydown', function (e) { if (e.key === 'Enter') play(); });
+
+/* Booking */
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' +
+    b.people.map(function (p) { return '<div class="p"><b>' + p.name + '</b><br><a href="tel:' + p.phone.replace(/[^+\d]/g, '') + '">' + p.phone + '</a><a href="mailto:' + p.email + '">Email</a></div>'; }).join('') + '</div>';
+}).join('');
+
+/* Nav qui devient pleine après le héros */
+ScrollTrigger.create({ trigger: '.say', start: 'top 60px', onEnter: function () { document.getElementById('nav').classList.add('solid'); }, onLeaveBack: function () { document.getElementById('nav').classList.remove('solid'); } });
+
+if (RM) { gsap.set('#full', { opacity: 1 }); }
+else {
+  /* Entrée : le mot monte en se resserrant */
+  gsap.from('#word', { yPercent: 40, opacity: 0, letterSpacing: '.2em', duration: 1.6, ease: 'expo.out', delay: .2 });
+  gsap.from('#htop', { opacity: 0, letterSpacing: '1.4em', duration: 1.4, ease: 'expo.out', delay: .5 });
+  gsap.from('#hbot', { y: 30, opacity: 0, duration: 1, ease: 'expo.out', delay: .8 });
+
+  /* Le mot s'ouvre depuis son centre (ancre immobile) pendant que la photo pleine monte — les deux couvrent toute la course */
+  gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: '+=140%', scrub: .5, pin: true } })
+    .to('#word', { scale: 16, ease: 'power2.in', duration: 1 }, 0)
+    .to('#full', { opacity: 1, ease: 'power1.in', duration: 1 }, 0)
+    .to(['#htop', '#hbot'], { opacity: 0, y: function (i) { return i ? 40 : -40; }, duration: .35 }, 0);
+
+  /* Les mots se remplissent d'encre au défilement */
+  gsap.to('.say .w', { color: function (i, el) { return el.querySelector('em') ? '#d22f27' : '#0c0c0c'; }, stagger: .1, ease: 'none', scrollTrigger: { trigger: '.say', start: 'top 75%', end: 'bottom 55%', scrub: true } });
+
+  /* Compte à rebours : les chiffres basculent à l'entrée */
+  gsap.from('.nums div', { rotationX: -90, transformOrigin: '50% 0', opacity: 0, stagger: .1, duration: .8, ease: 'back.out(1.6)', scrollTrigger: { trigger: '.count', start: 'top 75%' } });
+  gsap.from('.count .c', { xPercent: -30, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.count', start: 'top 75%' } });
+
+  /* L'affiche : chaque ville sort de sa ligne */
+  gsap.from('.poster h2', { scale: .6, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.poster h2', start: 'top 85%' } });
+  gsap.utils.toArray('.stop .in').forEach(function (el) { gsap.from(el, { yPercent: 110, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 95%' } }); });
+  gsap.utils.toArray('.leg h3 span').forEach(function (el) { gsap.from(el, { scale: 0, duration: .7, ease: 'back.out(2)', scrollTrigger: { trigger: el, start: 'top 90%' } }); });
+
+  /* Les photos prennent leurs couleurs en traversant l'écran */
+  gsap.utils.toArray('.mos img').forEach(function (im) {
+    gsap.fromTo(im, { filter: 'grayscale(1)', scale: 1.25, yPercent: -6 }, { filter: 'grayscale(0)', scale: 1.05, yPercent: 6, ease: 'none', scrollTrigger: { trigger: im.parentNode, start: 'top bottom', end: 'center 45%', scrub: true } });
+  });
+  gsap.utils.toArray('.mos figure').forEach(function (f, i) { gsap.from(f, { y: 120, rotation: i % 2 ? 3 : -3, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: f, start: 'top 92%' } }); });
+
+  gsap.utils.toArray('.video h2, .book h2').forEach(function (h) { gsap.from(h, { yPercent: 70, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.fromTo('.vid', { clipPath: 'inset(12% 20% round 30px)' }, { clipPath: 'inset(0% 0% round 30px)', ease: 'none', scrollTrigger: { trigger: '.vid', start: 'top bottom', end: 'center 55%', scrub: true } });
+  gsap.from('.bk>div', { y: 80, opacity: 0, stagger: .1, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

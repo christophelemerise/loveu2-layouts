@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Light Show</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030303;--ink:#f5f5f0;--mute:#8d8d86;--g:#22c55e;--o:#ff8a00;--w:#ffffff;--card:#121212}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:800 12px/1 Manrope;letter-spacing:.14em;text-transform:uppercase;padding:11px 16px;border-radius:99px;background:rgba(20,20,20,.6);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:var(--w);color:#000}
+.nav .r a.cta{background:var(--w);color:#000}
+.nav .r a.cta:hover{background:var(--o)}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO : un projecteur révèle la couleur */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden}
+.hero .bw,.hero .col{position:absolute;inset:0;background:url(img/p00083.jpg) center/cover}
+.hero .bw{filter:grayscale(1) brightness(.28) contrast(1.2)}
+.hero .col{filter:saturate(1.4) brightness(1.1);-webkit-mask:radial-gradient(circle var(--r,260px) at var(--x,50%) var(--y,45%),#000 35%,transparent 100%);mask:radial-gradient(circle var(--r,260px) at var(--x,50%) var(--y,45%),#000 35%,transparent 100%)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .t{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;text-align:center;padding:0 16px}
+.word{font:800 clamp(56px,14.5vw,260px)/.8 Syne;letter-spacing:-.05em;white-space:nowrap}
+.word span{display:inline-block;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.85)}
+.word span.lit{color:var(--c);-webkit-text-stroke:2px var(--c);text-shadow:0 0 40px var(--c)}
+.hero .sub{font:800 clamp(13px,1.5vw,17px) Manrope;letter-spacing:.5em;text-transform:uppercase;margin-top:22px}
+.eq{position:absolute;left:0;right:0;bottom:0;height:90px;display:flex;align-items:flex-end;gap:3px;padding:0 3px;pointer-events:none;opacity:.85}
+.eq i{flex:1;height:10%;border-radius:3px 3px 0 0;background:var(--c);transform-origin:bottom}
+
+/* LIGNES GÉANTES */
+.big-line{padding:clamp(80px,12vh,140px) 0;overflow:hidden}
+.big-line .ln{font:800 clamp(60px,12vw,190px)/.95 Syne;letter-spacing:-.04em;white-space:nowrap;text-transform:uppercase;width:max-content}
+.big-line .ln.o{color:var(--o)}
+.big-line .ln.s{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.big-line .ln.g{color:var(--g)}
+
+/* LA ROUE DES BILLETS */
+.wheel{position:relative;height:100svh;overflow:hidden}
+.wheel .head{position:absolute;top:80px;left:0;right:0;text-align:center;z-index:3;padding:0 16px}
+.wheel .head h2{font:800 clamp(40px,7vw,100px)/.9 Syne;letter-spacing:-.04em;text-transform:uppercase}
+.wheel .head p{color:var(--mute);margin-top:8px;font-weight:600}
+.hub{position:absolute;left:50%;width:0;height:0;--R:1100px;--tw:300px;top:calc(50svh - 100px + var(--R))}
+@media(max-width:700px){.hub{--R:900px;--tw:72vw;top:calc(50svh - 90px + var(--R))}}
+.tk{position:absolute;left:calc(var(--tw) / -2);top:calc(var(--R) * -1);width:var(--tw);transform-origin:50% var(--R)}
+.tk .in{position:relative;border-radius:26px;padding:22px 22px 20px;background:var(--card);color:var(--ink);transition:background .3s,color .3s;
+  -webkit-mask:radial-gradient(circle 14px at 0 62%,transparent 97%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% 62%,transparent 97%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 14px at 0 62%,transparent 97%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% 62%,transparent 97%,#000) right/51% 100% no-repeat}
+.tk.on .in{background:var(--w);color:#000}
+.tk .top{display:flex;justify-content:space-between;align-items:center;font:800 11px Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.tk.on .top{color:#666}
+.tk .num{font:800 86px/.85 Syne;letter-spacing:-.04em;margin-top:12px}
+.tk .mo{font:800 16px Syne;text-transform:uppercase;letter-spacing:.06em}
+.tk .ci{font:800 22px/1.05 Syne;text-transform:uppercase;margin-top:14px}
+.tk .vn{font-size:13px;color:var(--mute);margin-top:4px;min-height:34px}
+.tk.on .vn{color:#555}
+.tk .buy{display:flex;justify-content:center;margin-top:18px;padding:13px;border-radius:99px;font:800 12px Manrope;letter-spacing:.14em;text-transform:uppercase;background:#222;transition:background .2s}
+.tk.on .buy{background:var(--o);color:#000}
+.tk .buy:hover{background:var(--g)!important;color:#000}
+.wheel .cnt{position:absolute;bottom:24px;left:0;right:0;text-align:center;font:800 13px Manrope;letter-spacing:.3em;color:var(--mute);z-index:3}
+
+/* PASSÉ */
+.past{padding:clamp(80px,12vh,130px) 0}
+.past h2,.gal h2,.video h2,.book h2{font:800 clamp(44px,8vw,120px)/.9 Syne;letter-spacing:-.04em;text-transform:uppercase}
+.past h2 span,.video h2 span{color:var(--o)}.gal h2 span,.book h2 span{color:var(--g)}
+.pgrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.pgrid span{padding:10px 16px;border-radius:99px;background:var(--card);font-size:14px;transition:background .2s,color .2s}
+.pgrid span:hover{background:var(--w);color:#000}
+.pgrid b{font-weight:800}
+
+/* GALERIE EN PERSPECTIVE */
+.gal{padding:20px 0 clamp(80px,12vh,130px);perspective:1400px}
+.tilt{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;transform-style:preserve-3d;transform-origin:50% 100%}
+@media(max-width:760px){.tilt{grid-template-columns:repeat(2,1fr)}}
+.tilt figure{border-radius:22px;overflow:hidden;aspect-ratio:3/4}
+.tilt img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tilt figure:hover img{transform:scale(1.08)}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(80px,12vh,130px)}
+.vid{position:relative;aspect-ratio:16/9;border-radius:36px;overflow:hidden;cursor:pointer;margin-top:36px;background:#000}
+.vid img{width:100%;height:100%;object-fit:cover}
+.vid::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),transparent 0,rgba(0,0,0,.7) 45%);pointer-events:none}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:2;font:800 clamp(20px,2.4vw,28px) Syne;text-transform:uppercase;letter-spacing:.1em;background:var(--w);color:#000;padding:22px 34px;border-radius:99px;transition:transform .2s,background .2s}
+.vid:hover .pl{transform:scale(1.08);background:var(--o)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+
+/* BOOKING */
+.book{padding:0 0 60px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:36px}
+.bk>div{position:relative;border-radius:26px;padding:28px;background:var(--card);overflow:hidden;isolation:isolate}
+.bk>div::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle 160px at var(--x,-200px) var(--y,-200px),rgba(255,255,255,.14),transparent 70%)}
+.bk .rg{font:800 24px/1.05 Syne;text-transform:uppercase}
+.bk .co{font-weight:800;margin-top:12px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p a{display:inline-block;margin:6px 6px 0 0;padding:8px 13px;border-radius:99px;background:rgba(255,255,255,.08);font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:var(--w);color:#000}
+footer{position:relative;height:240px;overflow:hidden}
+footer canvas{position:absolute;inset:0;width:100%;height:100%}
+footer .wrap{position:relative;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:30px;color:var(--mute);font-size:14px}
+footer a:hover{color:var(--w)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bw"></div>
+  <div class="col" id="spot"></div>
+  <canvas id="crowd"></canvas>
+  <div class="t">
+    <h1 class="word" id="word" aria-label="LOVEU2"><span style="--c:#22c55e">L</span><span style="--c:#22c55e">O</span><span style="--c:#ffffff">V</span><span style="--c:#ffffff">E</span><span style="--c:#ff8a00">U</span><span style="--c:#ff8a00">2</span></h1>
+    <div class="sub">The U2 Experience · Live</div>
+  </div>
+  <div class="eq" id="eq"></div>
+</header>
+
+<section class="big-line" aria-label="One night, one crowd. The U2 Experience, live on stage in Canada, Switzerland and France.">
+  <div class="ln" data-dir="-1">One night · One crowd · One night · One crowd ·</div>
+  <div class="ln o" data-dir="1">The U2 Experience · The U2 Experience ·</div>
+  <div class="ln s" data-dir="-1">Live on stage · Live on stage · Live on stage ·</div>
+  <div class="ln g" data-dir="1">Canada · Switzerland · France · Canada ·</div>
+</section>
+
+<section class="wheel" id="dates">
+  <div class="head"><h2>Pick your night</h2><p>Scroll to spin · tap a ticket to buy</p></div>
+  <div class="hub" id="hub"></div>
+  <div class="cnt" id="cnt"></div>
+</section>
+
+<section class="past">
+  <div class="wrap">
+    <h2>Already <span>played</span></h2>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="wrap">
+    <h2>Under the <span>lights</span></h2>
+    <div class="tilt" id="tilt"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2>Watch <span>it</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video">
+      <img src="https://i.ytimg.com/vi/BHoRWwBmxrQ/maxresdefault.jpg" alt="" onerror="this.src='img/p00062.jpg'">
+      <div class="pl">▶ Play</div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2>Book <span>LOVEU2</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer>
+  <canvas id="crowd2"></canvas>
+  <div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div>
+</footer>
+
+<script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+gsap.registerPlugin(ScrollTrigger);
+var U = L.upcoming;
+
+/* ── Projecteur : suit la souris ; sans souris (téléphone), il balaie la scène tout seul ── */
+var hero = document.getElementById('top'), spot = document.getElementById('spot');
+var sp = { x: innerWidth / 2, y: innerHeight * .45 }, target = { x: sp.x, y: sp.y }, lastMove = -1e9;
+hero.addEventListener('pointermove', function (e) { if (e.pointerType !== 'mouse') return; var r = hero.getBoundingClientRect(); target.x = e.clientX - r.left; target.y = e.clientY - r.top; lastMove = performance.now(); });
+spot.style.setProperty('--r', Math.max(170, Math.min(innerWidth, innerHeight) * .32) + 'px');
+
+/* ── La foule : des téléphones allumés qui oscillent ── */
+function crowd(cv, n, top) {
+  var x = cv.getContext('2d'), P = [], dpr = Math.min(2, devicePixelRatio || 1);
+  function size() { cv.width = cv.offsetWidth * dpr; cv.height = cv.offsetHeight * dpr; }
+  size(); addEventListener('resize', size);
+  for (var i = 0; i < n; i++) P.push({ x: Math.random(), y: top + Math.random() * (1 - top), p: Math.random() * 6.28, s: .6 + Math.random() * 1.6, c: Math.random() < .5 ? '255,255,255' : Math.random() < .5 ? '34,197,94' : '255,138,0' });
+  return function (t) {
+    x.clearRect(0, 0, cv.width, cv.height);
+    P.forEach(function (q) {
+      var depth = (q.y - top) / (1 - top), sway = Math.sin(t / 900 + q.p) * 10 * dpr * depth;
+      var a = .35 + .65 * Math.abs(Math.sin(t / 700 + q.p * 3));
+      var px = q.x * cv.width + sway, py = q.y * cv.height, r = q.s * (1 + depth) * dpr;
+      var g = x.createRadialGradient(px, py, 0, px, py, r * 5);
+      g.addColorStop(0, 'rgba(' + q.c + ',' + a + ')'); g.addColorStop(1, 'rgba(' + q.c + ',0)');
+      x.fillStyle = g; x.beginPath(); x.arc(px, py, r * 5, 0, 6.28); x.fill();
+    });
+  };
+}
+var drawCrowd = crowd(document.getElementById('crowd'), innerWidth < 700 ? 90 : 220, .62);
+var drawCrowd2 = crowd(document.getElementById('crowd2'), innerWidth < 700 ? 60 : 160, .25);
+
+/* ── Égaliseur tricolore ── */
+var eq = document.getElementById('eq'), NB = innerWidth < 700 ? 28 : 64;
+for (var i = 0; i < NB; i++) eq.insertAdjacentHTML('beforeend', '<i style="--c:' + (i < NB / 3 ? '#22c55e' : i < NB * 2 / 3 ? '#ffffff' : '#ff8a00') + '"></i>');
+var bars = eq.querySelectorAll('i');
+
+/* Une seule boucle pour le projecteur, la foule et l'égaliseur ; elle se tait quand rien n'est à l'écran */
+var heroOn = true, footOn = false;
+new IntersectionObserver(function (e) { heroOn = e[0].isIntersecting; }).observe(hero);
+new IntersectionObserver(function (e) { footOn = e[0].isIntersecting; }).observe(document.querySelector('footer'));
+function loop(t) {
+  if (heroOn) {
+    if (t - lastMove > 1800) { target.x = innerWidth * (.5 + .34 * Math.sin(t / 1700)); target.y = innerHeight * (.45 + .18 * Math.sin(t / 1100)); }
+    sp.x += (target.x - sp.x) * .08; sp.y += (target.y - sp.y) * .08;
+    spot.style.setProperty('--x', sp.x + 'px'); spot.style.setProperty('--y', sp.y + 'px');
+    drawCrowd(t);
+    bars.forEach(function (b, k) { var v = .15 + .85 * Math.abs(Math.sin(t / 260 + k * .45) * Math.sin(t / 610 + k * .13)); b.style.transform = 'scaleY(' + (v * 9) + ')'; });
+  }
+  if (footOn) drawCrowd2(t);
+  requestAnimationFrame(loop);
+}
+if (!RM) requestAnimationFrame(loop); else { drawCrowd(0); drawCrowd2(0); }
+
+/* ── La roue des billets : l'écart entre deux billets est calculé d'après leur largeur, pour qu'ils ne se chevauchent jamais ── */
+var hub = document.getElementById('hub');
+hub.innerHTML = U.map(function (s) {
+  var p = L.fmt(s.iso, 'parts');
+  return '<a class="tk" href="' + s.url + '" target="_blank" rel="noopener"><div class="in">' +
+    '<div class="top"><span>Admit one</span><span>' + L.country(s.city) + '</span></div>' +
+    '<div class="num">' + p.d + '</div><div class="mo">' + p.month + ' ' + p.y + '</div>' +
+    '<div class="ci">' + L.place(s.city) + '</div><div class="vn">' + s.venue + ' · 8 pm</div>' +
+    '<span class="buy">Buy tickets →</span></div></a>';
+}).join('');
+var tks = hub.querySelectorAll('.tk'), cntEl = document.getElementById('cnt'), on = -1, STEP = 18, lastWheel = 0;
+function layoutWheel() {
+  var cs = getComputedStyle(hub), R = parseFloat(cs.getPropertyValue('--R')), tw = tks[0].offsetWidth;
+  STEP = Math.asin(Math.min(1, (tw + 28) / R)) * 180 / Math.PI;
+  tks.forEach(function (t, j) { t.style.transform = 'rotate(' + (j * STEP) + 'deg)'; });
+  spin(lastWheel, true);
+}
+function spin(f, force) {
+  lastWheel = f;
+  hub.style.transform = 'rotate(' + (-f * STEP) + 'deg)';
+  var k = Math.round(f);
+  if (k !== on || force) { on = k; tks.forEach(function (t, j) { t.classList.toggle('on', j === k); }); cntEl.textContent = (k + 1) + ' / ' + U.length + ' · ' + L.place(U[k].city).toUpperCase(); }
+}
+layoutWheel(); addEventListener('resize', layoutWheel);
+if (!RM) {
+  var w = { f: 0 };
+  gsap.to(w, { f: U.length - 1, ease: 'none', onUpdate: function () { spin(w.f); },
+    scrollTrigger: { trigger: '.wheel', start: 'top top', end: '+=' + (U.length * 28) + '%', scrub: .5, pin: true,
+      snap: { snapTo: 1 / (U.length - 1), duration: { min: .15, max: .4 }, delay: .05 } } });
+}
+
+/* Passé */
+document.getElementById('pgrid').innerHTML = L.past.map(function (s) { return '<span><b>' + L.place(s.city) + '</b> · ' + L.fmt(s.iso, 'short') + ', ' + s.iso.slice(0, 4) + '</span>'; }).join('');
+
+/* Galerie */
+document.getElementById('tilt').innerHTML = ['p00099', 'p00050', 'p00065', 'p00087', 'p00024', 'p00069', 'p00030', 'p00064'].map(function (p) { return '<figure><img src="img/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join('');
+
+/* Vidéo : un petit projecteur suit aussi la souris sur la vignette */
+var vid = document.getElementById('vid');
+vid.addEventListener('pointermove', function (e) { var r = vid.getBoundingClientRect(); vid.style.setProperty('--x', (e.clientX - r.left) + 'px'); vid.style.setProperty('--y', (e.clientY - r.top) + 'px'); });
+function play() { vid.innerHTML = '<iframe src="https://www.youtube.com/embed/' + L.video + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; }
+vid.addEventListener('click', play); vid.addEventListener('keydown', function (e) { if (e.key === 'Enter') play(); });
+
+/* Booking : lueur qui suit le pointeur */
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' +
+    b.people.map(function (p) { return '<div class="p"><b>' + p.name + '</b><br><a href="tel:' + p.phone.replace(/[^+\d]/g, '') + '">' + p.phone + '</a><a href="mailto:' + p.email + '">Email</a></div>'; }).join('') + '</div>';
+}).join('');
+document.querySelectorAll('.bk>div').forEach(function (c) { c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--x', (e.clientX - r.left) + 'px'); c.style.setProperty('--y', (e.clientY - r.top) + 'px'); }); });
+
+if (!RM) {
+  /* Entrée : les lettres s'allument une à une comme des néons qui hésitent */
+  var letters = document.querySelectorAll('.word span');
+  var tl = gsap.timeline({ delay: .4 });
+  letters.forEach(function (l, i) { tl.call(function () { l.classList.add('lit'); }, null, i * .16).call(function () { l.classList.remove('lit'); }, null, i * .16 + .06).call(function () { l.classList.add('lit'); }, null, i * .16 + .11); });
+  tl.from('.hero .sub', { opacity: 0, letterSpacing: '1.4em', duration: 1, ease: 'expo.out' }, .9)
+    .from('.eq', { yPercent: 100, duration: .8, ease: 'expo.out' }, .6);
+  /* Un néon qui grésille de temps en temps */
+  setInterval(function () { var l = letters[Math.floor(Math.random() * letters.length)]; l.classList.remove('lit'); setTimeout(function () { l.classList.add('lit'); }, 70); setTimeout(function () { l.classList.remove('lit'); }, 120); setTimeout(function () { l.classList.add('lit'); }, 190); }, 1700);
+  gsap.to('.hero .t', { scale: 1.25, opacity: 0, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* Lignes géantes qui glissent en sens opposés */
+  gsap.utils.toArray('.big-line .ln').forEach(function (ln) {
+    var d = +ln.dataset.dir;
+    gsap.fromTo(ln, { xPercent: d > 0 ? -35 : 0 }, { xPercent: d > 0 ? 0 : -35, ease: 'none', scrollTrigger: { trigger: '.big-line', start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  gsap.from('#hub', { y: 300, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.wheel', start: 'top 70%' } });
+  gsap.from('.pgrid span', { y: 30, opacity: 0, duration: .5, ease: 'back.out(2)', stagger: .015, scrollTrigger: { trigger: '.pgrid', start: 'top 88%' } });
+  /* La galerie se redresse comme une scène vue de la salle */
+  gsap.fromTo('.tilt', { rotationX: 48, scale: .9 }, { rotationX: 0, scale: 1, ease: 'none', scrollTrigger: { trigger: '.tilt', start: 'top bottom', end: 'center 60%', scrub: true } });
+  gsap.utils.toArray('.past h2,.gal h2,.video h2,.book h2').forEach(function (h) { gsap.from(h, { clipPath: 'inset(0 100% 0 0)', duration: 1.1, ease: 'expo.inOut', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.fromTo('.vid', { clipPath: 'circle(18% at 50% 50%)' }, { clipPath: 'circle(75% at 50% 50%)', ease: 'none', scrollTrigger: { trigger: '.vid', start: 'top bottom', end: 'center 55%', scrub: true } });
+  gsap.from('.bk>div', { y: 80, opacity: 0, stagger: .1, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+} else {
+  document.querySelectorAll('.word span').forEach(function (l) { l.classList.add('lit'); });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

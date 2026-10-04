@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Zoo TV</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#f2f2ea;--g:#19c25a;--o:#ff8a00;--red:#ff2a2a;--cy:#00f0ff;--mg:#ff00c8;--yl:#ffe600;--panel:#0d0d0d}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:"Space Mono",monospace;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+.vt{font-family:VT323,monospace}
+/* Trame de balayage sur toute la page */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px;align-items:center}
+.nav a.k{font:22px/1 VT323;padding:8px 12px;background:#000;border-radius:8px;transition:background .15s,color .15s}
+.nav a.k:hover{background:var(--yl);color:#000}
+.nav a.k.cta{background:var(--red);color:#fff}
+.onair{display:inline-flex;align-items:center;gap:8px}
+.onair i{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:blink 1s steps(2) infinite}
+.nav .cta i{background:#fff;box-shadow:0 0 10px #fff}
+@keyframes blink{50%{opacity:.15}}
+@media(max-width:700px){.nav a.k:not(.cta){display:none}}
+
+/* HERO : MUR DE TÉLÉS */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#000}
+.wall{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr);gap:6px;padding:6px}
+@media(max-width:700px){.wall{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(5,1fr)}.wall .tv:nth-child(n+16){display:none}}
+.tv{position:relative;overflow:hidden;border-radius:14px;background:#111}
+.tv img{width:100%;height:100%;object-fit:cover;filter:saturate(1.3) contrast(1.1)}
+.tv .st{position:absolute;inset:0;background-image:var(--noise);background-size:200px;opacity:0;mix-blend-mode:screen}
+.tv.zap .st{opacity:1;animation:noise .12s steps(3) infinite}
+.tv.zap img{filter:saturate(0) brightness(1.8);transform:scaleY(1.4) skewX(8deg)}
+.tv .ch{position:absolute;top:6px;right:10px;font:24px VT323;color:var(--g);text-shadow:0 0 6px var(--g);opacity:0}
+.tv.zap .ch{opacity:1}
+@keyframes noise{0%{background-position:0 0}33%{background-position:-60px 40px}66%{background-position:80px -30px}}
+.hero .shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.3),rgba(0,0,0,.88) 75%)}
+.glitch{position:absolute;inset:0;display:grid;place-items:center;z-index:3;pointer-events:none}
+.gt{position:relative;font:400 clamp(72px,19vw,320px)/.85 "Archivo Black";letter-spacing:-.03em}
+.gt span{display:block}
+.gt .base{color:#fff}
+.gt .r,.gt .c{position:absolute;left:0;right:0;top:0;mix-blend-mode:screen}
+.gt .r{color:var(--mg);animation:gl1 2.2s infinite steps(1)}
+.gt .c{color:var(--cy);animation:gl2 2.2s infinite steps(1)}
+@keyframes gl1{0%,100%{transform:translate(0);clip-path:inset(0)}8%{transform:translate(-8px,2px);clip-path:inset(10% 0 60% 0)}10%{transform:translate(6px,-2px);clip-path:inset(55% 0 20% 0)}12%{transform:translate(0);clip-path:inset(0)}60%{transform:translate(-4px,0)}62%{transform:translate(0)}}
+@keyframes gl2{0%,100%{transform:translate(0);clip-path:inset(0)}8%{transform:translate(8px,-2px);clip-path:inset(40% 0 30% 0)}10%{transform:translate(-6px,3px);clip-path:inset(5% 0 75% 0)}12%{transform:translate(0);clip-path:inset(0)}60%{transform:translate(4px,0)}62%{transform:translate(0)}}
+.gt .tri{display:flex;height:12px;margin-top:10px}
+.gt .tri b{flex:1}
+.tag{position:absolute;z-index:3;left:0;right:0;bottom:90px;text-align:center;font:clamp(26px,3vw,38px)/1 VT323;color:var(--yl);text-shadow:0 0 10px rgba(255,230,0,.6);padding-inline:16px}
+.cursor::after{content:"█";animation:blink 1s steps(2) infinite;margin-left:4px}
+.ticker{position:absolute;z-index:4;left:0;right:0;bottom:0;background:var(--yl);color:#000;overflow:hidden;padding:12px 0}
+.ticker div{display:flex;width:max-content;font:26px/1 VT323;animation:tick 40s linear infinite;white-space:nowrap}
+.ticker span{padding:0 28px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ON AIR */
+.air{background:var(--panel);padding:40px 0}
+.air .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:24px 40px;align-items:center}
+@media(max-width:820px){.air .wrap{grid-template-columns:1fr}}
+.air .lab{font:30px VT323;color:var(--red)}
+.air .city{font:clamp(34px,5vw,64px)/1 "Archivo Black";text-transform:uppercase}
+.air .venue{font-size:14px;color:#aaa;margin-top:6px}
+.clock{display:flex;gap:10px;justify-content:center}
+.clock div{background:#000;border-radius:12px;padding:10px 14px;text-align:center;min-width:72px}
+.clock b{display:block;font:400 clamp(44px,6vw,72px)/.9 VT323;color:var(--g);text-shadow:0 0 14px rgba(25,194,90,.7)}
+.clock small{font:16px VT323;color:#888;text-transform:uppercase}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 14px "Space Mono";text-transform:uppercase;letter-spacing:.06em;padding:16px 22px;border-radius:99px;background:var(--red);color:#fff;transition:transform .15s,background .15s;white-space:nowrap}
+.pill:hover{transform:scale(1.05);background:var(--yl);color:#000}
+
+/* TITRES */
+.h{font:400 clamp(54px,10vw,150px)/.88 "Archivo Black";text-transform:uppercase;letter-spacing:-.02em}
+.h .y{color:var(--yl)}.h .gr{color:var(--g)}.h .or{color:var(--o)}
+.kick{font:28px VT323;color:var(--cy);margin-bottom:14px}
+
+/* TABLEAU À PALETTES */
+.board{padding:clamp(80px,12vh,140px) 0}
+.flaps{margin-top:40px;display:grid;gap:8px;perspective:600px}
+.fl{display:grid;grid-template-columns:170px minmax(0,1.1fr) minmax(0,1fr) auto;gap:18px;align-items:center;background:var(--panel);border-radius:16px;padding:14px 16px;transition:background .2s}
+.fl:hover{background:#1a1a1a}
+.cells{display:flex;flex-wrap:wrap;gap:3px}
+.cells i{font:normal 30px/1 VT323;width:.82em;height:1.25em;display:grid;place-items:center;background:#1c1c1c;color:var(--yl);border-radius:4px;position:relative;overflow:hidden;transform-style:preserve-3d}
+.cells.c i{color:#fff}
+.fl .v{font-size:13px;color:#9a9a9a}
+.fl .pill{padding:12px 16px;font-size:12px}
+@media(max-width:820px){.fl{grid-template-columns:1fr;gap:10px}.cells i{font-size:24px}}
+.archive{margin-top:56px}
+.archive summary{cursor:pointer;font:30px VT323;color:var(--cy);list-style:none}
+.archive summary::-webkit-details-marker{display:none}
+.archive summary::before{content:"▶ "}
+.archive[open] summary::before{content:"▼ "}
+.arch{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:18px}
+.arch div{background:var(--panel);border-radius:12px;padding:12px 14px;font-size:13px;color:#bbb}
+.arch b{display:block;color:#fff;font:400 22px VT323}
+
+/* ZAPPING ÉPINGLÉ */
+.zap{height:100svh;display:grid;place-items:center;overflow:hidden;position:relative}
+.crt{position:relative;width:min(1100px,92vw);aspect-ratio:16/10;border-radius:48px;background:#141414;padding:clamp(12px,2vw,26px);box-shadow:0 40px 120px rgba(0,0,0,.8)}
+@media(max-width:700px){.crt{aspect-ratio:3/4;border-radius:36px}}
+.screen{position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#000}
+.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+.screen img.on{opacity:1}
+.screen .st{position:absolute;inset:0;z-index:2;background-image:var(--noise);background-size:240px;opacity:0;animation:noise .1s steps(3) infinite;mix-blend-mode:screen}
+.screen::after{content:"";position:absolute;inset:0;z-index:2;border-radius:32px;box-shadow:inset 0 0 120px rgba(0,0,0,.9);background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 4px)}
+.osd{position:absolute;top:clamp(26px,4vw,48px);left:clamp(30px,4vw,56px);z-index:3;font:clamp(36px,5vw,64px)/1 VT323;color:var(--g);text-shadow:0 0 12px var(--g)}
+.cap{position:absolute;bottom:clamp(26px,4vw,48px);left:clamp(30px,4vw,56px);right:30px;z-index:3;font:400 clamp(28px,4vw,52px)/1 "Archivo Black";text-transform:uppercase;color:#fff;text-shadow:0 4px 30px #000}
+.zapbar{position:absolute;bottom:clamp(14px,3vh,30px);left:50%;translate:-50% 0;display:flex;gap:6px}
+.zapbar i{width:28px;height:6px;border-radius:3px;background:#333;transition:background .2s}
+.zapbar i.on{background:var(--yl)}
+
+/* VIDÉO */
+.vidsec{padding:clamp(80px,12vh,140px) 0}
+.vid{position:relative;margin-top:36px;aspect-ratio:16/9;border-radius:40px;overflow:hidden;background:#000;cursor:pointer}
+.vid img{width:100%;height:100%;object-fit:cover;filter:saturate(1.3)}
+.vid .rec{position:absolute;top:22px;left:26px;font:34px VT323;color:#fff;display:flex;gap:10px;align-items:center}
+.vid .rec i{width:14px;height:14px;border-radius:50%;background:var(--red);animation:blink 1s steps(2) infinite}
+.vid .pl{position:absolute;inset:0;display:grid;place-items:center;font:clamp(60px,10vw,140px)/1 VT323;color:#fff;text-shadow:4px 0 var(--mg),-4px 0 var(--cy);transition:transform .2s}
+.vid:hover .pl{transform:scale(1.1)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* BOOKING EN CHAÎNES */
+.book{padding:clamp(60px,10vh,120px) 0 80px}
+.chs{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.chn{position:relative;background:var(--panel);border-radius:22px;padding:26px;overflow:hidden;transition:transform .2s}
+.chn:hover{transform:translateY(-6px)}
+.chn .n{font:64px/1 VT323;color:var(--g);text-shadow:0 0 12px rgba(25,194,90,.6)}
+.chn .rg{font:400 24px/1.1 "Archivo Black";text-transform:uppercase;margin-top:8px}
+.chn .co{margin-top:12px;font-weight:700;font-size:14px}
+.chn .ad{color:#999;font-size:13px;margin-top:4px}
+.chn .p{margin-top:14px;font-size:13px}
+.chn .p a{display:inline-block;margin:6px 6px 0 0;padding:7px 12px;border-radius:99px;background:#1f1f1f;transition:background .15s,color .15s}
+.chn .p a:hover{background:var(--yl);color:#000}
+footer{padding:30px 0 50px;font:22px VT323;color:#777}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--yl)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a class="k" href="#dates">DATES</a><a class="k" href="#video">VIDEO</a><a class="k" href="#booking">BOOKING</a><a class="k cta onair" href="#dates"><i></i>TICKETS</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wall" id="wall"></div>
+  <div class="shade"></div>
+  <div class="glitch">
+    <h1 class="gt" aria-label="LOVEU2">
+      <span class="base">LOVEU2</span><span class="r" aria-hidden="true">LOVEU2</span><span class="c" aria-hidden="true">LOVEU2</span>
+      <span class="tri" aria-hidden="true"><b style="background:var(--g)"></b><b style="background:#fff"></b><b style="background:var(--o)"></b></span>
+    </h1>
+  </div>
+  <div class="tag vt"><span id="type"></span><span class="cursor"></span></div>
+  <div class="ticker"><div id="ticker"></div></div>
+</header>
+
+<section class="air">
+  <div class="wrap">
+    <div><div class="lab onair"><i></i>NEXT BROADCAST</div><div class="city" id="aCity"></div><div class="venue" id="aVenue"></div></div>
+    <div class="clock" id="clock"></div>
+    <a class="pill" id="aBtn" target="_blank" rel="noopener">Get tickets ▶</a>
+  </div>
+</section>
+
+<section class="board" id="dates">
+  <div class="wrap">
+    <div class="kick vt">&gt; DEPARTURES · WORLD TOUR</div>
+    <h2 class="h">Upcoming <span class="y">shows</span></h2>
+    <div class="flaps" id="flaps"></div>
+    <details class="archive"><summary id="archT"></summary><div class="arch" id="arch"></div></details>
+  </div>
+</section>
+
+<section class="zap" id="zap">
+  <div class="crt">
+    <div class="screen" id="screen"><div class="st" id="zst"></div></div>
+    <div class="osd" id="osd">CH 1</div>
+    <div class="cap" id="cap"></div>
+  </div>
+  <div class="zapbar" id="zapbar"></div>
+</section>
+
+<section class="vidsec" id="video">
+  <div class="wrap">
+    <div class="kick vt">&gt; PLAYBACK</div>
+    <h2 class="h">Watch <span class="gr">the</span> <span class="or">show</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video">
+      <img src="https://i.ytimg.com/vi/BHoRWwBmxrQ/maxresdefault.jpg" alt="" onerror="this.src='img/p00098.jpg'">
+      <div class="rec"><i></i>REC</div>
+      <div class="pl">▶ PLAY</div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <div class="kick vt">&gt; SELECT YOUR CHANNEL</div>
+    <h2 class="h">Book <span class="y">LOVEU2</span></h2>
+    <div class="chs" id="chs"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · THE U2 EXPERIENCE</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">FACEBOOK ▶</a></div></footer>
+
+<script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+gsap.registerPlugin(ScrollTrigger);
+
+/* Bruit télé généré une fois, réutilisé partout */
+(function () {
+  var c = document.createElement('canvas'); c.width = c.height = 200; var x = c.getContext('2d'), d = x.createImageData(200, 200);
+  for (var i = 0; i < d.data.length; i += 4) { var v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+  x.putImageData(d, 0, 0); document.documentElement.style.setProperty('--noise', 'url(' + c.toDataURL() + ')');
+})();
+
+/* Mur de télés */
+var POOL = ['p00005','p00012','p00023','p00024','p00026','p00030','p00032','p00040','p00048','p00050','p00051','p00057','p00062','p00064','p00065','p00069','p00081','p00083','p00087','p00090','p00093','p00095','p00096','p00098','p00099','p00020'];
+var wall = document.getElementById('wall');
+for (var i = 0; i < 24; i++) wall.insertAdjacentHTML('beforeend', '<div class="tv"><img src="img/' + POOL[i % POOL.length] + '.jpg" alt=""><div class="st"></div><div class="ch">CH ' + (i + 1) + '</div></div>');
+var tvs = Array.from(wall.querySelectorAll('.tv')).filter(function (t) { return t.offsetParent; });
+function zap(tv) {
+  tv.classList.add('zap');
+  setTimeout(function () { tv.querySelector('img').src = 'img/' + POOL[Math.floor(Math.random() * POOL.length)] + '.jpg'; }, 120);
+  setTimeout(function () { tv.classList.remove('zap'); }, 260);
+}
+if (!RM) setInterval(function () { zap(tvs[Math.floor(Math.random() * tvs.length)]); if (Math.random() > .6) zap(tvs[Math.floor(Math.random() * tvs.length)]); }, 380);
+
+/* Machine à écrire */
+var lines = ['THE U2 EXPERIENCE', 'LIVE IN CANADA', 'LIVE IN SWITZERLAND', 'LIVE IN FRANCE', L.upcoming.length + ' SHOWS ON AIR'], li = 0, ci = 0, del = false, typeEl = document.getElementById('type');
+function type() {
+  var s = lines[li];
+  if (!del) { ci++; typeEl.textContent = s.slice(0, ci); if (ci === s.length) { del = true; return setTimeout(type, 1400); } }
+  else { ci--; typeEl.textContent = s.slice(0, ci); if (ci === 0) { del = false; li = (li + 1) % lines.length; } }
+  setTimeout(type, del ? 30 : 70);
+}
+if (RM) typeEl.textContent = lines[0]; else type();
+
+/* Bandeau défilant */
+var tk = L.upcoming.map(function (s) { return '● ' + L.fmt(s.iso, 'short').toUpperCase() + ' ' + L.place(s.city).toUpperCase(); }).join('  ');
+document.getElementById('ticker').innerHTML = '<span>' + tk + '</span><span>' + tk + '</span>';
+
+/* Prochain spectacle */
+var next = L.upcoming.find(function (s) { return new Date(s.iso + 'T20:00:00') > new Date(); }) || L.upcoming[0];
+document.getElementById('aCity').textContent = L.place(next.city) + ' · ' + L.fmt(next.iso, 'short');
+document.getElementById('aVenue').textContent = next.venue + ' · 8 pm';
+document.getElementById('aBtn').href = next.url;
+function tick() {
+  var ms = Math.max(0, new Date(next.iso + 'T20:00:00') - new Date());
+  document.getElementById('clock').innerHTML = [[Math.floor(ms / 864e5), 'days'], [Math.floor(ms / 36e5) % 24, 'hrs'], [Math.floor(ms / 6e4) % 60, 'min'], [Math.floor(ms / 1e3) % 60, 'sec']].map(function (x) { return '<div><b>' + x[0] + '</b><small>' + x[1] + '</small></div>'; }).join('');
+}
+tick(); setInterval(tick, 1000);
+
+/* Tableau à palettes */
+function cells(txt, cls) { return '<span class="cells ' + (cls || '') + '" data-t="' + txt + '">' + txt.split('').map(function (c) { return '<i>' + (c === ' ' ? '&nbsp;' : c) + '</i>'; }).join('') + '</span>'; }
+document.getElementById('flaps').innerHTML = L.upcoming.map(function (s) {
+  return '<div class="fl">' + cells(L.fmt(s.iso, 'short').toUpperCase()) + '<div>' + cells(L.place(s.city).toUpperCase(), 'c') + '</div><div class="v">' + s.venue + '<br>' + s.city + ' · 8 pm · ' + L.fmt(s.iso, 'parts').y + '</div><a class="pill" href="' + s.url + '" target="_blank" rel="noopener">Tickets ▶</a></div>';
+}).join('');
+var GLY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+function flip(row) {
+  row.querySelectorAll('.cells').forEach(function (c) {
+    var t = c.dataset.t;
+    c.querySelectorAll('i').forEach(function (el, k) {
+      var target = t[k] === ' ' ? ' ' : t[k], n = 4 + k * 2 + Math.floor(Math.random() * 4), step = 0;
+      var iv = setInterval(function () {
+        step++;
+        if (step >= n) { el.textContent = target; clearInterval(iv); return; }
+        el.textContent = GLY[Math.floor(Math.random() * GLY.length)];
+        gsap.fromTo(el, { rotationX: -90 }, { rotationX: 0, duration: .06 });
+      }, 45);
+    });
+  });
+}
+if (!RM) document.querySelectorAll('.fl').forEach(function (r) { ScrollTrigger.create({ trigger: r, start: 'top 92%', once: true, onEnter: function () { flip(r); } }); });
+document.getElementById('archT').textContent = 'ARCHIVE · ' + L.past.length + ' PAST SHOWS';
+document.getElementById('arch').innerHTML = L.past.map(function (s) { return '<div><b>' + L.place(s.city).toUpperCase() + '</b>' + L.fmt(s.iso) + '<br>' + s.venue + '</div>'; }).join('');
+
+/* Zapping épinglé : chaque palier du défilement change de chaîne */
+var CH = [['p00098', 'Elevation'], ['p00023', 'One voice'], ['p00051', 'Under the red lights'], ['p00065', 'Light it up'], ['p00064', 'The rhythm section'], ['p00096', 'All you need is love']];
+var scr = document.getElementById('screen'), bar = document.getElementById('zapbar');
+CH.forEach(function (c) { scr.insertAdjacentHTML('beforeend', '<img src="img/' + c[0] + '.jpg" alt="">'); bar.insertAdjacentHTML('beforeend', '<i></i>'); });
+var zimgs = Array.from(scr.querySelectorAll('img')), cur = -1;
+function setCh(k) {
+  if (k === cur) return; cur = k;
+  zimgs.forEach(function (im, j) { im.classList.toggle('on', j === k); });
+  bar.querySelectorAll('i').forEach(function (b, j) { b.classList.toggle('on', j <= k); });
+  document.getElementById('osd').textContent = 'CH ' + (k + 1);
+  document.getElementById('cap').textContent = CH[k][1];
+  if (!RM) gsap.fromTo('#zst', { opacity: 1 }, { opacity: 0, duration: .35, ease: 'power2.in' });
+}
+setCh(0);
+if (!RM) {
+  gsap.timeline({ scrollTrigger: { trigger: '#zap', start: 'top top', end: '+=' + (CH.length * 70) + '%', pin: true, scrub: .3,
+    onUpdate: function (st) { setCh(Math.min(CH.length - 1, Math.floor(st.progress * CH.length))); } } })
+    /* Zoom continu sous le zapping : aucune course morte entre deux changements de chaîne */
+    .fromTo('.crt', { scale: .82, rotation: -2 }, { scale: 1, rotation: 0, ease: 'none' }, 0)
+    .fromTo('#screen img', { scale: 1 }, { scale: 1.25, ease: 'none' }, 0);
+}
+
+/* Vidéo */
+var vid = document.getElementById('vid');
+function play() { vid.innerHTML = '<iframe src="https://www.youtube.com/embed/' + L.video + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; }
+vid.addEventListener('click', play); vid.addEventListener('keydown', function (e) { if (e.key === 'Enter') play(); });
+
+/* Booking */
+document.getElementById('chs').innerHTML = L.booking.map(function (b, i) {
+  return '<div class="chn"><div class="n">CH ' + (i + 1) + '</div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' +
+    b.people.map(function (p) { return '<div class="p"><b>' + p.name + '</b><br><a href="tel:' + p.phone.replace(/[^+\d]/g, '') + '">' + p.phone + '</a><a href="mailto:' + p.email + '">Email</a></div>'; }).join('') + '</div>';
+}).join('');
+
+if (!RM) {
+  /* Allumage : chaque télé s'allume comme un vieux tube, en vague depuis le centre */
+  gsap.from('.tv', { scaleY: .02, scaleX: .6, opacity: 0, duration: .35, ease: 'power4.out', stagger: { each: .03, from: 'center' }, delay: .1 });
+  gsap.from('.gt', { scale: 2.4, opacity: 0, filter: 'blur(20px)', duration: .9, ease: 'expo.out', delay: .6 });
+  gsap.to('.gt', { yPercent: -40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.utils.toArray('.h').forEach(function (h) { gsap.from(h, { x: -120, opacity: 0, skewX: -12, duration: .8, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.fromTo('.chn', { clipPath: 'inset(49% 0 49% 0 round 22px)' }, { clipPath: 'inset(0% 0 0% 0 round 22px)', duration: .45, ease: 'power4.out', stagger: .1, scrollTrigger: { trigger: '#chs', start: 'top 85%' } });
+  gsap.from('.clock div', { y: 40, opacity: 0, stagger: .08, duration: .6, ease: 'back.out(2)', scrollTrigger: { trigger: '.air', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>
