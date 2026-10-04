@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Ticket Stub</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2ece0;--tk:#fffaf0;--ink:#1a1714;--mute:#7c7468;--g:#13994b;--o:#f2770f;--red:#d42a1e}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:"Courier Prime",monospace}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+/* Les encoches d'un billet : deux demi-cercles découpés sur les côtés, à la hauteur --cut */
+.notch{-webkit-mask:radial-gradient(circle 14px at 0 var(--cut,50%),transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% var(--cut,50%),transparent 98%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 14px at 0 var(--cut,50%),transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 14px at 100% var(--cut,50%),transparent 98%,#000) right/51% 100% no-repeat}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav .lg{padding:9px 14px;border-radius:99px;background:var(--ink)}
+.nav .lg img{height:20px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:700 13px/1 "Courier Prime";text-transform:uppercase;padding:12px 16px;border-radius:99px;background:var(--tk);box-shadow:0 4px 14px rgba(0,0,0,.08);transition:background .2s,color .2s}
+.nav .r a:hover{background:var(--ink);color:var(--tk)}
+.nav .r a.cta{background:var(--red);color:#fff}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO : le grand billet */
+.hero{min-height:100svh;display:grid;place-items:center;padding:100px 16px 60px;overflow:hidden}
+.hero .kick{text-align:center;font:700 13px "Courier Prime";letter-spacing:.3em;text-transform:uppercase;color:var(--mute);margin-bottom:24px}
+.bigwrap{width:min(1120px,100%);filter:drop-shadow(0 30px 60px rgba(60,40,20,.22))}
+.big{position:relative;display:grid;grid-template-columns:1.5fr 1fr .6fr;min-height:420px}
+@media(max-width:900px){.big{grid-template-columns:1fr}}
+.big .ph{position:relative;background:#000;border-radius:24px 0 0 24px;overflow:hidden}
+.big .ph img{width:100%;height:100%;object-fit:cover}
+.big .ph .t{position:absolute;left:22px;bottom:18px;right:22px;font:700 clamp(64px,8.4vw,128px)/.82 Oswald;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+.big .ph .t .g{color:#3fe089}.big .ph .t .o{color:#ffa04d}
+.big .mid{background:var(--tk);padding:28px 26px;display:flex;flex-direction:column;gap:14px}
+.big .mid .k{font:700 12px "Courier Prime";letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+.big .mid h1{font:700 clamp(30px,3vw,44px)/1 Oswald;text-transform:uppercase}
+.big .mid .info{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+.big .mid .info small{display:block;font:700 10px "Courier Prime";letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+.big .mid .info b{font:700 clamp(17px,1.5vw,21px) Oswald;text-transform:uppercase}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto}
+.cd div{text-align:center;padding:10px 4px;border-radius:12px;background:var(--paper)}
+.cd b{display:block;font:700 clamp(28px,2.6vw,38px)/1 Oswald}
+.cd small{font:700 9px "Courier Prime";letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.big .stub{background:var(--red);color:#fff;border-radius:0 24px 24px 0;padding:24px 18px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;gap:14px}
+.big .stub .no{font:700 11px "Courier Prime";letter-spacing:.2em;writing-mode:vertical-rl}
+.big .stub .bar{width:72%;height:80px;background:#fff;border-radius:6px;padding:6px}
+.big .stub .bar svg{width:100%;height:100%}
+.big .stub a{display:block;width:100%;padding:14px 8px;border-radius:99px;background:#fff;color:var(--red);font:700 15px Oswald;text-transform:uppercase;transition:transform .2s}
+.big .stub a:hover{transform:scale(1.05)}
+@media(max-width:900px){.big .ph{border-radius:24px 24px 0 0;min-height:250px}.big .stub{border-radius:0 0 24px 24px;flex-direction:row}.big .stub .no{writing-mode:horizontal-tb}.big .stub .bar{display:none}.big .stub a{width:auto;padding:14px 22px}}
+.stamp{position:absolute;right:23%;top:52%;z-index:3;padding:10px 18px;border:5px solid var(--red);border-radius:12px;color:var(--red);font:700 clamp(26px,3vw,42px)/1 Oswald;text-transform:uppercase;letter-spacing:.06em;transform:rotate(-14deg);opacity:.88;mix-blend-mode:multiply;pointer-events:none}
+@media(max-width:900px){.stamp{right:6%;top:auto;bottom:30%}}
+
+/* DATES : des billets distribués */
+.dates{padding:clamp(80px,10vh,130px) 0}
+.h2{font:700 clamp(54px,9vw,140px)/.9 Oswald;text-transform:uppercase;letter-spacing:-.01em}
+.h2 span{color:var(--red)}
+.sub{font:400 17px "Courier Prime";color:var(--mute);margin-top:10px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(270px,100%),1fr));gap:16px;margin-top:40px}
+.st{position:relative;display:grid;grid-template-columns:1fr 70px;filter:drop-shadow(0 10px 20px rgba(60,40,20,.12));transition:translate .3s,rotate .3s,filter .3s}
+.st .a{background:var(--tk);border-radius:18px 0 0 18px;padding:16px 16px 14px}
+.st .b{background:var(--ink);color:#fff;border-radius:0 18px 18px 0;display:grid;place-items:center;transform-origin:0 100%;transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .25s}
+.st.ca .b{background:var(--g)}.st.eu .b{background:var(--o)}
+.st .b span{writing-mode:vertical-rl;font:700 14px Oswald;letter-spacing:.14em;text-transform:uppercase}
+.st .k{display:flex;justify-content:space-between;font:700 10px "Courier Prime";letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+.st .d{display:flex;align-items:baseline;gap:10px;margin-top:8px}
+.st .d b{font:700 54px/.9 Oswald}
+.st .d span{font:700 16px Oswald;text-transform:uppercase}
+.st .c{font:700 22px/1.05 Oswald;text-transform:uppercase;margin-top:8px}
+.st .v{font-size:13px;color:var(--mute);margin-top:4px;min-height:34px}
+.st:hover{translate:0 -6px;rotate:-1deg;filter:drop-shadow(0 20px 30px rgba(60,40,20,.2))}
+.st:hover .b{transform:rotate(9deg) translateX(6px);background:var(--red)}
+.st.ca .d b{color:var(--g)}.st.eu .d b{color:var(--o)}
+.past{margin-top:60px;padding:24px;border-radius:20px;background:var(--tk);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.past b{font:700 22px Oswald;text-transform:uppercase;margin-right:10px}
+.past span{font-size:13px;padding:7px 12px;border-radius:99px;background:var(--paper)}
+
+/* GALERIE */
+.gal{padding:0 0 clamp(80px,10vh,130px)}
+.pics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px;align-items:start}
+@media(max-width:800px){.pics{grid-template-columns:repeat(2,1fr)}}
+.pics figure{border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:#000}
+.pics figure:nth-child(odd){margin-top:30px}
+.pics img{width:100%;height:100%;object-fit:cover;transition:transform .7s,filter .5s;filter:sepia(.3)}
+.pics figure:hover img{transform:scale(1.08);filter:none}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(80px,10vh,130px)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:34px;border-radius:24px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-50% -50%;padding:18px 30px;border:5px solid #fff;border-radius:14px;color:#fff;font:700 clamp(24px,3vw,40px) Oswald;text-transform:uppercase;transform:rotate(-6deg);transition:transform .25s,background .25s,border-color .25s;white-space:nowrap}
+.vid:hover .pl{transform:rotate(0) scale(1.06);background:var(--red);border-color:var(--red)}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px;margin-top:34px}
+.bk>div{background:var(--tk);border-radius:18px;padding:24px;--cut:62px;transition:translate .3s}
+.bk>div:hover{translate:0 -6px}
+.bk .rg{font:700 26px/1 Oswald;text-transform:uppercase;color:var(--red)}
+.bk .co{font:700 15px "Courier Prime";margin-top:22px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:14px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:7px 12px;border-radius:99px;background:var(--paper);font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:var(--ink);color:var(--tk)}
+footer{padding:30px 0 50px;color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="lg" href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div style="width:100%;display:grid;justify-items:center">
+    <div class="kick" id="kick">★ Your ticket to the U2 Experience ★</div>
+    <div class="bigwrap" id="bigwrap">
+      <div class="big notch" id="big" style="--cut:62%">
+        <div class="ph"><img src="img/p00013.jpg" alt="LOVEU2 on stage"><div class="t" aria-hidden="true"><span class="g">LO</span>VE<span class="o">U2</span></div></div>
+        <div class="mid">
+          <div class="k">Admit one · The U2 Experience</div>
+          <h1>LOVEU2 <span style="color:var(--red)">Live</span></h1>
+          <div class="info">
+            <div><small>City</small><b id="iCity"></b></div>
+            <div><small>Date</small><b id="iDate"></b></div>
+            <div><small>Venue</small><b id="iVenue" style="font-size:15px"></b></div>
+            <div><small>Show</small><b>8 pm</b></div>
+          </div>
+          <div class="cd" id="cd"></div>
+        </div>
+        <div class="stub">
+          <div class="no">Nº 1 of <span id="nT">22</span></div>
+          <div class="bar"><svg id="bar" viewBox="0 0 70 70" preserveAspectRatio="none"></svg></div>
+          <a id="iBuy" target="_blank" rel="noopener">Buy tickets</a>
+        </div>
+        <div class="stamp" id="stamp">Admit one</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="dates" id="dates">
+  <div class="wrap">
+    <h2 class="h2">Pick your <span>night</span></h2>
+    <p class="sub" id="sub"></p>
+    <div class="deck" id="deck"></div>
+    <div class="past" id="past"></div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="wrap">
+    <h2 class="h2">From the <span>show</span></h2>
+    <div class="pics" id="pics"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Watch <span>live</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00062.jpg'"><div class="pl">▶ Play</div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Booking <span>office</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+
+/* Le grand billet : le prochain spectacle */
+document.getElementById('iCity').textContent = L.place(next.city);
+document.getElementById('iDate').textContent = L.fmt(next.iso, 'short') + ', ' + next.iso.slice(0, 4);
+document.getElementById('iVenue').textContent = next.venue;
+document.getElementById('iBuy').href = next.url;
+document.getElementById('nT').textContent = U.length;
+L.countdown(next, function (c) {
+  document.getElementById('cd').innerHTML = [[c.d, 'days'], [c.h, 'hrs'], [c.m, 'min'], [c.s, 'sec']].map(function (x) { return '<div><b>' + x[0] + '</b><small>' + x[1] + '</small></div>'; }).join('');
+});
+(function () { var s = '', x = 0; while (x < 70) { var w = 1 + (x * 7 % 3); s += '<rect x="' + x + '" y="0" width="' + w + '" height="70" fill="#1a1714"/>'; x += w + 1 + (x * 13 % 2); } document.getElementById('bar').innerHTML = s; })();
+
+/* Les billets de chaque date */
+var CA = U.filter(function (s) { return L.country(s.city) === 'CA'; }).length;
+document.getElementById('sub').textContent = U.length + ' nights · ' + CA + ' in Canada, ' + (U.length - CA) + ' in Europe. Tap a ticket to buy.';
+document.getElementById('deck').innerHTML = U.map(function (s) {
+  var p = L.fmt(s.iso, 'parts'), ca = L.country(s.city) === 'CA';
+  return '<a class="st notch ' + (ca ? 'ca' : 'eu') + '" href="' + s.url + '" target="_blank" rel="noopener"><div class="a"><div class="k"><span>Admit one</span><span>' + L.country(s.city) + '</span></div><div class="d"><b>' + p.d + '</b><span>' + p.m + ' ' + p.y + '</span></div><div class="c">' + L.place(s.city) + '</div><div class="v">' + s.venue + ' · 8 pm</div></div><div class="b"><span>Buy →</span></div></a>';
+}).join('');
+document.getElementById('past').innerHTML = '<b>' + L.past.length + ' shows already played</b>' + L.pastCities().map(function (s) { return '<span>' + L.place(s.city) + '</span>'; }).join('');
+
+document.getElementById('pics').innerHTML = ['p00051', 'p00099', 'p00018', 'p00065', 'p00087', 'p00024', 'p00055', 'p00096'].map(function (p) { return '<figure><img src="img/s/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join('');
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div class="notch"><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (!RM) {
+  /* Le billet glisse à l'écran, ses lignes s'impriment, puis le tampon s'écrase dessus */
+  gsap.timeline({ delay: .2 })
+    .from('#bigwrap', { y: 160, rotation: -6, opacity: 0, duration: 1, ease: 'expo.out' })
+    .from('#kick', { y: -20, opacity: 0, duration: .5 }, .2)
+    .from('.big .ph img', { scale: 1.3, duration: 1.4, ease: 'expo.out' }, 0)
+    .from('.big .ph .t', { yPercent: 40, opacity: 0, duration: .7, ease: 'power3.out' }, .5)
+    .from('.big .mid > *', { x: 30, opacity: 0, duration: .45, stagger: .07, ease: 'power3.out' }, .55)
+    .from('.big .stub > *', { y: 20, opacity: 0, duration: .4, stagger: .08 }, .8)
+    .from('#stamp', { scale: 3.2, rotation: 10, opacity: 0, duration: .32, ease: 'power4.in' }, 1.2)
+    .to('#bigwrap', { keyframes: [{ x: -6, y: 3 }, { x: 5, y: -2 }, { x: 0, y: 0 }], duration: .22 }, 1.52);
+  /* Le grand billet suit légèrement la souris */
+  var bw = document.getElementById('bigwrap');
+  document.getElementById('top').addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    gsap.to(bw, { rotationY: (e.clientX / innerWidth - .5) * 8, rotationX: -(e.clientY / innerHeight - .5) * 6, transformPerspective: 1400, duration: .6, ease: 'power2.out' });
+  });
+
+  /* Les billets se distribuent comme des cartes : tous visibles en moins d'une seconde */
+  gsap.from('.st', { y: 60, rotation: function (i) { return (i % 3 - 1) * 6; }, opacity: 0, duration: .5, ease: 'back.out(1.6)', stagger: .03, scrollTrigger: { trigger: '#deck', start: 'top 85%' } });
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { y: 50, opacity: 0, duration: .7, ease: 'power3.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.pics figure', { y: 50, opacity: 0, duration: .6, ease: 'power3.out', stagger: .05, scrollTrigger: { trigger: '#pics', start: 'top 85%' } });
+  gsap.from('.bk>div', { y: 50, rotation: function (i) { return i % 2 ? 3 : -3; }, opacity: 0, duration: .6, ease: 'back.out(1.6)', stagger: .07, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

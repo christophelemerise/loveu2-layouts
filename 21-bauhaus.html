@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Bauhaus</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#efeae0;--ink:#151515;--g:#139a4c;--o:#f2701a;--wh:#ffffff;--y:#f4c534;--mute:#6f6a60}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:"Josefin Sans",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav .lg{padding:9px 14px;border-radius:99px;background:var(--ink)}
+.nav .lg img{height:20px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:700 13px/1 "Josefin Sans";letter-spacing:.1em;text-transform:uppercase;padding:13px 16px 11px;border-radius:99px;background:var(--wh);transition:background .2s,color .2s}
+.nav .r a:hover{background:var(--ink);color:var(--wh)}
+.nav .r a.cta{background:var(--o);color:#000}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO : la composition */
+.hero{position:relative;min-height:100svh;padding:96px 16px 40px;display:grid;place-items:center;overflow:hidden}
+.comp{position:relative;width:min(1180px,100%);aspect-ratio:16/10}
+@media(max-width:800px){.comp{aspect-ratio:3/4.4}}
+.sh{position:absolute;will-change:transform}
+.sq{left:0;top:0;width:46%;height:62%;background:var(--g)}
+.ci{right:4%;top:6%;width:30%;aspect-ratio:1;border-radius:50%;background:var(--o)}
+.hc{left:36%;bottom:0;width:28%;aspect-ratio:2/1;border-radius:999px 999px 0 0;background:var(--wh)}
+.blk{left:0;bottom:6%;width:34%;height:9%;background:var(--ink)}
+.dot{right:30%;top:58%;width:7%;aspect-ratio:1;border-radius:50%;background:var(--y)}
+.ph{right:0;bottom:0;width:36%;height:52%;overflow:hidden;background:#000}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.2)}
+@media(max-width:800px){.sq{width:62%;height:40%}.ci{width:44%;top:30%;right:0}.hc{left:0;width:56%;bottom:26%}.blk{bottom:22%;width:50%;height:4%}.dot{right:48%;top:52%;width:10%}.ph{width:46%;height:30%}}
+.ttl{position:absolute;left:3%;top:3%;z-index:3;font:700 clamp(80px,15vw,230px)/.78 "Josefin Sans";letter-spacing:-.04em;color:var(--wh)}
+.ttl span{display:block;overflow:hidden;padding-top:.06em}
+.ttl span i{display:block;font-style:normal}
+.ttl .u{color:var(--ink)}
+.side{position:absolute;right:30%;top:66%;z-index:4;width:max-content;max-width:40%;text-align:left;background:var(--wh);padding:20px 24px;box-shadow:0 20px 50px rgba(0,0,0,.12)}
+@media(max-width:800px){.side{left:0;right:auto;top:auto;bottom:0;max-width:62%;padding:14px 16px}}
+.side .k{font:700 12px "Josefin Sans";letter-spacing:.3em;text-transform:uppercase}
+.side .n{font:700 clamp(24px,3.2vw,48px)/1 "Josefin Sans";margin-top:6px}
+.side .cd{display:flex;gap:10px;justify-content:flex-start;margin-top:10px;font:700 clamp(18px,1.8vw,24px) "Josefin Sans"}
+
+.side .cd small{font-size:.5em;letter-spacing:.14em;color:var(--mute);margin-left:2px}
+.side a{display:inline-block;margin-top:14px;padding:15px 22px 13px;border-radius:99px;background:var(--ink);color:var(--wh);font:700 13px "Josefin Sans";letter-spacing:.12em;text-transform:uppercase;transition:background .2s}
+.side a:hover{background:var(--o);color:#000}
+
+/* DATES : des tuiles */
+.dates{padding:clamp(80px,10vh,130px) 0}
+.h2{font:700 clamp(52px,9vw,140px)/.86 "Josefin Sans";letter-spacing:-.04em;text-transform:uppercase}
+.h2 i{font-style:normal;color:var(--o)}
+.h2 b{color:var(--g)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:10px;margin-top:40px;perspective:1200px}
+.tl{position:relative;display:flex;flex-direction:column;min-height:220px;padding:18px;background:var(--wh);overflow:hidden;isolation:isolate;transition:color .3s}
+.tl::before{content:"";position:absolute;z-index:-1;right:-30%;bottom:-30%;width:90%;aspect-ratio:1;border-radius:50%;background:var(--c);scale:.25;transform-origin:70% 70%;transition:scale .5s cubic-bezier(.6,0,.2,1)}
+.tl:hover::before{scale:3}
+.tl:hover{color:var(--fg)}
+.tl .k{display:flex;justify-content:space-between;font:700 11px "Josefin Sans";letter-spacing:.2em;text-transform:uppercase;opacity:.65}
+.tl .d{font:700 84px/.8 "Josefin Sans";letter-spacing:-.05em;margin-top:14px}
+.tl .c{font:700 22px/1.05 "Josefin Sans";text-transform:uppercase;margin-top:auto;padding-top:10px}
+.tl .v{font-size:13px;opacity:.75;margin-top:4px}
+.tl.ca{--c:var(--g);--fg:#fff}.tl.ch{--c:var(--ink);--fg:#fff}.tl.fr{--c:var(--o);--fg:#000}
+.past{margin-top:56px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.past b{font:700 22px "Josefin Sans";text-transform:uppercase;margin-right:8px}
+.past span{font-size:14px;padding:9px 14px 7px;border-radius:99px;background:var(--wh)}
+
+/* GALERIE EN FORMES */
+.gal{padding:0 0 clamp(80px,10vh,130px)}
+.forms{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+@media(max-width:800px){.forms{grid-template-columns:repeat(2,1fr)}}
+.forms figure{aspect-ratio:1;overflow:hidden;transition:border-radius .5s}
+.forms figure:nth-child(4n+1){border-radius:50%}
+.forms figure:nth-child(4n+2){border-radius:0 999px 0 0}
+.forms figure:nth-child(4n+3){border-radius:999px 999px 0 0}
+.forms figure:nth-child(4n+4){border-radius:0}
+.forms figure:hover{border-radius:24px}
+.forms img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transition:filter .5s}
+.forms figure:hover img{filter:none}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(80px,10vh,130px)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:40px;cursor:pointer;background:var(--ink);overflow:hidden}
+.vid>img{width:100%;height:100%;object-fit:cover;clip-path:circle(36% at 50% 50%);transition:clip-path .7s cubic-bezier(.6,0,.2,1)}
+.vid:hover>img{clip-path:circle(75% at 50% 50%)}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-40% -50%;width:clamp(70px,9vw,110px);aspect-ratio:1;background:var(--o);clip-path:polygon(0 0,100% 50%,0 100%);transition:background .3s}
+.vid:hover .pl{background:var(--y)}
+.vid .lb{position:absolute;left:24px;bottom:18px;font:700 clamp(18px,2.4vw,32px) "Josefin Sans";text-transform:uppercase;color:var(--wh)}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:10px;margin-top:40px}
+.bk>div{position:relative;padding:26px;background:var(--wh);overflow:hidden;isolation:isolate}
+.bk>div::after{content:"";position:absolute;z-index:-1;right:-40px;top:-40px;width:120px;aspect-ratio:1;background:var(--c);border-radius:var(--r);transition:rotate .5s,scale .5s}
+.bk>div:hover::after{rotate:90deg;scale:1.3}
+.bk .rg{font:700 26px/1 "Josefin Sans";text-transform:uppercase;padding-right:60px}
+.bk .co{font-weight:700;margin-top:12px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:9px 13px 7px;border-radius:99px;background:var(--paper);font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:var(--ink);color:var(--wh)}
+footer{padding:30px 0 50px;color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="lg" href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="comp" id="comp">
+    <div class="sh sq" data-d="18"></div>
+    <div class="sh ci" data-d="-26"></div>
+    <div class="sh ph" data-d="10"><img src="img/p00043.jpg" alt="LOVEU2 singer"></div>
+    <div class="sh hc" data-d="-14"></div>
+    <div class="sh blk" data-d="22"></div>
+    <div class="sh dot" data-d="-40"></div>
+    <h1 class="ttl" aria-label="LOVEU2"><span><i>Love</i></span><span><i class="u">U2</i></span></h1>
+    <div class="side" id="side">
+      <div class="k">The U2 Experience · Next</div>
+      <div class="n" id="nn"></div>
+      <div class="cd" id="cd"></div>
+      <a id="nb" target="_blank" rel="noopener">Tickets →</a>
+    </div>
+  </div>
+</header>
+
+<section class="dates" id="dates">
+  <div class="wrap">
+    <h2 class="h2"><b id="nTot">22</b> nights<br><i>on tour</i></h2>
+    <div class="tiles" id="tiles"></div>
+    <div class="past" id="past"></div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="wrap">
+    <h2 class="h2">Form <i>&amp;</i> <b>light</b></h2>
+    <div class="forms" id="forms"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Watch <i>live</i></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00062.jpg'"><div class="pl"></div><div class="lb">LOVEU2 live</div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Book<i>ing</i></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+document.getElementById('nTot').textContent = U.length;
+document.getElementById('nn').textContent = L.place(next.city) + ', ' + L.fmt(next.iso, 'short');
+document.getElementById('nb').href = next.url;
+L.countdown(next, function (c) { document.getElementById('cd').innerHTML = [[c.d, 'D'], [c.h, 'H'], [c.m, 'M'], [c.s, 'S']].map(function (x) { return '<span>' + x[0] + '<small>' + x[1] + '</small></span>'; }).join(''); });
+
+/* Les tuiles : vert au Canada, noir en Suisse, orange en France */
+document.getElementById('tiles').innerHTML = U.map(function (s) {
+  var p = L.fmt(s.iso, 'parts'), c = L.country(s.city).toLowerCase();
+  return '<a class="tl ' + c + '" href="' + s.url + '" target="_blank" rel="noopener"><div class="k"><span>' + p.m + ' ' + p.y + '</span><span>' + L.country(s.city) + '</span></div><div class="d">' + p.d + '</div><div class="c">' + L.place(s.city) + '</div><div class="v">' + s.venue + ' · 8 pm</div></a>';
+}).join('');
+document.getElementById('past').innerHTML = '<b>' + L.past.length + ' shows already played</b>' + L.pastCities().map(function (s) { return '<span>' + L.place(s.city) + '</span>'; }).join('');
+document.getElementById('forms').innerHTML = ['p00099', 'p00051', 'p00065', 'p00087', 'p00013', 'p00096', 'p00024', 'p00018'].map(function (p) { return '<figure><img src="img/s/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join('');
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+var SH = [['var(--g)', '50%'], ['var(--o)', '0'], ['var(--y)', '999px 999px 0 0'], ['var(--ink)', '50%']];
+document.getElementById('bk').innerHTML = L.booking.map(function (b, i) {
+  return '<div style="--c:' + SH[i][0] + ';--r:' + SH[i][1] + '"><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (!RM) {
+  /* La composition s'assemble : chaque forme glisse depuis son bord, puis le titre monte */
+  gsap.timeline({ delay: .15 })
+    .from('.sq', { xPercent: -120, duration: .8, ease: 'expo.out' })
+    .from('.ci', { scale: 0, rotation: -90, duration: .8, ease: 'back.out(1.6)' }, .15)
+    .from('.ph', { yPercent: 110, duration: .8, ease: 'expo.out' }, .25)
+    .from('.hc', { yPercent: 120, duration: .7, ease: 'expo.out' }, .35)
+    .from('.blk', { scaleX: 0, transformOrigin: '0 50%', duration: .6, ease: 'expo.out' }, .45)
+    .from('.dot', { scale: 0, duration: .5, ease: 'back.out(3)' }, .6)
+    .from('.ttl i', { yPercent: 105, duration: .8, ease: 'expo.out', stagger: .1 }, .5)
+    .from('#side > *', { x: 30, opacity: 0, duration: .5, stagger: .07, ease: 'power3.out' }, .8)
+    /* puis le point rebondit et le cercle respire, en continu */
+    .add(function () {
+      gsap.to('.dot', { yPercent: -60, duration: .5, ease: 'power1.inOut', repeat: -1, yoyo: true });
+      gsap.to('.ci', { scale: 1.04, duration: 1.6, ease: 'sine.inOut', repeat: -1, yoyo: true });
+    });
+  /* Chaque forme bouge un peu avec la souris, à sa propre profondeur */
+  var shapes = document.querySelectorAll('.sh');
+  document.getElementById('top').addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    var x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+    shapes.forEach(function (s) { var d = +s.dataset.d; gsap.to(s, { x: x * d, y: y * d, duration: .8, ease: 'power3.out', overwrite: 'auto' }); });
+  });
+
+  /* Les tuiles basculent en place : toutes visibles en moins d'une seconde */
+  gsap.from('.tl', { rotationX: -80, transformOrigin: '50% 0', opacity: 0, duration: .5, ease: 'power3.out', stagger: .025, scrollTrigger: { trigger: '#tiles', start: 'top 85%' } });
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { x: -60, opacity: 0, duration: .6, ease: 'power3.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.forms figure', { scale: .6, opacity: 0, duration: .6, ease: 'back.out(1.6)', stagger: .05, scrollTrigger: { trigger: '#forms', start: 'top 85%' } });
+  gsap.from('.bk>div', { y: 40, opacity: 0, duration: .6, ease: 'power3.out', stagger: .07, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

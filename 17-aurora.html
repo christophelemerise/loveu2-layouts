@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Aurora</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060a;--ink:#f3f5f8;--mute:#a3a9b6;--g:#2ee67f;--o:#ff9a3c;--v:#8a6bff;--glass:rgba(255,255,255,.07);--rim:rgba(255,255,255,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:transparent;color:var(--ink);font-family:Outfit,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+/* Les aurores : de grands disques flous qui dérivent derrière toute la page */
+.sky{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--bg);pointer-events:none}
+.sky i{position:absolute;width:62vmax;height:62vmax;border-radius:50%;filter:blur(80px);opacity:.62}
+.sky i:nth-child(1){background:var(--g);left:-18vmax;top:-20vmax;animation:d1 18s ease-in-out infinite alternate}
+.sky i:nth-child(2){background:#fff;left:30vmax;top:10vmax;opacity:.16;animation:d2 22s ease-in-out infinite alternate}
+.sky i:nth-child(3){background:var(--o);right:-20vmax;top:-10vmax;animation:d3 20s ease-in-out infinite alternate}
+.sky i:nth-child(4){background:var(--v);left:10vmax;bottom:-36vmax;opacity:.4;animation:d1 26s ease-in-out infinite alternate-reverse}
+@keyframes d1{to{transform:translate(18vmax,14vmax) scale(1.15)}}
+@keyframes d2{to{transform:translate(-14vmax,18vmax) scale(.85)}}
+@keyframes d3{to{transform:translate(-16vmax,20vmax) scale(1.2)}}
+.sky::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(5,6,10,.9),transparent 60%)}
+.glass{background:var(--glass);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);box-shadow:inset 0 0 0 1px var(--rim),0 30px 80px rgba(0,0,0,.35)}
+
+.nav{position:fixed;left:12px;right:12px;top:12px;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:10px 10px 10px 18px;border-radius:99px}
+.nav img{height:22px}
+.nav .r{display:flex;gap:4px}
+.nav .r a{font:500 14px/1 Outfit;padding:11px 16px;border-radius:99px;transition:background .2s}
+.nav .r a:hover{background:rgba(255,255,255,.12)}
+.nav .r a.cta{background:#fff;color:#000;font-weight:800}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO */
+.hero{min-height:100svh;display:grid;place-items:center;padding:110px 16px 60px;position:relative}
+.panel{position:relative;width:min(980px,100%);border-radius:44px;padding:clamp(28px,5vw,64px);text-align:center;overflow:hidden}
+.panel .spot{position:absolute;width:500px;height:500px;left:var(--mx,50%);top:var(--my,30%);translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 60%);pointer-events:none}
+.kick{font:500 14px Outfit;letter-spacing:.4em;text-transform:uppercase;color:var(--mute)}
+.panel h1{font:900 clamp(70px,16vw,240px)/.85 Outfit;letter-spacing:-.06em;margin:18px 0 8px;white-space:nowrap;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
+.panel h1 span{display:inline-block;background:linear-gradient(180deg,#fff 30%,rgba(255,255,255,.6));-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel h1 .g{background:linear-gradient(180deg,#c7ffdf,var(--g));-webkit-background-clip:text;background-clip:text}
+.panel h1 .o{background:linear-gradient(180deg,#ffe4c9,var(--o));-webkit-background-clip:text;background-clip:text}
+.panel p{font:300 clamp(16px,1.8vw,22px)/1.5 Outfit;color:#d5dae3}
+.cd{display:flex;justify-content:center;gap:10px;margin-top:30px}
+.cd div{min-width:86px;padding:14px 8px;border-radius:22px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--rim)}
+.cd b{display:block;font:800 clamp(32px,4vw,54px)/1 Outfit;font-variant-numeric:tabular-nums}
+.cd small{font:500 11px Outfit;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;gap:12px;margin-top:28px;padding:18px 28px;border-radius:99px;background:#fff;color:#000;font:800 15px Outfit;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,255,255,.25)}
+@media(max-width:700px){.cd{gap:6px}.cd div{min-width:0;flex:1}}
+
+/* DATES */
+.dates{padding:clamp(90px,12vh,140px) 0}
+.h2{font:900 clamp(52px,9vw,140px)/.9 Outfit;letter-spacing:-.05em}
+.h2 span{background:linear-gradient(90deg,var(--g),#fff,var(--o));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tabs{display:inline-flex;gap:4px;padding:5px;border-radius:99px;margin-top:24px}
+.tabs button{font:500 14px Outfit;padding:11px 18px;border-radius:99px;border:0;background:none;color:var(--ink);cursor:pointer;transition:background .25s,color .25s}
+.tabs button.on{background:#fff;color:#000;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:12px;margin-top:30px}
+.card{position:relative;display:flex;flex-direction:column;gap:6px;padding:22px;border-radius:28px;overflow:hidden;isolation:isolate;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle 180px at var(--x,50%) var(--y,0%),var(--c),transparent 70%);opacity:.35;transition:opacity .3s}
+.card:hover{transform:translateY(-6px)}
+.card:hover::before{opacity:.75}
+.card .top{display:flex;justify-content:space-between;align-items:center;font:500 12px Outfit;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.card .d{font:900 64px/.9 Outfit;letter-spacing:-.04em}
+.card .c{font:800 22px/1.1 Outfit}
+.card .v{font:300 14px Outfit;color:#cfd4dd}
+.card .go{margin-top:10px;align-self:flex-start;padding:10px 16px;border-radius:99px;background:rgba(255,255,255,.12);font:500 13px Outfit;transition:background .2s,color .2s}
+.card:hover .go{background:#fff;color:#000}
+.past{margin-top:56px;padding:24px;border-radius:30px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.past b{font:800 22px Outfit;margin-right:10px}
+.past span{font:300 14px Outfit;padding:8px 13px;border-radius:99px;background:rgba(255,255,255,.08)}
+
+/* GALERIE */
+.gal{padding:0 0 clamp(90px,12vh,140px)}
+.mas{columns:3 260px;column-gap:12px;margin-top:36px}
+.mas figure{break-inside:avoid;margin-bottom:12px;border-radius:24px;overflow:hidden;position:relative}
+.mas img{width:100%;transition:transform .7s}
+.mas figure:hover img{transform:scale(1.06)}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(90px,12vh,140px)}
+.vidwrap{margin-top:36px;padding:12px;border-radius:40px}
+.vid{position:relative;aspect-ratio:16/9;border-radius:30px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-50% -50%;display:flex;align-items:center;gap:12px;padding:14px 24px 14px 14px;border-radius:99px;font:800 18px Outfit;transition:transform .25s;white-space:nowrap}
+.vid .pl i{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.vid .pl svg{width:14px;margin-left:3px}
+.vid:hover .pl{transform:scale(1.06)}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px}
+.bk>div{border-radius:30px;padding:26px;transition:transform .3s}
+.bk>div:hover{transform:translateY(-6px)}
+.bk .rg{font:800 24px/1.1 Outfit}
+.bk .co{font:500 15px Outfit;margin-top:10px}
+.bk .ad{font:300 13px Outfit;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:8px 13px;border-radius:99px;background:rgba(255,255,255,.1);font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:#fff;color:#000}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div style="position:relative;z-index:1">
+<nav class="nav glass">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="panel glass" id="panel">
+    <div class="spot"></div>
+    <div class="kick">The U2 Experience</div>
+    <h1 aria-label="LOVEU2"><span class="g">L</span><span class="g">O</span><span>V</span><span>E</span><span class="o">U</span><span class="o">2</span></h1>
+    <p id="lede"></p>
+    <div class="cd" id="cd"></div>
+    <a class="btn" id="btn" target="_blank" rel="noopener"></a>
+  </div>
+</header>
+
+<section class="dates" id="dates">
+  <div class="wrap">
+    <h2 class="h2">Tour <span>dates</span></h2>
+    <div class="tabs glass" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+    <div class="past glass" id="past"></div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="wrap">
+    <h2 class="h2">On <span>stage</span></h2>
+    <div class="mas" id="mas"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Watch <span>live</span></h2>
+    <div class="vidwrap glass"><div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00093.jpg'"><div class="pl glass"><i><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg></i>Play the show</div></div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Book<span>ing</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+</div>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+document.getElementById('lede').textContent = 'U2 tribute band from Canada · ' + U.length + ' shows from ' + L.fmt(U[0].iso, 'short') + ' to ' + L.fmt(U[U.length - 1].iso, 'short') + ', ' + U[U.length - 1].iso.slice(0, 4);
+var btn = document.getElementById('btn'); btn.href = next.url; btn.textContent = 'Next: ' + L.place(next.city) + ' · ' + L.fmt(next.iso, 'short') + ' →';
+L.countdown(next, function (c) {
+  document.getElementById('cd').innerHTML = [[c.d, 'days'], [c.h, 'hours'], [c.m, 'min'], [c.s, 'sec']].map(function (x) { return '<div><b>' + x[0] + '</b><small>' + x[1] + '</small></div>'; }).join('');
+});
+
+/* La lumière du panneau suit le pointeur */
+var panel = document.getElementById('panel');
+panel.addEventListener('pointermove', function (e) { var r = panel.getBoundingClientRect(); panel.style.setProperty('--mx', (e.clientX - r.left) + 'px'); panel.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+
+/* Dates, filtrables */
+var TABS = [['All', function () { return true; }], ['Canada', function (s) { return L.country(s.city) === 'CA'; }], ['Europe', function (s) { return L.country(s.city) !== 'CA'; }]];
+document.getElementById('tabs').innerHTML = TABS.map(function (t, i) { return '<button class="' + (i ? '' : 'on') + '" data-i="' + i + '">' + t[0] + '</button>'; }).join('');
+function render(i, anim) {
+  var g = document.getElementById('grid');
+  g.innerHTML = U.filter(TABS[i][1]).map(function (s) {
+    var p = L.fmt(s.iso, 'parts'), c = L.country(s.city) === 'CA' ? 'var(--g)' : L.country(s.city) === 'CH' ? 'var(--v)' : 'var(--o)';
+    return '<a class="card glass" href="' + s.url + '" target="_blank" rel="noopener" style="--c:' + c + '"><div class="top"><span>' + p.month + ' ' + p.y + '</span><span>' + L.country(s.city) + '</span></div><div class="d">' + p.d + '</div><div class="c">' + L.place(s.city) + '</div><div class="v">' + s.venue + ' · 8 pm</div><span class="go">Get tickets →</span></a>';
+  }).join('');
+  g.querySelectorAll('.card').forEach(function (c) { c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--x', (e.clientX - r.left) + 'px'); c.style.setProperty('--y', (e.clientY - r.top) + 'px'); }); });
+  if (anim && !RM) gsap.fromTo(g.children, { y: 26, opacity: 0, filter: 'blur(10px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: .45, ease: 'power3.out', stagger: .025 });
+}
+render(0);
+document.getElementById('tabs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; document.querySelectorAll('#tabs button').forEach(function (x) { x.classList.toggle('on', x === b); }); render(+b.dataset.i, true); ScrollTrigger.refresh(); });
+document.getElementById('past').innerHTML = '<b>' + L.past.length + ' shows already played</b>' + L.pastCities().map(function (s) { return '<span>' + L.place(s.city) + '</span>'; }).join('');
+
+document.getElementById('mas').innerHTML = ['p00065', 'p00099', 'p00051', 'p00087', 'p00096', 'p00013', 'p00024', 'p00003', 'p00062'].map(function (p) { return '<figure><img src="img/s/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join('');
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div class="glass"><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (!RM) {
+  /* Entrée : le panneau de verre se dépose, les lettres sortent du flou une à une */
+  gsap.timeline({ delay: .15 })
+    .from('#panel', { y: 80, scale: .92, opacity: 0, duration: 1.1, ease: 'expo.out' })
+    .from('.panel h1 span', { y: 60, opacity: 0, filter: 'blur(18px)', duration: .8, ease: 'expo.out', stagger: .07 }, .25)
+    .from('.kick, #lede', { y: 16, opacity: 0, duration: .6, stagger: .1 }, .5)
+    .from('.cd div', { y: 30, opacity: 0, scale: .9, duration: .5, ease: 'back.out(2)', stagger: .06 }, .85)
+    .from('#btn', { y: 20, opacity: 0, duration: .5 }, 1.1)
+    /* puis les lettres flottent doucement, chacune à son rythme */
+    .add(function () { gsap.utils.toArray('.panel h1 span').forEach(function (s, i) { gsap.to(s, { y: -8, duration: 2 + i * .15, ease: 'sine.inOut', repeat: -1, yoyo: true }); }); });
+  /* Le panneau s'incline vers la souris */
+  document.getElementById('top').addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    gsap.to('#panel', { rotationY: (e.clientX / innerWidth - .5) * 7, rotationX: -(e.clientY / innerHeight - .5) * 6, transformPerspective: 1500, duration: .7, ease: 'power2.out' });
+  });
+
+  /* Les dates sortent du flou, toutes en moins d'une seconde */
+  gsap.from('#grid .card', { y: 26, opacity: 0, filter: 'blur(10px)', duration: .5, ease: 'power3.out', stagger: .025, scrollTrigger: { trigger: '#grid', start: 'top 85%' } });
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { y: 40, opacity: 0, filter: 'blur(12px)', duration: .8, ease: 'power3.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.mas figure', { y: 40, opacity: 0, duration: .6, ease: 'power3.out', stagger: .05, scrollTrigger: { trigger: '#mas', start: 'top 85%' } });
+  gsap.from('.bk>div', { y: 40, opacity: 0, filter: 'blur(8px)', duration: .6, ease: 'power3.out', stagger: .07, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

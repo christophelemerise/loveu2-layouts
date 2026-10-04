@@ -101,8 +101,8 @@ img{display:block;max-width:100%}
 /* BOOKING EN PANNEAUX */
 .book{padding:0 0 70px}
 .bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:12px;margin-top:36px}
-.bk>div{border-radius:16px;padding:24px;background:var(--sign);box-shadow:0 0 0 4px #fff inset,0 0 0 8px var(--sign) inset;transition:transform .3s}
-.bk>div:hover{transform:translateY(-6px) rotate(-1deg)}
+.bk>div{border-radius:16px;padding:24px;background:var(--sign);box-shadow:0 0 0 4px #fff inset,0 0 0 8px var(--sign) inset;transition:translate .3s,rotate .3s}
+.bk>div:hover{translate:0 -6px;rotate:-1deg}
 .bk .ex{display:inline-block;font:900 12px Overpass;background:#fff;color:var(--sign);padding:4px 8px;border-radius:6px}
 .bk .rg{font:900 28px/1 Overpass;margin-top:10px}
 .bk .co{font-weight:700;margin-top:8px}

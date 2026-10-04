@@ -97,8 +97,8 @@ img{display:block;max-width:100%}
 /* BOOKING */
 .book{padding:0 0 70px}
 .bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px}
-.bk>div{position:relative;border-radius:22px;padding:26px;background:var(--card);overflow:hidden;isolation:isolate;transition:transform .3s}
-.bk>div:hover{transform:translateY(-6px)}
+.bk>div{position:relative;border-radius:22px;padding:26px;background:var(--card);overflow:hidden;isolation:isolate;transition:translate .3s,rotate .3s}
+.bk>div:hover{translate:0 -6px}
 .bk>div .foil{opacity:0;transition:opacity .3s;z-index:-1}
 .bk>div:hover .foil{opacity:.35}
 .bk .kk{font:700 10px "JetBrains Mono";color:var(--g);letter-spacing:.14em;text-transform:uppercase}

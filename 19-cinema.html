@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Cinema</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--ink:#f3efe6;--mute:#8f8a80;--gold:#e9c46a;--g:#2fbf6a;--o:#ff8a2a;--card:#121212}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:24px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:600 13px/1 Inter;padding:11px 16px;border-radius:99px;background:rgba(18,18,18,.6);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:var(--gold);color:#000}
+.nav .r a.cta{background:var(--gold);color:#000;font-weight:800}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO : le générique d'ouverture */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:#000}
+.hero .ph{position:absolute;inset:0;overflow:hidden}
+.hero .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.1) brightness(.55)}
+.bar{position:absolute;left:0;right:0;height:13vh;background:#000;z-index:3}
+.bar.t{top:0}.bar.b{bottom:0}
+.grain{position:absolute;left:-50%;top:-50%;width:200%;height:200%;z-index:2;pointer-events:none;opacity:.1;animation:grain .4s steps(3) infinite}
+@keyframes grain{33%{transform:translate(-4%,3%)}66%{transform:translate(3%,-4%)}}
+.credits{position:absolute;inset:0;z-index:4;display:grid;place-items:center;text-align:center;padding:0 16px}
+.credits .c{grid-area:1/1}
+.credits .pres{font:italic 400 clamp(20px,2.4vw,32px) "DM Serif Display";color:var(--gold);letter-spacing:.04em;opacity:0}
+.credits .main{display:flex;flex-direction:column;align-items:center;gap:6px}
+.credits h1{font:400 clamp(76px,17vw,270px)/.85 "DM Serif Display";letter-spacing:-.02em;white-space:nowrap}
+.credits h1 span{display:inline-block}
+.credits h1 .g{color:var(--g)}.credits h1 .o{color:var(--o)}
+.credits .sub{font:800 clamp(12px,1.3vw,15px) Inter;letter-spacing:.5em;text-transform:uppercase}
+.credits .bill{margin-top:14px;font:italic 400 clamp(15px,1.5vw,19px) "DM Serif Display";color:#cfc8b8}
+.now{position:absolute;z-index:5;left:max(16px,4vw);right:max(16px,4vw);bottom:calc(13vh + 18px);display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.now .k{font:800 11px Inter;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.now .w{font:400 clamp(20px,2.6vw,34px) "DM Serif Display";margin-top:4px}
+.now a{padding:16px 24px;border-radius:99px;background:var(--gold);color:#000;font:800 14px Inter;transition:transform .2s}
+.now a:hover{transform:scale(1.05)}
+.cd{display:flex;gap:16px;margin-top:6px;font:400 clamp(18px,2vw,24px) "DM Serif Display"}
+.cd small{font:600 11px Inter;letter-spacing:.14em;color:var(--mute);margin-left:3px;text-transform:uppercase}
+@media(max-width:700px){.now{bottom:calc(13vh + 10px)}.now a{width:100%;text-align:center}.now .w{font-size:17px}.credits{align-items:start;padding-top:24vh}.credits .bill{display:none}}
+
+/* SÉANCES */
+.show{padding:clamp(90px,12vh,140px) 0}
+.h2{font:400 clamp(54px,9vw,140px)/.9 "DM Serif Display";letter-spacing:-.02em}
+.h2 em{color:var(--gold)}
+.lede{color:var(--mute);margin-top:12px;font-size:17px}
+.month{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:start;margin-top:40px}
+@media(max-width:800px){.month{grid-template-columns:1fr;gap:10px}}
+.month h3{font:italic 400 clamp(30px,3vw,44px)/1 "DM Serif Display";color:var(--gold)}
+.month h3 small{display:block;font:600 12px Inter;font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.times{display:flex;flex-wrap:wrap;gap:8px}
+.tm{position:relative;display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:99px;background:var(--card);overflow:hidden;isolation:isolate;transition:color .25s}
+.tm::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.6,0,.2,1)}
+.tm:hover::before{transform:scaleX(1)}
+.tm:hover{color:#000}
+.tm .dd{flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:#1f1f1f;display:grid;place-items:center;align-content:center;text-align:center;line-height:1;transition:background .25s,color .25s}
+.tm:hover .dd{background:#000;color:var(--gold)}
+.tm .dd b{display:block;font:400 20px "DM Serif Display"}
+.tm .dd small{font:800 8px Inter;letter-spacing:.1em;text-transform:uppercase}
+.tm .c{font:400 20px/1.05 "DM Serif Display"}
+.tm .v{font-size:12px;color:var(--mute);transition:color .25s}
+.tm:hover .v{color:#3a3020}
+.prev{margin-top:60px;font:italic 400 18px/1.9 "DM Serif Display";color:#8f8a80}
+.prev b{font:800 12px Inter;font-style:normal;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px}
+
+/* PELLICULE */
+.film{padding:0 0 clamp(90px,12vh,140px);overflow:hidden}
+.strip{background:#111;padding:20px 0;margin-top:36px;rotate:-2deg;width:110%;margin-left:-5%}
+.strip .holes{height:14px;background:radial-gradient(circle at 12px 7px,#070707 5px,transparent 5.5px) 0 0/28px 14px repeat-x}
+.strip .row{display:flex;width:max-content;gap:12px;padding:12px 0;animation:roll 50s linear infinite}
+.strip:hover .row{animation-play-state:paused}
+.strip figure{width:clamp(200px,24vw,320px);aspect-ratio:4/3;border-radius:6px;overflow:hidden;flex:0 0 auto}
+.strip img{width:100%;height:100%;object-fit:cover;filter:sepia(.25) contrast(1.05);transition:filter .4s,transform .6s}
+.strip figure:hover img{filter:none;transform:scale(1.06)}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(90px,12vh,140px)}
+.screen{position:relative;margin-top:36px;padding:clamp(10px,1.6vw,20px);border-radius:10px;background:radial-gradient(ellipse at 50% 120%,rgba(233,196,106,.25),transparent 60%)}
+.vid{position:relative;aspect-ratio:2.35/1;overflow:hidden;cursor:pointer;background:#000;border-radius:6px;box-shadow:0 0 120px rgba(233,196,106,.18)}
+@media(max-width:700px){.vid{aspect-ratio:16/9}}
+.vid>img{width:100%;height:100%;object-fit:cover}
+.vid .pl{position:absolute;inset:0;display:grid;place-items:center;font:italic 400 clamp(30px,4vw,60px) "DM Serif Display";background:rgba(0,0,0,.35);transition:background .3s}
+.vid:hover .pl{background:rgba(0,0,0,.1)}
+
+/* BOOKING : le générique de fin */
+.book{padding:0 0 70px;text-align:center}
+.cr{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:30px 20px;margin-top:40px}
+.cr>div{padding:10px}
+.cr .rg{font:800 11px Inter;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.cr .co{font:400 28px/1.1 "DM Serif Display";margin-top:10px}
+.cr .ad{font-size:13px;color:var(--mute);margin-top:6px}
+.cr .p{margin-top:14px;font-size:14px}
+.cr .p b{font:italic 400 18px "DM Serif Display"}
+.cr .p span{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:8px}
+.cr .p a{padding:8px 13px;border-radius:99px;background:var(--card);font-size:13px;transition:background .2s,color .2s}
+.cr .p a:hover{background:var(--gold);color:#000}
+footer{padding:30px 0 50px;color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#showtimes">Showtimes</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#showtimes">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="ph"><img src="img/p00083.jpg" alt="LOVEU2 on stage"></div>
+  <canvas class="grain" id="grain"></canvas>
+  <div class="bar t" id="bt"></div><div class="bar b" id="bb"></div>
+  <div class="credits">
+    <div class="c pres" id="c1">LOVEU2 presents</div>
+    <div class="c main" id="c2">
+      <h1 aria-label="LOVEU2"><span class="g">L</span><span class="g">O</span><span>V</span><span>E</span><span class="o">U</span><span class="o">2</span></h1>
+      <div class="sub">The U2 Experience</div>
+      <div class="bill" id="bill"></div>
+    </div>
+  </div>
+  <div class="now" id="now">
+    <div><div class="k">Next show</div><div class="w" id="nw"></div><div class="cd" id="cd"></div></div>
+    <a id="nb" target="_blank" rel="noopener">Get tickets →</a>
+  </div>
+</header>
+
+<section class="show" id="showtimes">
+  <div class="wrap">
+    <h2 class="h2">Show<em>times</em></h2>
+    <p class="lede">Every show starts at 8 pm. Pick a night.</p>
+    <div id="months"></div>
+    <p class="prev" id="prev"></p>
+  </div>
+</section>
+
+<section class="film">
+  <div class="wrap"><h2 class="h2">The <em>reel</em></h2></div>
+  <div class="strip"><div class="holes"></div><div class="row" id="reel"></div><div class="holes"></div></div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Now <em>playing</em></h2>
+    <div class="screen"><div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00095.jpg'"><div class="pl">▶ Play</div></div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Booking <em>credits</em></h2>
+    <div class="cr" id="cr"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next(), WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+function wd(iso) { return WD[new Date(iso + 'T20:00:00').getDay()]; }
+
+/* Grain de pellicule */
+(function () { var c = document.getElementById('grain'); c.width = c.height = 220; var x = c.getContext('2d'), d = x.createImageData(220, 220); for (var i = 0; i < d.data.length; i += 4) { var v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); })();
+
+document.getElementById('bill').textContent = 'A U2 tribute band from Canada · ' + U.length + ' shows on tour';
+document.getElementById('nw').textContent = wd(next.iso) + ' ' + L.fmt(next.iso, 'short') + ' · ' + L.place(next.city) + ' · ' + next.venue;
+document.getElementById('nb').href = next.url;
+L.countdown(next, function (c) { document.getElementById('cd').innerHTML = [[c.d, 'd'], [c.h, 'h'], [c.m, 'min'], [c.s, 's']].map(function (x) { return '<span>' + x[0] + '<small>' + x[1] + '</small></span>'; }).join(''); });
+
+/* Séances par mois, avec le jour de la semaine */
+var byM = {};
+U.forEach(function (s) { var p = L.fmt(s.iso, 'parts'), k = p.month + ' ' + p.y; (byM[k] = byM[k] || []).push(s); });
+document.getElementById('months').innerHTML = Object.keys(byM).map(function (k) {
+  var list = byM[k];
+  return '<div class="month"><h3>' + k.split(' ')[0] + '<small>' + k.split(' ')[1] + ' · ' + list.length + (list.length > 1 ? ' shows' : ' show') + '</small></h3><div class="times">' + list.map(function (s) {
+    var p = L.fmt(s.iso, 'parts');
+    return '<a class="tm" href="' + s.url + '" target="_blank" rel="noopener"><div class="dd"><b>' + p.d + '</b><small>' + wd(s.iso) + '</small></div><div><div class="c">' + L.place(s.city) + '</div><div class="v">' + s.venue + '</div></div></a>';
+  }).join('') + '</div></div>';
+}).join('');
+document.getElementById('prev').innerHTML = '<b>Previous shows · ' + L.past.length + '</b>' + L.pastCities().map(function (s) { return L.place(s.city); }).join(' · ');
+
+var R = ['p00098', 'p00051', 'p00024', 'p00099', 'p00065', 'p00018', 'p00087', 'p00096', 'p00011', 'p00062'];
+var reel = R.map(function (p) { return '<figure><img src="img/s/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join('');
+document.getElementById('reel').innerHTML = reel + reel;
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('cr').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (RM) { gsap.set('#c1', { display: 'none' }); }
+else {
+  /* Ouverture : noir complet, les bandes s'ouvrent en cinémascope, puis le générique */
+  gsap.set('#bt, #bb', { height: '50.5vh' });
+  gsap.set('#c2, #now', { opacity: 0 });
+  gsap.timeline({ delay: .2 })
+    .to('#bt, #bb', { height: '13vh', duration: 1.3, ease: 'expo.inOut' })
+    .from('.hero .ph img', { scale: 1.25, duration: 2.6, ease: 'power2.out' }, 0)
+    .to('#c1', { opacity: 1, duration: .5 }, .9)
+    .to('#c1', { opacity: 0, duration: .4 }, 1.9)
+    .set('#c2', { opacity: 1 }, 2.1)
+    .from('#c2 h1 span', { opacity: 0, y: 30, filter: 'blur(12px)', duration: .7, ease: 'power3.out', stagger: .06 }, 2.1)
+    .from('#c2 .sub, #c2 .bill', { opacity: 0, y: 14, duration: .6, stagger: .12 }, 2.5)
+    .to('#now', { opacity: 1, duration: .6 }, 2.9)
+    .from('#now > *', { y: 20, duration: .6, stagger: .1 }, 2.9)
+    /* puis la photo dérive lentement, comme un travelling */
+    .to('.hero .ph img', { scale: 1.12, xPercent: -3, duration: 14, ease: 'sine.inOut', repeat: -1, yoyo: true }, 3);
+  /* Les bandes se resserrent un peu en quittant le héros */
+  gsap.to('#bt, #bb', { height: '22vh', ease: 'none', immediateRender: false, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* Les séances : chaque mois arrive, ses dates en pilules juste derrière — tout visible en moins d'une seconde */
+  gsap.utils.toArray('.month').forEach(function (m) {
+    gsap.from(m.querySelector('h3'), { x: -40, opacity: 0, duration: .5, ease: 'power3.out', scrollTrigger: { trigger: m, start: 'top 90%' } });
+    gsap.from(m.querySelectorAll('.tm'), { y: 20, opacity: 0, scale: .9, duration: .4, ease: 'back.out(1.8)', stagger: .025, scrollTrigger: { trigger: m, start: 'top 90%' } });
+  });
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { y: 40, opacity: 0, duration: .7, ease: 'power3.out', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.strip', { xPercent: 20, opacity: 0, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: '.strip', start: 'top 90%' } });
+  /* L'écran s'allume comme un projecteur */
+  gsap.fromTo('.vid', { filter: 'brightness(0)' }, { filter: 'brightness(1)', duration: 1, ease: 'power2.out', scrollTrigger: { trigger: '.vid', start: 'top 85%' } });
+  gsap.from('.cr > div', { y: 30, opacity: 0, duration: .6, ease: 'power3.out', stagger: .1, scrollTrigger: { trigger: '#cr', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

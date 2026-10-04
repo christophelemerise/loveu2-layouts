@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Neon</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0708;--ink:#fdf6f0;--mute:#9b8f8a;--g:#3dff8a;--w:#fff6e8;--o:#ff9a3d;--pk:#ff4fa3;--card:#160f10}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--bg)}
+body{color:var(--ink);font-family:Inter,system-ui,sans-serif;background-color:#120b0c;background-image:linear-gradient(335deg,rgba(0,0,0,.35) 23px,transparent 23px),linear-gradient(155deg,rgba(0,0,0,.35) 23px,transparent 23px),linear-gradient(335deg,rgba(0,0,0,.35) 23px,transparent 23px),linear-gradient(155deg,rgba(0,0,0,.35) 23px,transparent 23px);background-size:58px 58px;background-position:0 2px,4px 35px,29px 31px,34px 6px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+/* Les tubes : couleur pleine + halo ; « off » = tube éteint */
+.tube{color:var(--c);text-shadow:0 0 4px #fff,0 0 10px var(--c),0 0 24px var(--c),0 0 60px var(--c)}
+.off{color:#3a2a2b!important;text-shadow:none!important}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:26px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:800 12px/1 Inter;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;border-radius:99px;background:rgba(22,15,16,.8);backdrop-filter:blur(8px);transition:box-shadow .25s,color .25s}
+.nav .r a:hover{color:var(--g);box-shadow:0 0 0 2px var(--g),0 0 20px var(--g)}
+.nav .r a.cta{background:var(--pk);color:#fff;box-shadow:0 0 22px var(--pk)}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:100px 16px 60px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(255,79,163,.16),transparent 55%),radial-gradient(ellipse at 50% 100%,#000,transparent 60%)}
+.hero .in{position:relative}
+.open{display:inline-flex;align-items:center;gap:10px;font:400 clamp(20px,2.4vw,30px) "Tilt Neon";--c:var(--pk);border-radius:14px;padding:8px 18px;box-shadow:0 0 0 2px var(--pk),0 0 22px var(--pk),inset 0 0 18px rgba(255,79,163,.4)}
+.title{font:400 clamp(86px,20vw,320px)/.9 "Tilt Neon";letter-spacing:.02em;margin:22px 0 6px;white-space:nowrap}
+.title span{display:inline-block}
+.script{font:400 clamp(26px,3.4vw,48px) "Tilt Neon";--c:var(--o)}
+.hero .buy{display:inline-flex;margin-top:30px;padding:18px 28px;border-radius:99px;font:800 14px Inter;letter-spacing:.1em;text-transform:uppercase;color:#000;background:var(--g);box-shadow:0 0 30px var(--g);transition:transform .2s}
+.hero .buy:hover{transform:scale(1.06)}
+.cable{position:absolute;top:0;width:2px;height:90px;background:#2b2020}
+.cable.l{left:22%}.cable.r{right:22%}
+.cd{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:36px}
+.cd div{min-width:86px;padding:14px 10px;border-radius:18px;background:rgba(0,0,0,.45);box-shadow:inset 0 0 0 2px #2a1d1e}
+.cd b{display:block;font:400 clamp(42px,5vw,64px)/1 "Tilt Neon";--c:var(--g)}
+.cd small{font:800 10px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+
+/* DATES */
+.dates{padding:clamp(90px,12vh,140px) 0}
+.h2{font:400 clamp(56px,10vw,150px)/.95 "Tilt Neon";text-align:center}
+.h2 .a{--c:var(--g)}.h2 .b{--c:var(--o)}
+.legs{display:flex;justify-content:center;gap:8px;margin-top:26px;flex-wrap:wrap}
+.legs button{font:800 12px Inter;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;border-radius:99px;border:0;background:var(--card);color:var(--ink);cursor:pointer;transition:all .2s}
+.legs button.on{background:var(--pk);color:#fff;box-shadow:0 0 22px var(--pk)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(360px,100%),1fr));gap:10px;margin-top:34px}
+.row{position:relative;display:flex;align-items:center;gap:18px;padding:18px 20px;border-radius:22px;background:var(--card);transition:box-shadow .3s,transform .3s}
+.row .d{text-align:center;min-width:58px}
+.row .d b{display:block;font:400 46px/1 "Tilt Neon";color:#6a5354;transition:color .25s,text-shadow .25s}
+.row .d small{font:800 10px Inter;letter-spacing:.18em;color:var(--mute)}
+.row .c{font:400 clamp(24px,2.4vw,32px)/1 "Tilt Neon";color:#e8dcd6;transition:all .25s}
+.row .v{font-size:13px;color:var(--mute);margin-top:4px}
+.row .t{margin-left:auto;font:800 11px Inter;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border-radius:99px;background:#2a1c1d;transition:all .25s;white-space:nowrap}
+.row:hover{transform:translateY(-3px);box-shadow:0 0 0 2px var(--rc),0 0 30px var(--rc)}
+.row:hover .d b,.row.lit .d b{color:var(--rc);text-shadow:0 0 4px #fff,0 0 12px var(--rc),0 0 28px var(--rc)}
+.row:hover .c{color:#fff;text-shadow:0 0 12px var(--rc)}
+.row:hover .t{background:var(--rc);color:#000;box-shadow:0 0 18px var(--rc)}
+.past{margin-top:60px;text-align:center}
+.past .k{font:400 clamp(28px,3.4vw,44px) "Tilt Neon";--c:var(--pk)}
+.past .ch{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:18px}
+.past .ch span{font-size:13px;padding:8px 13px;border-radius:99px;background:var(--card);color:#cdbfb9}
+
+/* GALERIE (défilement libre, au doigt ou à la molette) */
+.gal{padding:0 0 clamp(90px,12vh,140px)}
+.strip{display:flex;gap:16px;overflow-x:auto;padding:30px max(16px,calc((100vw - 1240px)/2));scroll-snap-type:x mandatory;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:0 0 auto;width:min(320px,70vw);aspect-ratio:3/4;border-radius:22px;overflow:hidden;scroll-snap-align:center;box-shadow:0 0 0 3px var(--fc),0 0 34px var(--fc);transition:transform .3s}
+.strip figure:hover{transform:scale(1.03) rotate(-1deg)}
+.strip img{width:100%;height:100%;object-fit:cover}
+.hint{text-align:center;font:800 11px Inter;letter-spacing:.24em;color:var(--mute);text-transform:uppercase}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(90px,12vh,140px)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:34px;border-radius:30px;overflow:hidden;cursor:pointer;background:#000;box-shadow:0 0 0 3px var(--g),0 0 50px rgba(61,255,138,.4)}
+.vid>img{width:100%;height:100%;object-fit:cover;filter:brightness(.7);transition:transform 1s}
+.vid:hover>img{transform:scale(1.05)}
+.vid .pl{position:absolute;inset:0;display:grid;place-items:center;font:400 clamp(56px,10vw,140px) "Tilt Neon";--c:var(--g)}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:34px}
+.bk>div{border-radius:24px;padding:26px;background:var(--card);transition:box-shadow .3s}
+.bk>div:hover{box-shadow:0 0 0 2px var(--o),0 0 30px rgba(255,154,61,.4)}
+.bk .rg{font:400 30px/1 "Tilt Neon";--c:var(--o)}
+.bk .co{font-weight:800;margin-top:12px}
+.bk .ad{font-size:13px;color:var(--mute);margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:8px 13px;border-radius:99px;background:#2a1c1d;font-size:13px;transition:all .2s}
+.bk .p a:hover{background:var(--o);color:#000}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+@media(max-width:700px){.cd{flex-wrap:nowrap;gap:6px}.cd div{min-width:0;flex:1 1 0;max-width:84px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="cable l"></div><div class="cable r"></div>
+  <div class="in">
+    <div class="open tube" id="open">● LIVE ON STAGE</div>
+    <h1 class="title" id="title" aria-label="LOVEU2"><span class="tube" style="--c:#3dff8a">L</span><span class="tube" style="--c:#3dff8a">O</span><span class="tube" style="--c:#fff6e8">V</span><span class="tube" style="--c:#fff6e8">E</span><span class="tube" style="--c:#ff9a3d">U</span><span class="tube" style="--c:#ff9a3d">2</span></h1>
+    <div class="script tube" id="script">The U2 Experience</div>
+    <div class="cd" id="cd"></div>
+    <a class="buy" id="buy" target="_blank" rel="noopener"></a>
+  </div>
+</header>
+
+<section class="dates" id="dates">
+  <div class="wrap">
+    <h2 class="h2"><span class="a tube">Tour</span> <span class="b tube">dates</span></h2>
+    <div class="legs" id="legs"></div>
+    <div class="grid" id="grid"></div>
+    <div class="past"><div class="k tube" id="pk"></div><div class="ch" id="pch"></div></div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="strip" id="strip"></div>
+  <div class="hint">← Swipe the gallery →</div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2"><span class="a tube">Watch</span> <span class="b tube">live</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00095.jpg'"><div class="pl tube">▶ Play</div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2"><span class="b tube">Booking</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next(), COLS = ['#3dff8a', '#fff6e8', '#ff9a3d', '#ff4fa3'];
+
+/* Compte à rebours + bouton */
+var buy = document.getElementById('buy');
+buy.href = next.url; buy.textContent = 'Next: ' + L.place(next.city) + ' · ' + L.fmt(next.iso, 'short') + ' →';
+L.countdown(next, function (c) {
+  document.getElementById('cd').innerHTML = [[c.d, 'days'], [c.h, 'hours'], [c.m, 'min'], [c.s, 'sec']].map(function (x) { return '<div><b class="tube">' + x[0] + '</b><small>' + x[1] + '</small></div>'; }).join('');
+});
+
+/* Dates, filtrables par étape */
+var legs = [['All', function () { return true; }], ['Canada', function (s) { return L.country(s.city) === 'CA'; }], ['Europe', function (s) { return L.country(s.city) !== 'CA'; }]];
+document.getElementById('legs').innerHTML = legs.map(function (l, i) { return '<button class="' + (i ? '' : 'on') + '" data-i="' + i + '">' + l[0] + '</button>'; }).join('');
+function render(i) {
+  document.getElementById('grid').innerHTML = U.filter(legs[i][1]).map(function (s, k) {
+    var p = L.fmt(s.iso, 'parts');
+    return '<a class="row" href="' + s.url + '" target="_blank" rel="noopener" style="--rc:' + COLS[k % 4] + '"><div class="d"><b>' + p.d + '</b><small>' + p.m.toUpperCase() + ' ' + p.y + '</small></div><div><div class="c">' + L.place(s.city) + '</div><div class="v">' + s.venue + '</div></div><span class="t">Tickets</span></a>';
+  }).join('');
+}
+render(0);
+document.getElementById('legs').addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  document.querySelectorAll('#legs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+  render(+b.dataset.i);
+  if (!RM) lightRows(true);
+});
+document.getElementById('pk').textContent = L.past.length + ' shows already played';
+document.getElementById('pch').innerHTML = L.pastCities().map(function (s) { return '<span>' + L.place(s.city) + '</span>'; }).join('');
+
+/* Galerie */
+var GP = ['p00051', 'p00099', 'p00065', 'p00011', 'p00096', 'p00087', 'p00062', 'p00013', 'p00024', 'p00050'];
+document.getElementById('strip').innerHTML = GP.map(function (p, i) { return '<figure style="--fc:' + COLS[i % 4] + '"><img src="img/s/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join('');
+
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="rg tube">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+/* Un tube qui s'allume : deux ratés, puis il tient */
+function ignite(el, delay) {
+  el.classList.add('off');
+  var tl = gsap.timeline({ delay: delay });
+  [.06, .08, .05, .12, .04].forEach(function (d, i) { tl.call(function () { el.classList.toggle('off', i % 2 === 1); }, null, '+=' + d); });
+  tl.call(function () { el.classList.remove('off'); });
+  return tl;
+}
+/* À l'arrivée de la liste : toutes les dates entrent en moins d'une seconde, et s'allument en vague */
+function lightRows(now) {
+  var rows = document.querySelectorAll('.row');
+  gsap.fromTo(rows, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .45, ease: 'power3.out', stagger: .025 });
+  rows.forEach(function (r, i) { setTimeout(function () { r.classList.add('lit'); setTimeout(function () { r.classList.remove('lit'); }, 650); }, (now ? 0 : 150) + i * 40); });
+}
+
+if (!RM) {
+  /* Le titre s'allume lettre par lettre, avec les ratés d'un vrai néon */
+  document.querySelectorAll('#title span').forEach(function (s, i) { ignite(s, .3 + i * .14); });
+  ignite(document.getElementById('open'), .1);
+  ignite(document.getElementById('script'), 1.2);
+  gsap.from('.cd div, .hero .buy', { y: 30, opacity: 0, duration: .6, ease: 'back.out(2)', stagger: .07, delay: 1.3 });
+  /* Ensuite, de temps en temps, une lettre grésille */
+  setInterval(function () { var s = document.querySelectorAll('#title span'); ignite(s[Math.floor(Math.random() * s.length)], 0); }, 2600);
+
+  ScrollTrigger.create({ trigger: '#grid', start: 'top 85%', once: true, onEnter: function () { lightRows(false); } });
+  gsap.utils.toArray('.h2').forEach(function (h) { ScrollTrigger.create({ trigger: h, start: 'top 85%', once: true, onEnter: function () { h.querySelectorAll('.tube').forEach(function (t, i) { ignite(t, i * .2); }); } }); });
+  gsap.from('.strip figure', { x: 120, opacity: 0, duration: .7, ease: 'power3.out', stagger: .06, scrollTrigger: { trigger: '.strip', start: 'top 85%' } });
+  gsap.from('.bk>div', { y: 50, opacity: 0, duration: .6, ease: 'power3.out', stagger: .08, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LOVEU2 · Lineup</title>
+<meta name="description" content="LOVEU2 – The U2 Experience. U2 tribute band from Canada, performing worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=League+Gothic&family=Familjen+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#fff8ee;--deep:#1a0f2e;--g:#2fe07f;--o:#ff8a1f;--y:#ffd75e;--pk:#ff5d8f;--row:#24163d}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{background:var(--deep)}
+body{background:var(--deep);color:var(--ink);font-family:"Familjen Grotesk",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.nav img{height:24px}
+.nav .r{display:flex;gap:6px}
+.nav .r a{font:700 13px/1 "Familjen Grotesk";padding:11px 16px;border-radius:99px;background:rgba(26,15,46,.55);backdrop-filter:blur(10px);transition:background .2s,color .2s}
+.nav .r a:hover{background:var(--ink);color:var(--deep)}
+.nav .r a.cta{background:var(--y);color:var(--deep)}
+@media(max-width:700px){.nav .r a:not(.cta){display:none}}
+
+/* L'AFFICHE : coucher de soleil, soleil rayé, lineup */
+.poster{position:relative;min-height:100svh;padding:110px 16px 70px;overflow:hidden;text-align:center;background:linear-gradient(180deg,#1a0f2e 0%,#4b1d52 30%,#b8335a 52%,#ff7a2f 74%,#ffc35e 100%)}
+.sun{position:absolute;left:50%;top:44%;width:min(70vw,640px);aspect-ratio:1;margin-left:calc(min(70vw,640px) / -2);margin-top:calc(min(70vw,640px) / -2);border-radius:50%;background:linear-gradient(#ffe89a,#ff9a3a 55%,#ff4f7a);-webkit-mask:linear-gradient(#000 52%,transparent 52% 56%,#000 56% 63%,transparent 63% 67%,#000 67% 73%,transparent 73% 78%,#000 78% 83%,transparent 83% 89%,#000 89%);mask:linear-gradient(#000 52%,transparent 52% 56%,#000 56% 63%,transparent 63% 67%,#000 67% 73%,transparent 73% 78%,#000 78% 83%,transparent 83% 89%,#000 89%);opacity:.55}
+.stars{position:absolute;inset:0 0 50% 0;pointer-events:none}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.7}
+.poster .in{position:relative}
+.pre{font:700 clamp(11px,1.3vw,15px) "Familjen Grotesk";letter-spacing:.5em;text-transform:uppercase}
+.head{font:400 clamp(80px,17vw,260px)/.95 Shrikhand;margin:10px 0 0;text-shadow:0 8px 0 rgba(26,15,46,.35);white-space:nowrap}
+.head span{display:inline-block}
+.head .g{color:var(--g)}.head .o{color:var(--y)}
+.tour{font:400 clamp(24px,3.4vw,48px)/1 "League Gothic";letter-spacing:.14em;text-transform:uppercase;margin-top:6px}
+.lineup{margin:clamp(28px,5vh,50px) auto 0;max-width:1100px;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:4px 16px}
+.lu{position:relative;font:400 var(--fs) "League Gothic";line-height:1;text-transform:uppercase;letter-spacing:.02em;transition:color .2s,transform .2s;display:inline-block;text-shadow:0 3px 0 rgba(26,15,46,.25)}
+.lu:hover{color:var(--y);transform:translateY(-3px) rotate(-2deg)}
+.lu .tip{position:absolute;left:50%;bottom:100%;translate:-50% -6px;white-space:nowrap;padding:8px 12px;border-radius:12px;background:var(--deep);color:var(--ink);font:700 12px "Familjen Grotesk";letter-spacing:0;text-transform:none;text-shadow:none;opacity:0;pointer-events:none;transition:opacity .2s,translate .2s;z-index:3}
+.lu:hover .tip{opacity:1;translate:-50% -12px}
+.dot{font:400 calc(var(--fs) * .55) "League Gothic";color:var(--y);opacity:.85}
+.nextbox{display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:40px;padding:12px 12px 12px 22px;border-radius:30px;background:rgba(26,15,46,.85)}
+.nextbox .w{font:700 15px "Familjen Grotesk"}
+.nextbox .cd{font:400 24px "League Gothic";letter-spacing:.06em;color:var(--y)}
+.nextbox a{padding:14px 22px;border-radius:99px;background:var(--y);color:var(--deep);font:700 14px "Familjen Grotesk";transition:transform .2s}
+.nextbox a:hover{transform:scale(1.05)}
+
+/* LISTE DÉTAILLÉE */
+.dates{padding:clamp(90px,12vh,140px) 0}
+.h2{font:400 clamp(56px,10vw,150px)/.95 Shrikhand}
+.h2 span{color:var(--o)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(380px,100%),1fr));gap:10px;margin-top:40px}
+.row{display:grid;grid-template-columns:70px 1fr auto;gap:16px;align-items:center;padding:14px 18px;border-radius:22px;background:var(--row);transition:background .25s,transform .25s}
+.row:hover{background:var(--pk);transform:translateY(-3px)}
+.row .d{text-align:center;line-height:1}
+.row .d b{display:block;font:400 48px "League Gothic"}
+.row .d small{font:700 11px "Familjen Grotesk";letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.row .c{font:400 30px/1 "League Gothic";text-transform:uppercase;letter-spacing:.02em}
+.row .v{font-size:13px;opacity:.7;margin-top:2px}
+.row .t{padding:10px 14px;border-radius:99px;background:var(--y);color:var(--deep);font:700 13px "Familjen Grotesk";white-space:nowrap}
+.past{margin-top:56px;text-align:center}
+.past .k{font:400 clamp(28px,3.4vw,44px) Shrikhand;color:var(--g)}
+.past .ch{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:14px;font:400 26px "League Gothic";text-transform:uppercase;letter-spacing:.04em;color:#b9a9d6}
+
+/* GALERIE */
+.gal{padding:0 0 clamp(90px,12vh,140px)}
+.ring{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:40px}
+@media(max-width:800px){.ring{grid-template-columns:repeat(2,1fr)}}
+.ring figure{aspect-ratio:1;border-radius:50%;overflow:hidden;transition:border-radius .5s,scale .5s}
+.ring figure:nth-child(even){margin-top:40px}
+.ring figure:hover{border-radius:28px;scale:1.04}
+.ring img{width:100%;height:100%;object-fit:cover}
+
+/* VIDÉO */
+.video{padding:0 0 clamp(90px,12vh,140px)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:36px;border-radius:40px;overflow:hidden;cursor:pointer;background:#000}
+.vid>img{width:100%;height:100%;object-fit:cover}
+.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(255,122,47,.45))}
+.vid .pl{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:2;width:clamp(100px,14vw,170px);aspect-ratio:1;border-radius:50%;background:var(--y);color:var(--deep);display:grid;place-items:center;font:400 clamp(24px,3vw,40px) Shrikhand;transition:transform .3s}
+.vid:hover .pl{transform:scale(1.1) rotate(-8deg)}
+
+/* BOOKING */
+.book{padding:0 0 70px}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px}
+.bk>div{border-radius:28px;padding:26px;background:var(--row);transition:background .3s,transform .3s}
+.bk>div:hover{background:#2f1d50;transform:translateY(-6px)}
+.bk .rg{font:400 32px/1 "League Gothic";letter-spacing:.04em;text-transform:uppercase;color:var(--y)}
+.bk .co{font-weight:700;margin-top:10px}
+.bk .ad{font-size:13px;opacity:.65;margin-top:4px}
+.bk .p{margin-top:16px;font-size:14px}
+.bk .p span{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bk .p a{padding:8px 13px;border-radius:99px;background:rgba(255,255,255,.08);font-size:13px;transition:background .2s,color .2s}
+.bk .p a:hover{background:var(--y);color:var(--deep)}
+footer{padding:30px 0 50px;color:#9d8fb8;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#top"><img src="img/logo.png" alt="LOVEU2"></a>
+  <div class="r"><a href="#dates">Dates</a><a href="#video">Video</a><a href="#booking">Booking</a><a class="cta" href="#dates">Tickets</a></div>
+</nav>
+
+<header class="poster" id="top">
+  <div class="stars" id="stars"></div>
+  <div class="sun" id="sun"></div>
+  <div class="in">
+    <div class="pre">The U2 Experience presents</div>
+    <h1 class="head" aria-label="LOVEU2"><span class="g">L</span><span class="g">o</span><span>v</span><span>e</span><span class="o">U</span><span class="o">2</span></h1>
+    <div class="tour" id="tour"></div>
+    <div class="lineup" id="lineup"></div>
+    <div class="nextbox" id="nextbox"><span class="w" id="nw"></span><span class="cd" id="cd"></span><a id="nb" target="_blank" rel="noopener">Tickets →</a></div>
+  </div>
+</header>
+
+<section class="dates" id="dates">
+  <div class="wrap">
+    <h2 class="h2">All <span>dates</span></h2>
+    <div class="list" id="list"></div>
+    <div class="past"><div class="k" id="pk"></div><div class="ch" id="pch"></div></div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="wrap">
+    <h2 class="h2">On <span>stage</span></h2>
+    <div class="ring" id="ring"></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <h2 class="h2">Watch <span>live</span></h2>
+    <div class="vid" id="vid" role="button" tabindex="0" aria-label="Play video"><img id="vthumb" alt="" onerror="this.src='img/p00096.jpg'"><div class="pl">Play</div></div>
+  </div>
+</section>
+
+<section class="book" id="booking">
+  <div class="wrap">
+    <h2 class="h2">Book<span>ing</span></h2>
+    <div class="bk" id="bk"></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© LOVEU2 · The U2 Experience</span><a href="https://www.facebook.com/loveU2.ca" target="_blank" rel="noopener">Facebook</a></div></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+var L = window.LOVEU2, U = L.upcoming, RM = L.RM;
+gsap.registerPlugin(ScrollTrigger);
+var next = L.next();
+document.getElementById('tour').textContent = 'Live on tour · ' + L.fmt(U[0].iso, 'short') + ', ' + U[0].iso.slice(0, 4) + ' — ' + L.fmt(U[U.length - 1].iso, 'short') + ', ' + U[U.length - 1].iso.slice(0, 4);
+
+/* Le lineup : une ville par nom (les villes qui reviennent sont fusionnées).
+   Comme sur une affiche de festival : les premières en gros, puis la taille descend. */
+var seen = {}, cities = [];
+U.forEach(function (s) { var k = L.place(s.city); if (!seen[k]) { seen[k] = { name: k, shows: [] }; cities.push(seen[k]); } seen[k].shows.push(s); });
+var mob = innerWidth < 700;
+document.getElementById('lineup').innerHTML = cities.map(function (c, i) {
+  var tier = i < 3 ? 0 : i < 9 ? 1 : 2, fs = mob ? [44, 30, 24][tier] : [96, 62, 44][tier];
+  var tip = c.shows.map(function (s) { return L.fmt(s.iso, 'short') + ' · ' + s.venue; }).join(' / ');
+  return (i ? '<span class="dot" style="--fs:' + fs + 'px">✦</span>' : '') + '<a class="lu" href="' + c.shows[0].url + '" target="_blank" rel="noopener" style="--fs:' + fs + 'px">' + c.name + '<span class="tip">' + tip + ' · Tickets →</span></a>';
+}).join('');
+
+/* Étoiles */
+var st = document.getElementById('stars');
+for (var i = 0; i < 40; i++) st.insertAdjacentHTML('beforeend', '<i style="left:' + (Math.random() * 100).toFixed(1) + '%;top:' + (Math.random() * 100).toFixed(1) + '%"></i>');
+
+document.getElementById('nw').textContent = 'Next: ' + L.place(next.city) + ' · ' + L.fmt(next.iso, 'short');
+document.getElementById('nb').href = next.url;
+L.countdown(next, function (c) { document.getElementById('cd').textContent = c.d + 'd ' + c.h + 'h ' + c.m + 'm ' + c.s + 's'; });
+
+/* Liste détaillée */
+document.getElementById('list').innerHTML = U.map(function (s) {
+  var p = L.fmt(s.iso, 'parts');
+  return '<a class="row" href="' + s.url + '" target="_blank" rel="noopener"><div class="d"><b>' + p.d + '</b><small>' + p.m + ' ' + p.y + '</small></div><div><div class="c">' + L.place(s.city) + '</div><div class="v">' + s.venue + ' · ' + s.city + '</div></div><span class="t">Tickets</span></a>';
+}).join('');
+document.getElementById('pk').textContent = L.past.length + ' shows already played';
+document.getElementById('pch').innerHTML = L.pastCities().map(function (s) { return '<span>' + L.place(s.city) + '</span>'; }).join('');
+
+document.getElementById('ring').innerHTML = ['p00099', 'p00065', 'p00051', 'p00087', 'p00096', 'p00013', 'p00024', 'p00003', 'p00062', 'p00018'].map(function (p) { return '<figure><img src="img/s/' + p + '.jpg" alt="LOVEU2 live"></figure>'; }).join('');
+document.getElementById('vthumb').src = L.thumb;
+L.videoFacade(document.getElementById('vid'));
+document.getElementById('bk').innerHTML = L.booking.map(function (b) {
+  return '<div><div class="rg">' + b.region + '</div><div class="co">' + b.company + '</div><div class="ad">' + b.address + '</div>' + L.peopleHTML(b) + '</div>';
+}).join('');
+
+if (!RM) {
+  /* L'affiche se compose : le soleil se lève, le titre rebondit lettre par lettre, puis le lineup s'imprime */
+  gsap.timeline({ delay: .15 })
+    .from('#sun', { y: 200, opacity: 0, duration: 1.4, ease: 'expo.out' })
+    .from('.pre', { y: -20, opacity: 0, duration: .5 }, .2)
+    .from('.head span', { y: 120, rotation: function (i) { return (i % 2 ? 1 : -1) * 18; }, opacity: 0, duration: .8, ease: 'back.out(2)', stagger: .06 }, .3)
+    .from('#tour', { scale: .8, opacity: 0, duration: .5, ease: 'back.out(2)' }, .8)
+    .from('#lineup > *', { y: 30, opacity: 0, duration: .4, ease: 'power3.out', stagger: .025 }, 1)
+    .from('#nextbox', { y: 30, opacity: 0, duration: .5, ease: 'back.out(1.8)' }, 1.5)
+    /* ensuite le titre ondule, lettre après lettre */
+    .add(function () { gsap.utils.toArray('.head span').forEach(function (s, i) { gsap.to(s, { y: -10, duration: 1.4, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: i * .12 }); }); });
+  gsap.to('#sun', { scale: 1.05, duration: 3, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: 1.6 });
+  gsap.utils.toArray('#stars i').forEach(function (s) { gsap.to(s, { opacity: .1, duration: .6 + Math.random() * 1.6, repeat: -1, yoyo: true, delay: Math.random() * 2 }); });
+
+  gsap.utils.toArray('.h2').forEach(function (h) { gsap.from(h, { y: 50, rotation: -3, opacity: 0, duration: .7, ease: 'back.out(1.6)', scrollTrigger: { trigger: h, start: 'top 88%' } }); });
+  gsap.from('.row', { y: 24, opacity: 0, duration: .4, ease: 'power3.out', stagger: .02, scrollTrigger: { trigger: '#list', start: 'top 85%' } });
+  gsap.from('.ring figure', { scale: 0, duration: .6, ease: 'back.out(1.8)', stagger: .05, scrollTrigger: { trigger: '#ring', start: 'top 85%' } });
+  gsap.from('.bk>div', { y: 40, opacity: 0, duration: .6, ease: 'power3.out', stagger: .07, scrollTrigger: { trigger: '#bk', start: 'top 85%' } });
+}
+window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>
